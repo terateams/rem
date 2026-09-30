@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "actor": "GitHub Copilot / authorized by bitguts",
+  "approval_evidence": "Mission/Audit/2026-09-30-bootstrap.md",
+  "mission": "Mission/Story-rem.md",
+  "action": "python scripts/verify.py",
+  "observed_at": "2026-09-30T08:29:28.688751+08:00",
+  "source_commit": "de157334c42574d1becd14df0a48251ab49f5de5",
+  "result": {
+    "structure": "pass",
+    "failures": [],
+    "human_review": "not_run",
+    "runtime_models": "not_run",
+    "role_alignment": "not_run"
+  },
+  "side_effect": "new local evidence only; no external tool call",
+  "human_acceptance": "not_run"
+}

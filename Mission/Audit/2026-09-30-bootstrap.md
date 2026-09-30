@@ -20,6 +20,14 @@
 - 五项target metadata / single identity静态检查通过；independent agent trigger/with-without-skill benchmark未运行，不能宣称原版skill行为完整parity。
 - source consumer audit：targetroot -> EGO / Story / EVAL / Repo / Skill registry / adapter / tool / pins 可解析；source authoritative packages未修改。九项source pins与target adaptation明确分列，source无rootLICENSE，仅Owner授权Private派生，不自动public/release。
 
+## 实际工具与镜页运行
+
+- 初始target root commit=`8781646`；字节保护commit=`de15733`，九项pinned资产使用Git `-text`保护原样CRLF/bytes，source既有空白不清洗。Git archive独立导出后 `verify.py --repo <export>` PASS，跨checkout全部SHA-256一致。
+- 实际本地工具动作：`python scripts/verify.py --record-tool --actor "GitHub Copilot / authorized by bitguts" --approval-evidence Mission/Audit/2026-09-30-bootstrap.md`，source commit=`de15733`，structure=pass，failure=0。记录为 [tool evidence](../evidence/tool-307eea54441e4c44962a9bff86a061ae.json)。actor是获授权Agent，不冒称Human亲自执行或任务accepted。
+- 首张实际镜页=`MPS-260930S3001-rem-instance-rem.html`，SHA-256=`08039a9aeff92143c0983cd75c5c0e5d7a5085cb56d0d7b4b28b0be167c59540`；projection、freshness、G-ID/G-Voice/G-Distort及target结构gate通过；source consistency / Human review / model runtime=not_run，G-Orphan=not_applicable。
+- 实际integrated browser加载目标HTML：1920×1080，title=`rem - 产品工作面评审`、body text length=14070、#mp-data count=1、page width=1905（viewport=1920）、external runtime=0；截图已捕获。这仅为desktop可见性/静态边界检查，不推导Humanreview或手机验收。
+- 本次Audit/EVAL内容修订后，第一张镜页按原来源应stale；下一张从current source生成并携带previous/source delta，再执行validator。机器迭代结果不冒称Luna实际运行。
+
 ## 剩余验收
 
 Human review / 不同 Human 岗位对齐 / 实际 Sol-Luna workload / 完整真实任务与 admitted learning 仍待实际证据；Human订阅/picker声明不证明模型run。机器bootstrap可完成，但整份Motion不可在这些required gates未闭合时退休。没有自动购买、配置picker、扩权、付费部署或release。
