@@ -2,7 +2,7 @@
 
 > **Owner**: bitguts
 > **Date**: 2026-09-30 / UTC+08:00
-> **Status**: executing / acceptance incomplete
+> **Status**: bootstrap R1 closed / Owner-accepted delivery；产品验收继续 in-progress
 > **Approval**: Owner 在 EGO-T189 当前会话明确“批准，执行”，随后确认 Private、独立新历史、固定来源、D:\Github\rem、创建/首次 commit/push、TeraTeams 持有及 Owner/data/access/retention 边界。
 > **Source**: EGO-T189 commit 70090b756d2c4f4e75912ec9f3ede2ff3e8cc0a0；source Motion 执行起点仍为 Draft，依据 current-conversation runtime approval。
 > **History Triage Result**: Audit First
@@ -30,4 +30,14 @@
 
 ## 剩余验收
 
-Human review / 不同 Human 岗位对齐 / 实际 Sol-Luna workload / 完整真实任务与 admitted learning 仍待实际证据；Human订阅/picker声明不证明模型run。机器bootstrap可完成，但整份Motion不可在这些required gates未闭合时退休。没有自动购买、配置picker、扩权、付费部署或release。
+在本次范围拆分前，原Motion以全部required gates为收口条件，因此保留pending。Human review / 不同 Human 岗位对齐 / 实际 Sol-Luna workload / 完整真实任务与 admitted learning仍待实际证据；机器bootstrap不代替这些产品验收。
+
+## Owner-approved阶段拆分 / 接续
+
+Owner于当前会话明确“批准一次范围拆分”：bootstrap R1改以软件基线交付与验证交接收口，A1-A13产品验收完整保留在 [EVAL](../EVAL/eval-rem-v1.md) 与 [runtime validation plan](../../Repo/shape/plan-runtime-validation-2026-09-30.md)。这修改的是阶段阻塞边界，不删除软件功能或将not_run改pass，不新增Primary/Secondary或V1.0release。
+
+独立rem VSC / get rem ready与Luna picker观察已记录在 [startup evidence](../evidence/2026-09-30-vsc-startup.md)。截图只支持有界UI/startup事实；originalterminaltranscript、actualSol/fullLuna、不同Human岗位与真实task不得推导。
+
+Owner在本次交付确认中进一步明确“接受 bootstrap 交付与交接，收口 R1”，并批准“允许仅本次交接文件 commit/push”。B1-B6 bootstrap门槛已闭合；此接受对象是可进入真实验证的software baseline与完整接续，不是A1-A13全部通过或V1.0release。sourceAudit/consumertriage/source退休由EGO-T189收口记录承接；产品剩余gates归bitguts按targetplan组织。
+
+本次目标仅按已批准的明确文件清单commit/push交接文档、启动证据、plan与accepted bootstrap DONE；另一窗口的S3004工件不改写/删除/暂存/提交，source不commit/push。未采购、改picker、扩权或触发真实付费/外部task。

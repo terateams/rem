@@ -4,9 +4,15 @@
 > **Status**: in-progress
 > **Source**: Owner 已批准的 EGO-T189 rem bootstrap Motion A1-A13；见 [bootstrap](../Audit/2026-09-30-bootstrap.md)
 
+## 阶段边界（Owner-approved scope split）
+
+Owner于2026-09-30当前会话明确“批准一次范围拆分”。bootstrap R1按独立创建/软件基线交付/验证交接清单收口；本EVAL仍持全部A1-A13产品判据，不删除、不降级、不自动通过真实Human/model/task要求。后续工作见 [runtime validation plan](../../Repo/shape/plan-runtime-validation-2026-09-30.md)。R1关闭不等于本EVAL完成或V1.0release。
+
+独立VSC启动与Luna picker证据见 [startup observation](../evidence/2026-09-30-vsc-startup.md)；这是实际startup smoke与UI观察，不是全部技能加载/backend model/full双场景归因。
+
 | ID | Criterion | Required evidence | Status |
-|---|---|---|---|
-| A1 | EGO / one Primary / EVAL / RCI / VSC binding | target structure and authority checks | machine_pass / target VSC runtime pending |
+| --- | --- | --- | --- |
+| A1 | EGO / one Primary / EVAL / RCI / VSC binding | target structure and authority checks | machine_pass / independent VSC startup observed / full behavior pending |
 | A2 | independent target, no T189 / CRAFTS active dependency | allowlist / pins / dependency / negative probes | machine_pass |
 | A3 | explicit group, revision/hash/dirty/scope/omissions | target adapter and negative tests | machine_pass |
 | A4 | built-in offline HTML Mirror Page, rebuild/freshness/voice/ID | actual target artifact + validator | machine_pass / Human review separate |
@@ -16,7 +22,7 @@
 | A8 | different Human roles aligned against Mission | actual participants / handoff / confirmation | not_run |
 | A9 | visual relations and source/action navigation | target page / source links + owning workflow evidence | static_links_pass / desktop_nonblank / full action review pending |
 | A10 | complete define/act/EVAL/revise/align/handoff/DONE/learning | real representative task trace, accepted outcome / admission | not_run |
-| A11 | valid Copilot and actual Sol / Luna workloads | actual model / action / result / entitlement, not picker alone | not_run |
+| A11 | valid Copilot and actual Sol / Luna workloads | actual model / action / result / entitlement, not picker alone | Luna startup UI observed / actual dual workloads pending |
 | A12 | Human source revision + authorized Tools action | real diff / tool result / permission / new snapshot / task EVAL | authorized Agent local_tool_pass / actual Human task loop pending |
 | A13 | Luna bounded maintenance + Mission regression | actual Luna work, approved change / tests / handoff | not_run |
 
