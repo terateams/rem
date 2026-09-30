@@ -1,0 +1,10 @@
+* text=auto eol=lf
+.agents/skills/np0/references/np0-axiom-capsule.md -text -whitespace
+EGO/TeamSkill/np0/references/np0-axiom-capsule.md -text -whitespace
+.agents/skills/np0/scripts/runtime_snapshot.py -text -whitespace
+.agents/skills/np0/scripts/test_runtime_snapshot.py -text -whitespace
+.agents/skills/teamspage/MPS/scripts/mps.py -text -whitespace
+.agents/skills/teamspage/MPS/scripts/embedded_manifest.py -text -whitespace
+.agents/skills/teamspage/MPS/scripts/np0_runtime.py -text -whitespace
+.agents/skills/teamspage/MPS/assets/mps.html -text -whitespace
+.agents/skills/teamspage/references/teamspage-runtime-contract.md -text -whitespace
