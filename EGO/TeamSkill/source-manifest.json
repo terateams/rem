@@ -1,0 +1,44 @@
+{
+  "source_repo": "terateams/EGO-T189",
+  "source_commit": "70090b756d2c4f4e75912ec9f3ede2ff3e8cc0a0",
+  "history_strategy": "independent-new-history",
+  "source_license": "no root LICENSE at source pin; Owner-authorized private derivation only; no public license inferred",
+  "unchanged_files": [
+    {
+      "path": ".agents/skills/np0/references/np0-axiom-capsule.md",
+      "sha256": "0b534f72ba37df8799616f91b993f466530611f6eb4b5d084494260f6a0754f6"
+    },
+    {
+      "path": "EGO/TeamSkill/np0/references/np0-axiom-capsule.md",
+      "sha256": "0b534f72ba37df8799616f91b993f466530611f6eb4b5d084494260f6a0754f6"
+    },
+    {
+      "path": ".agents/skills/np0/scripts/runtime_snapshot.py",
+      "sha256": "62c38d77e0f3507c09859ed217a3a6f2f972b4ccd45bbfceef3d31f3ad3527d3"
+    },
+    {
+      "path": ".agents/skills/np0/scripts/test_runtime_snapshot.py",
+      "sha256": "735ae21b4e65adce3afec685582d8226c93b1de367d89df69f8bdf59ff5b5b1e"
+    },
+    {
+      "path": ".agents/skills/teamspage/MPS/scripts/mps.py",
+      "sha256": "c54644ff0d931cf40b052df334676fcbe893555e2ec3ef311d6828a9c7b43ff2"
+    },
+    {
+      "path": ".agents/skills/teamspage/MPS/scripts/embedded_manifest.py",
+      "sha256": "8ea89a838f170538c9aa15b4438c8cecf84bd47010afd35a0742f6599e2df023"
+    },
+    {
+      "path": ".agents/skills/teamspage/MPS/scripts/np0_runtime.py",
+      "sha256": "b365391ac9b246d5e5bc4fbd7e286f446257c5f20579ec3e7094d6c3e774ab4f"
+    },
+    {
+      "path": ".agents/skills/teamspage/MPS/assets/mps.html",
+      "sha256": "b434e072d2bb5b4e4300a65ae68c60f59f947ac90917dff1ca36abfa990c151b"
+    },
+    {
+      "path": ".agents/skills/teamspage/references/teamspage-runtime-contract.md",
+      "sha256": "9916fe6588e434526b760216f9c0473f708e5d03a43b7c0203e048f3374032b1"
+    }
+  ]
+}

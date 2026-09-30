@@ -1,0 +1,5 @@
+mission = "Mission/Story-rem.md"
+eval = "Mission/EVAL/eval-rem-v1.md"
+title = "rem - 产品工作面评审"
+scope = "rem bootstrap: Mission, EVAL, roles, Agent outputs and tool evidence declarations"
+sources = ["Mission/roles.md", "Mission/outputs.md", "Mission/evidence/README.md", "Mission/Audit/2026-09-30-bootstrap.md"]
