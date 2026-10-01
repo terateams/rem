@@ -2,17 +2,20 @@
 
 > **Date**: 2026-09-30
 > **Owner**: yangjun / bitguts
-> **Status**: Blocked
-> **Owner Approval**: [M1-M3 approval audit](../../../Mission/Audit/2026-09-30-cloudflare-motion-approval.md)
+> **Status**: Done
+> **Updated**: 2026-10-01
+> **Owner Approval**: [M1-M3 approval audit](../../../../Mission/Audit/2026-09-30-cloudflare-motion-approval.md)
 > **Type**: External delivery implementation
 > **Service Object**: teamsbook.org 上的首个 rem 对外交付
-> **Primary Route**: [Story-rem](../../../Mission/Story-rem.md) -> [EVAL](../../../Mission/EVAL/eval-rem-v1.md)；保留唯一 Primary，不创建 Secondary
+> **Primary Route**: [Story-rem](../../../../Mission/Story-rem.md) -> [EVAL](../../../../Mission/EVAL/eval-rem-v1.md)；保留唯一 Primary，不创建 Secondary
 > **Source Request**: 当前会话，2026-09-30
-> **Round**: R1
+> **Round**: R2
 
-本文件是三阶段序列的第 3 阶段，Owner 已批准其书面范围，并选择私有门户/文件、目标 hostname `rem.teamsbook.org`、Microsoft Entra SSO、共享只读文件、Free-only 与 staging 后 production。Owner 接受 M2 的 Worker Static Assets + hostname-based Access 候选，并选择允许所有已验证 `@TeraTeams.com` 邮箱。该规则覆盖整个邮箱域；域名归属和 Entra claim 尚未核验。REM 方法介绍草稿见 [Mission/teamsbook.org/index.md](../../../Mission/teamsbook.org/index.md)，Owner 已接受其用于 staging-preview 准备；内容仍是 non-authority，尚未转成 HTML/build 或发布。Owner 报告 full Zone/control 与 Free entitlement 已确认但尚无独立证据，因此 M2/M3 仍为 Blocked。不创建 policy、不登录、不改 DNS、不部署。
+本 Motion 是三阶段序列的第 3 阶段。Owner 于 2026-10-01 明确将原私有门户/Entra SSO 范围改为公开 Cloudflare Pages 单页服务：`https://rem.teamsbook.org/<slug>`，无登录或访问控制。Owner 提供的部署报告称生产域名、HTTPS、首页、`/demo`、短路径跳转、404 与五项测试均已验证；详见 [R2 Audit](../../../../Mission/Audit/2026-10-01-cloudflare-motions-followup.md) 和[部署 evidence](../../../../Mission/evidence/2026-10-01-cloudflare-pages-owner-report.md)。Owner 确认费用为 `0` 且已验证、rollback rehearsal 不需要、独立运维交接已废止；本会话中 Owner 确认 `/demo` 成功打开。GitHub Copilot 未执行 Cloudflare 登录、资源操作、DNS 变更或部署。
 
-## 请求与事实边界
+> 以下 R1 内容保留原私有门户候选与当时 gate；现行公开 Pages 裁决和 EVAL 见文末 R2 部分。
+
+## R1 请求与事实边界 (historical)
 
 - Owner 指定 `teamsbook.org` 为 rem **目标交付根域**，并选择 `rem.teamsbook.org` 为首个目标 hostname。其 EGO canonical root-domain record 由 M1 建立；本 Motion 仅消费该根域记录和当前 hostname 输入，不改 EGO/DNS。域名注册人、控制权、Cloudflare Zone 与 DNS 委派尚未独立核验；目标 hostname 不证明所有权或可用性。
 - Owner 确认首个交付为共享只读静态门户/文件，不需要上传或 per-user ACL；具体文件集/root path 与允许 Entra 组尚未给出。
@@ -71,7 +74,7 @@ rem 需要以可审阅、可复现、可回滚的方式交付一个私有门户/
 
 任一阶段若域名 / Zone 控制权、权限、产品支持、费用、数据处理、回滚或实际命令结果不明，即停止受影响动作并报告 `unknown` / `Blocked`；不得以 `cf` 安装成功、命令搜索结果、API 覆盖宣称、配置类型检查、dry-run、CI 绿色或静态测试代替真实部署证据。
 
-## EVAL / 交付判据
+## R1 EVAL / 交付判据 (historical; superseded by R2 below)
 
 | Gate | 判据 | 必需证据 | 当前状态 |
 | --- | --- | --- | --- |
@@ -106,4 +109,19 @@ D1-D8 全部按证据逐项判定；本 Motion 不承诺任意账户中“所有
 - [Wrangler](https://developers.cloudflare.com/workers/wrangler/)：只作为 `cf` 对特定 JavaScript / Rust / Python Worker 路径委托时的兼容工具，不再作为本 Motion 的 Cloudflare API 主 CLI。
 - [Cloudflare Terraform provider](https://developers.cloudflare.com/terraform/)：仅在选定资源确需 Terraform state / plan 管理且 provider 适用时评估。
 
-资料查阅日期：2026-09-30。实施前须重新核实官方文档、产品可用性、当前稳定版本、权限与定价。Motion 保持 Draft，须经 Owner 明确批准后方可执行。
+资料查阅日期：2026-09-30。以上是原私有门户候选与当时的 gate，已由 Owner 于 2026-10-01 明确 supersede。
+
+## R2 EVAL / closeout - 2026-10-01
+
+| Gate | 判据 | 当前证据 | 状态 |
+| --- | --- | --- | --- |
+| D1 | 根域、账号/Zone 与目标 hostname 有可归因证据 | Owner reports account/Zone confirmation and provides active hostname/HTTPS deployment materials; registrar/registrant identity remains unknown | pass (Owner-confirmed; not Agent-queried) |
+| D2 | 明确交付物、消费者、公开/私有范围与 URL | Owner 确认公开静态 HTML、`rem.teamsbook.org/<slug>`、无登录/访问控制 | pass |
+| D3 | 实际 stack 与工具职责明确 | Pages Direct Upload；`cf` 管理资源，Wrangler 上传静态目录；没有 Access/Worker runtime | pass (Owner-reported) |
+| D4 | 版本、配置与实际部署可追溯 | Supplied deployment record lists project, deployment ID, `cf`/Wrangler versions and production status; package integrity not independently checked by Agent | pass (Owner-provided evidence) |
+| D5 | 页面与发布流程有可重复检查和 secret hygiene | 部署记录报告 5 项 Python tests、`rem.py check` 与内嵌 JS 语法检查通过；本次未重跑 | pass (reported) |
+| D6 | 非生产预览、权限/预算和回滚流程可用 | Pages preview URL is reported; Owner says rollback rehearsal is unnecessary. No rehearsal was performed or claimed | not_applicable (Owner decision) |
+| D7 | 生产服务与 Owner acceptance 可回查 | Owner accepts delivery; report records active domain/HTTPS and route/content checks; `/demo` loaded in integrated browser. Separate ops handoff was discontinued by Owner | pass (Owner-accepted) |
+| D8 | 纳入的 Cloudflare 能力均有 scope、cost、test、stop rule | Scope is Pages/DNS/static HTML; other services excluded; Owner confirms verified cost `0`; public-content boundary and tests recorded | pass (Owner-confirmed) |
+
+**Closeout**: M3 is `Done` by Owner acceptance. The Owner-confirmed cost is `0`; rollback rehearsal is explicitly not required, and no rehearsal was performed. A separate operations handoff deliverable is discontinued; the existing publishing/operations documents remain available to operators. Public content must remain free of secrets and private data. Consumer Audit and `History Triage Result: Audit First` are recorded in the canonical Audit; the Motion source is retired to `Repo/days/2026-10-01/Motion/`.

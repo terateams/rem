@@ -21,10 +21,6 @@
       "sha256": "735ae21b4e65adce3afec685582d8226c93b1de367d89df69f8bdf59ff5b5b1e"
     },
     {
-      "path": ".agents/skills/teamspage/MPS/scripts/mps.py",
-      "sha256": "c54644ff0d931cf40b052df334676fcbe893555e2ec3ef311d6828a9c7b43ff2"
-    },
-    {
       "path": ".agents/skills/teamspage/MPS/scripts/embedded_manifest.py",
       "sha256": "8ea89a838f170538c9aa15b4438c8cecf84bd47010afd35a0742f6599e2df023"
     },
@@ -35,10 +31,19 @@
     {
       "path": ".agents/skills/teamspage/MPS/assets/mps.html",
       "sha256": "b434e072d2bb5b4e4300a65ae68c60f59f947ac90917dff1ca36abfa990c151b"
+    }
+  ],
+  "target_deltas": [
+    {
+      "path": ".agents/skills/teamspage/MPS/scripts/mps.py",
+      "sha256": "d511df27b6a839bd350a93a34cb9b2ab8f4cf580f2892efeaab9b9ee46948bc1",
+      "reason": "Owner-directed Repo/shape/TeamsPage custody path; preserve Git history scans for the legacy lowercase path.",
+      "validation": "scripts/test_mirror.py: output-path and historical-path tests"
     },
     {
       "path": ".agents/skills/teamspage/references/teamspage-runtime-contract.md",
-      "sha256": "9916fe6588e434526b760216f9c0473f708e5d03a43b7c0203e048f3374032b1"
+      "sha256": "49e17fd07f4ba39e9d8ead367ef5cf7f11c7cf8d8301a6d83d6c0bb5b7929232",
+      "reason": "Document current TeamsPage custody path and legacy history scan."
     }
   ]
 }

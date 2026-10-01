@@ -2,15 +2,18 @@
 
 > **Date**: 2026-09-30
 > **Owner**: yangjun / bitguts
-> **Status**: Blocked
-> **Owner Approval**: [M1-M3 approval audit](../../../Mission/Audit/2026-09-30-cloudflare-motion-approval.md)
+> **Status**: Done
+> **Updated**: 2026-10-01
+> **Owner Approval**: [M1-M3 approval audit](../../../../Mission/Audit/2026-09-30-cloudflare-motion-approval.md)
 > **Type**: Platform/toolchain selection
 > **Service Object**: rem Cloudflare management toolchain and stack boundary
-> **Primary Route**: [Story-rem](../../../Mission/Story-rem.md) -> [EVAL](../../../Mission/EVAL/eval-rem-v1.md)
+> **Primary Route**: [Story-rem](../../../../Mission/Story-rem.md) -> [EVAL](../../../../Mission/EVAL/eval-rem-v1.md)
 > **Source Request**: Owner 当前会话选择采用 Cloudflare `cf` 方案
-> **Round**: R1
+> **Round**: R2
 
-本 Motion 是三阶段序列的第 2 阶段，依赖 [EGO DNS 目标域登记](motion-ego-dns-registry-2026-09-30.md) 完成。Owner 已接受候选 Stack，选择 Microsoft Entra SSO、共享只读文件、Free-only 与 staging->production。Owner 报告 full Zone/control 已确认，但尚无独立证据；允许 Entra 组、文件路径、Free entitlement 和 rollback 未闭合，所以状态仍为 Blocked。无认证 smoke 见 [M2 Audit](../../../Mission/Audit/2026-09-30-cf-cli-stack-m2.md)。批准不包括 Cloudflare login、租户 API、资源创建、DNS 变更或部署。
+本 Motion 是三阶段序列的第 2 阶段。R1 的 Worker Static Assets + Access/Entra 私有门户候选已被 Owner 于 2026-10-01 明确替换：当前选择是公开 Cloudflare Pages Direct Upload，`cf@1.0.0-beta.9` 管理 Cloudflare 资源，`wrangler@4.145.0` 上传完整 `site/`。Owner 提供的部署报告称执行与验证有效；证据见 [R2 Audit](../../../../Mission/Audit/2026-10-01-cloudflare-motions-followup.md)、[evidence](../../../../Mission/evidence/2026-10-01-cloudflare-pages-owner-report.md) 和[当前 capability matrix](../cloudflare-capability-matrix.md)。Owner confirms cost was verified as `0`; no rollback rehearsal is required. GitHub Copilot did not log in, call Cloudflare APIs, change DNS, or deploy. M2 is `Done` by Owner acceptance; verification provenance remains explicit in the Audit.
+
+> 以下 R1 分析与 EVAL 保留作历史；现行裁决和状态以文末的 R2 部分为准。
 
 ## 问题与拟议裁决
 
@@ -23,7 +26,7 @@ Cloudflare 于 2026-09-28 发布 Agent-oriented CLI `cf`，公告称其处于 op
 3. 以 `cloudflare.config.ts` / Vite 作为当前受支持 Worker 项目的首选配置路径；对未覆盖的资源逐项评估 `cf` API、Wrangler 委托、Terraform/provider 或人工管理。每类资源指定一个写入权威，避免双重控制。
 4. 生成一份带日期的能力矩阵，记录产品/资源、rem 用途、API 操作、声明式配置、权限、费用、数据影响、环境、验证、回滚与未覆盖项。
 
-第一版条件候选矩阵已生成：[Cloudflare capability matrix](../cloudflare-capability-matrix-2026-09-30.md)。Owner 已接受 Worker Static Assets + hostname-based Access 候选，选择私有门户/文件、`rem.teamsbook.org`、Microsoft Entra SSO、共享只读静态文件、Free-only 与 staging 后 production，并选择 domain-wide `@TeraTeams.com` verified-email allow。邮箱域归属、Entra claim、具体内容路径、Zone 独立证据与 Free entitlement 仍待核实；未核实前不配置 Access policy 或部署。
+第一版条件候选矩阵已生成：[Cloudflare capability matrix](../../2026-09-30/cloudflare-capability-matrix.md)。Owner 已接受 Worker Static Assets + hostname-based Access 候选，选择私有门户/文件、`rem.teamsbook.org`、Microsoft Entra SSO、共享只读静态文件、Free-only 与 staging 后 production，并选择 domain-wide `@TeraTeams.com` verified-email allow。邮箱域归属、Entra claim、具体内容路径、Zone 独立证据与 Free entitlement 仍待核实；未核实前不配置 Access policy 或部署。
 
 ## 范围
 
@@ -47,7 +50,7 @@ Cloudflare 于 2026-09-28 发布 Agent-oriented CLI `cf`，公告称其处于 op
 
 官方支持、费用、认证行为、state ownership 或回滚未知时标记 `unknown` / `Blocked`；`cf cli search` 结果仅用于命令发现，不证明调用适用、授权充分或操作安全。
 
-## EVAL
+## R1 EVAL (historical; superseded by R2 below)
 
 | Gate | 判据 | 必需证据 | 当前状态 |
 | --- | --- | --- | --- |
@@ -61,4 +64,20 @@ Cloudflare 于 2026-09-28 发布 Agent-oriented CLI `cf`，公告称其处于 op
 
 获批产物进入 Repo 中对应的软件配置/运维文档，不把凭据写进 EGO、Motion 或 Git。平台选择若改变，保留 capability matrix 与版本证据，由 Owner 决定切换与迁移；本 Motion 不执行远端回滚或资源清理。
 
-本 Motion 当前 `Blocked`。Owner 已接受候选 Stack 和 domain-wide `@TeraTeams.com` allow；Zone/control 只有 Owner self-attestation，邮箱域/Entra claim、内容路径、Free entitlement 与 rollback 未核验。取得可回查非凭据证据并确认行为前，不登录、不创建 Access policy、不部署。
+R1 historical status: `Blocked` on the private Worker/Access gates described above. This is superseded for the public Pages service by the R2 decision below.
+
+## R2 decision and current closeout - 2026-10-01
+
+- Owner selected the public Pages model and the tool split `cf@1.0.0-beta.9` for Cloudflare resource management plus `wrangler@4.145.0` for Pages Direct Upload. This replaces the R1 Worker Static Assets + Access/Entra candidate for this service.
+- The supplied project documentation reports a successful deployment and verification. This session did not rerun the CLI, verify the current official release or package integrity, or inspect the Cloudflare tenant.
+- No Access policy, Entra SSO, Worker runtime, database, CI credential, paid add-on, or private-file guarantee is in the current scope. Public pages must not contain secrets or private data.
+
+| Gate | Current criterion | Evidence / limitation | Status |
+| --- | --- | --- | --- |
+| C1 | Record actual `cf` version, installation/auth behavior and source | Owner-provided report lists beta.9 and confirms deployment/execution/verification; package integrity/current official release were not independently checked by Agent | pass (Owner-confirmed) |
+| C2 | Separate account/resource management, Pages upload and page runtime | `cf` management, Wrangler Direct Upload, and static HTML without runtime dependencies are documented | pass |
+| C3 | Keep one explicit writer for each resource/action | Owner-provided implementation records `cf` management and Wrangler asset upload as separate responsibilities | pass (Owner-reported) |
+| C4 | Record permissions, cost, data, tests and rollback boundaries | Owner confirms cost `0` was verified; Owner rules rollback rehearsal unnecessary. No rehearsal was performed. Public-data boundary and reported tests are documented | pass (Owner decision; no rollback test claimed) |
+| C5 | Keep Agent actions within authorization and credential boundaries | Agent made no Cloudflare account/API/DNS/deployment action in this follow-up; Owner reports own account use | pass |
+
+M2 is `Done` by Owner acceptance. The Owner-confirmed zero-cost result and decision that rollback rehearsal is unnecessary close those gates for this scope; no rollback rehearsal is claimed. A separate operations handoff deliverable is discontinued by Owner decision. The earlier beta.5 generic Worker dry-run is historical and is not evidence for the current Pages upload path. History Triage Result is `Audit First`; the Motion source is retired to `Repo/days/2026-10-01/Motion/` after its decisions and evidence were landed in the current matrix and Audit.

@@ -2,11 +2,13 @@
 
 > **Date**: 2026-09-30
 > **Owner**: yangjun / bitguts
-> **Status**: Candidate stack accepted; implementation blocked
-> **Binding**: [EGO DNS target](../../EGO/DNS/teamsbook.org.md) · [M2 Motion](Motion/motion-cf-cli-stack-decision-2026-09-30.md)
-> **Evidence**: [M2 Audit](../../Mission/Audit/2026-09-30-cf-cli-stack-m2.md)
-> **Content**: [REM method draft](../../Mission/teamsbook.org/index.md) — local only, non-authority, Human review pending
-> **Latest Owner inputs**: private static content; `rem.teamsbook.org`; Microsoft Entra SSO; allow any verified `@TeraTeams.com` email; Free-only, staging then production. The email-domain/Entra claim and Zone are not independently verified. Content draft: [Mission/teamsbook.org/index.md](../../Mission/teamsbook.org/index.md), pending Human acceptance.
+> **Status**: Superseded 2026-10-01 by [the public Pages matrix](../2026-10-01/cloudflare-capability-matrix.md); this file preserves the original private Worker + Access candidate.
+> **Binding**: [EGO DNS target](../../../EGO/DNS/teamsbook.org.md) · [M2 Motion](../2026-10-01/Motion/motion-cf-cli-stack-decision-2026-09-30.md)
+> **Evidence**: [M2 Audit](../../../Mission/Audit/2026-09-30-cf-cli-stack-m2.md)
+> **Content**: [REM method draft](../../../Mission/teamsbook.org/index.md) — local only, non-authority; its relationship to live Pages content is not established
+
+**Historical note**: The candidate below was for a private Entra/Access portal. Owner replaced it on 2026-10-01 with the public Cloudflare Pages scope in the linked current matrix. Do not use this file as the current implementation decision.
+> **Latest Owner inputs**: private static content; `rem.teamsbook.org`; Microsoft Entra SSO; allow any verified `@TeraTeams.com` email; Free-only, staging then production. The email-domain/Entra claim and Zone are not independently verified. Content draft: [Mission/teamsbook.org/index.md](../../../Mission/teamsbook.org/index.md), pending Human acceptance.
 
 ## Decision boundary
 

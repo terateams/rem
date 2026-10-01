@@ -18,4 +18,4 @@
 
 ## 后续独立观察
 
-本次范围拆分前只读检查 target HEAD=`2fdbbca18e0ea122a62a286cbc3a8ecf4f804fda`；worktree 有未提交 `Repo/shape/teamspage/MPS-260930S3004-rem-instance-rem.html`。它是另一窗口产生的既有工件，来源未归因，不由本次改写、删除或提交；不把截图报告的旧 clean 状态沿用为当前事实。
+本次范围拆分前只读检查 target HEAD=`2fdbbca18e0ea122a62a286cbc3a8ecf4f804fda`；worktree 有未提交 `Repo/shape/teamspage/MPS-260930S3004-rem-instance-rem.html`。它是另一窗口产生的既有工件，来源未归因，不由本次改写、删除或提交；不把截图报告的旧 clean 状态沿用为当前事实。2026-10-01 Owner 将 live custody 目录大小写统一为 `Repo/shape/TeamsPage/`；此处保留观察当时的原始路径。

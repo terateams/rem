@@ -17,4 +17,4 @@ This register is the canonical home for EGO's DNS-domain intent. It does not con
 
 ## Current Record
 
-- [teamsbook.org](teamsbook.org.md): rem external delivery root-domain target; verification pending.
+- [teamsbook.org](teamsbook.org.md): rem external delivery root-domain target; Owner reports the delivery hostname operational, while registrar/registrant identity remains unknown and independent account/DNS re-check is pending.

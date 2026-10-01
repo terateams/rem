@@ -13,7 +13,7 @@ REQUIRED = [
     'EGO/EGO-rem.md', 'EGO/EdgeTeam.md', 'EGO/Naming.md', 'EGO/Working.md',
     'Mission/Story-rem.md', 'Mission/EVAL/eval-rem-v1.md',
     'Repo/INTENT.md', 'Repo/today.md', 'Repo/now.md', 'Repo/DONE.md',
-    'Repo/shape/README.md', 'Repo/Dojo/README.md',
+    'Repo/shape/Motion/README.md', 'Repo/shape/TeamsPage/README.md', 'Repo/Dojo/README.md',
 ]
 
 
@@ -24,7 +24,7 @@ def inspect(repo: Path) -> dict:
         if not (repo / f'.agents/skills/{name}/SKILL.md').is_file():
             failures.append(f'missing-skill:{name}')
     for source in repo.rglob('*.md'):
-        if '.git' in source.parts or 'teamspage' in source.parts or source.name == 'np0-axiom-capsule.md':
+        if '.git' in source.parts or any(part.casefold() == 'teamspage' for part in source.parts) or source.name == 'np0-axiom-capsule.md':
             continue
         for target in re.findall(r'\]\(([^)]+)\)', source.read_text(encoding='utf-8-sig')):
             if target.startswith(('https://', 'http://', '#')):
@@ -34,10 +34,12 @@ def inspect(repo: Path) -> dict:
                 failures.append(f'link:{source.relative_to(repo)}:{target}')
     manifest_path = repo / 'EGO/TeamSkill/source-manifest.json'
     if manifest_path.is_file():
-        for record in json.loads(manifest_path.read_text(encoding='utf-8'))['unchanged_files']:
-            target = repo / record['path']
-            if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest() != record['sha256']:
-                failures.append(f'pin:{record["path"]}')
+        manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+        for field, label in (('unchanged_files', 'pin'), ('target_deltas', 'target-delta')):
+            for record in manifest.get(field, []):
+                target = repo / record['path']
+                if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest() != record['sha256']:
+                    failures.append(f'{label}:{record["path"]}')
     else:
         failures.append('missing:source-manifest')
     return {'structure': 'pass' if not failures else 'fail', 'failures': failures,

@@ -2,15 +2,20 @@
 
 > **Date**: 2026-09-30
 > **Owner**: yangjun / bitguts
-> **Status**: Executed
-> **Owner Approval**: [M1-M3 approval audit](../../../Mission/Audit/2026-09-30-cloudflare-motion-approval.md)
+> **Status**: Done
+> **Updated**: 2026-10-01
+> **Owner Approval**: [M1-M3 approval audit](../../../../Mission/Audit/2026-09-30-cloudflare-motion-approval.md)
 > **Type**: EGO authority / DNS identity
 > **Service Object**: rem EGO DNS register
-> **Primary Route**: [Story-rem](../../../Mission/Story-rem.md) -> [EVAL](../../../Mission/EVAL/eval-rem-v1.md)
+> **Primary Route**: [Story-rem](../../../../Mission/Story-rem.md) -> [EVAL](../../../../Mission/EVAL/eval-rem-v1.md)
 > **Source Request**: Owner 当前会话，指定 `teamsbook.org` 为 rem 目标交付域
 > **Round**: R1
 
-本 Motion 是三阶段交付序列的第 1 阶段。Owner 已批准三份 Motion；M1 只覆盖本地 EGO/DNS 登记，不授权修改线上 DNS 或 Cloudflare 账号。M1 已执行但尚无单独 Owner acceptance，详见 [M1 Audit](../../../Mission/Audit/2026-09-30-ego-dns-registry.md) 与[审批 Audit](../../../Mission/Audit/2026-09-30-cloudflare-motion-approval.md)。
+本 Motion 是三阶段交付序列的第 1 阶段。Owner 已批准三份 Motion；M1 只覆盖本地 EGO/DNS 登记，不授权修改线上 DNS 或 Cloudflare 账号。Owner 于 2026-10-01 接受 M1-M3 的已交付结果并确认整体完成；决定、consumer audit 与收口证据见[当前 Audit](../../../../Mission/Audit/2026-10-01-cloudflare-motions-followup.md)。
+
+## Owner follow-up - 2026-10-01
+
+Owner reports logging into Cloudflare with `bitguts@gmail.com`, confirming the `teamsbook.org` account/Zone, and deploying the related Pages service. The canonical record distinguishes that Owner-confirmed operational hostname from the still-unknown registrar/registrant identity. Supplied deployment materials are summarized in [M1-M3 follow-up Audit](../../../../Mission/Audit/2026-10-01-cloudflare-motions-followup.md) and [evidence](../../../../Mission/evidence/2026-10-01-cloudflare-pages-owner-report.md); they were not independently checked against the Cloudflare tenant in this workspace. This Motion remains local EGO/DNS registration only: GitHub Copilot did not log in, call Cloudflare APIs, or change DNS. Owner accepts M1 as complete; the registrar/registrant identity remains unknown and is not claimed by the canonical record.
 
 ## 问题与拟议裁决
 
@@ -19,7 +24,7 @@ Owner 已指定 rem 的目标交付根域为 `teamsbook.org`，但 EGO 当前没
 **Owner 已批准的 M1 范围：**
 
 1. 建立 `EGO/DNS/` 作为 EGO 所拥有的 DNS 身份登记边界；它定义目标域的名称、用途、来源、责任与验证状态，不承载实时 DNS 配置或 Cloudflare 凭据。
-2. 在 `EGO/DNS/teamsbook.org.md` 建立唯一 canonical record，字段至少包括：域名、EGO / service binding、用途 `External Delivery Root Domain`、Owner 决定来源、status `target / unverified`、registrar / Zone / DNS control verification=`unknown`、具体 hostname target 与独立的验证状态。Owner 后续已选择 `rem.teamsbook.org` 作为 target hostname；记录更新与未执行事项见 [M1 Audit](../../../Mission/Audit/2026-09-30-ego-dns-registry.md)。
+2. 在 `EGO/DNS/teamsbook.org.md` 建立唯一 canonical record，字段至少包括：域名、EGO / service binding、用途 `External Delivery Root Domain`、Owner 决定来源、status `target / unverified`、registrar / Zone / DNS control verification=`unknown`、具体 hostname target 与独立的验证状态。Owner 后续已选择 `rem.teamsbook.org` 作为 target hostname；记录更新与未执行事项见 [M1 Audit](../../../../Mission/Audit/2026-09-30-ego-dns-registry.md)。
 3. 在 `EGO/DNS/README.md` 说明词义、字段规则、验证边界和单一事实来源；`EGO/EGO-rem.md` 只链接到 canonical record，不重复维护域名值。
 4. Business Domain、DNS root domain、具体 hostname/URL、Cloudflare stack 与 CLI 是不同语义，不在此 Motion 中互相推导。
 
@@ -59,3 +64,7 @@ canonical record 作为第 2 阶段 Motion 的输入。M1 批准只覆盖本地 
 获批完成后，canonical record 留在 EGO/DNS；EGO-rem 只保留其职责入口链接。若字段模型或域名决定改变，走新的 Owner decision / Motion 并修订 canonical record；不回写 Cloudflare DNS，也不据此删除或创建任何线上资源。
 
 本 Motion 完成不代表域名所有权已验证，不代表 Cloudflare Zone 可访问，也不代表 rem 已对外交付。
+
+## Closeout - 2026-10-01
+
+M1 is `Done`: the EGO-owned canonical record is landed, preserves the distinction between operational hostname and unknown registrar/registrant identity, and is consumed by the M2/M3 delivery records. Owner accepted the completed outcome. History Triage Result is recorded as `Audit First` in the canonical closeout Audit. The Motion source is retired from the pending work surface after archival to `Repo/days/2026-10-01/Motion/`.

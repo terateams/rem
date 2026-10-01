@@ -7,6 +7,7 @@ import subprocess
 import tempfile
 import tomllib
 import unittest
+from unittest.mock import patch
 from datetime import datetime
 from pathlib import Path
 
@@ -98,6 +99,7 @@ class MirrorTests(unittest.TestCase):
 
     def test_rebuild_freshness_and_previous_delta(self) -> None:
         first = mirror.mps.generate(self.repo, self.request())
+        self.assertEqual(first.parent, self.repo / 'Repo/shape/TeamsPage')
         report = mirror.mps.validate_artifact(first, self.repo)
         self.assertEqual(report['projection'], 'pass')
         self.assertEqual(report['freshness'], 'matches_observed_files')
@@ -112,6 +114,17 @@ class MirrorTests(unittest.TestCase):
         self.assertEqual(current['previous_snapshot_id'], previous['snapshot_id'])
         self.assertEqual(mirror.mps.validate_artifact(second, self.repo)['freshness'], 'matches_observed_files')
 
+    def test_historical_allocator_checks_current_and_legacy_custody_paths(self) -> None:
+        with patch.object(mirror.mps, 'git', side_effect=[
+            'MPS-260930S3002-rem-instance-rem.html\n',
+            'MPS-260930S3001-rem-instance-rem.html\n',
+        ]) as git_call:
+            history = mirror.mps._historical_mps_page_ids(self.repo)
+        self.assertEqual({page_id for page_id, _path in history}, {'260930S3001', '260930S3002'})
+        self.assertEqual([call.args[-1] for call in git_call.call_args_list], [
+            'Repo/shape/TeamsPage', 'Repo/shape/teamspage',
+        ])
+
     def test_source_hash_race_is_blocked(self) -> None:
         request = self.request()
         source = self.repo / 'Mission/outputs.md'
@@ -123,7 +136,11 @@ class MirrorTests(unittest.TestCase):
         result = verify.inspect(self.repo)
         self.assertEqual(result['failures'], [])
         manifest = json.loads((self.repo / 'EGO/TeamSkill/source-manifest.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(manifest['unchanged_files']), 9)
+        self.assertEqual(len(manifest['unchanged_files']), 7)
+        self.assertEqual({delta['path'] for delta in manifest['target_deltas']}, {
+            '.agents/skills/teamspage/MPS/scripts/mps.py',
+            '.agents/skills/teamspage/references/teamspage-runtime-contract.md',
+        })
 
 
 if __name__ == '__main__':

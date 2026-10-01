@@ -3,7 +3,8 @@
 > **Date**: 2026-09-30
 > **Owner**: yangjun / bitguts
 > **Status**: Executed; separate Owner acceptance not recorded
-> **Source Motion**: [motion-ego-dns-registry](../../Repo/shape/Motion/motion-ego-dns-registry-2026-09-30.md)
+> **Source Motion**: [motion-ego-dns-registry](../../Repo/days/2026-10-01/Motion/motion-ego-dns-registry-2026-09-30.md)
+> **Current closeout**: This is the 2026-09-30 M1 execution snapshot. Owner acceptance and final lifecycle are recorded in [2026-10-01 closeout Audit](2026-10-01-cloudflare-motions-followup.md).
 > **Source Status at Runtime Approval**: Draft
 > **Runtime Approval**: Owner instruction in the current conversation: “据此, 更新Motion, 并且判断, 是否需要拆分为多个, 依次执行”；bounded to M1 local EGO/DNS registry only
 

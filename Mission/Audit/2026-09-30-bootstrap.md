@@ -34,7 +34,7 @@
 
 ## Owner-approved阶段拆分 / 接续
 
-Owner于当前会话明确“批准一次范围拆分”：bootstrap R1改以软件基线交付与验证交接收口，A1-A13产品验收完整保留在 [EVAL](../EVAL/eval-rem-v1.md) 与 [runtime validation plan](../../Repo/shape/plan-runtime-validation-2026-09-30.md)。这修改的是阶段阻塞边界，不删除软件功能或将not_run改pass，不新增Primary/Secondary或V1.0release。
+Owner于当前会话明确“批准一次范围拆分”：bootstrap R1改以软件基线交付与验证交接收口，A1-A13产品验收完整保留在 [EVAL](../EVAL/eval-rem-v1.md) 与 [runtime validation plan](../../Repo/days/2026-09-30/plan-runtime-validation.md)。这修改的是阶段阻塞边界，不删除软件功能或将not_run改pass，不新增Primary/Secondary或V1.0release。
 
 独立rem VSC / get rem ready与Luna picker观察已记录在 [startup evidence](../evidence/2026-09-30-vsc-startup.md)。截图只支持有界UI/startup事实；originalterminaltranscript、actualSol/fullLuna、不同Human岗位与真实task不得推导。
 

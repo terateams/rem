@@ -4,7 +4,7 @@
 > **Owner / Decision Rights**: yangjun / bitguts
 > **Status**: pending validation；不是新 Mission 或产品 accepted 声明
 > **Source**: 原 bootstrap Motion A1-A13；Owner 当前对话“批准一次范围拆分”
-> **Binding**: [Story-rem](../../Mission/Story-rem.md) / [EVAL](../../Mission/EVAL/eval-rem-v1.md)
+> **Binding**: [Story-rem](../../../Mission/Story-rem.md) / [EVAL](../../../Mission/EVAL/eval-rem-v1.md)
 > **Prerequisite**: Owner已明确接受bootstrap R1交付/交接，source治理收口在同批完成；本计划只准备验证，不自行启动付费、外部、模型切换或真实task
 
 ## 范围不删减
@@ -13,7 +13,7 @@
 
 | Gate | 当前已知 / 尚缺 | Next bounded work | Owner / evidence / stop |
 | --- | --- | --- | --- |
-| A1 / A11 startup slice | 独立 rem VSC 调用 rem-ready，Luna picker可见；actual model/backend/controls仍有限 | [startup evidence](../../Mission/evidence/2026-09-30-vsc-startup.md) 留观察边界，核验 actual run binding | Owner 在 target VSC 确认模型；缺证据保持 partial，不以 screenshot 代 backend proof |
+| A1 / A11 startup slice | 独立 rem VSC 调用 rem-ready，Luna picker可见；actual model/backend/controls仍有限 | [startup evidence](../../../Mission/evidence/2026-09-30-vsc-startup.md) 留观察边界，核验 actual run binding | Owner 在 target VSC 确认模型；缺证据保持 partial，不以 screenshot 代 backend proof |
 | A5 输出 EVAL | machine gates非 Human acceptance | 选一个有权/有界 Mission，对 Agent 输出按 EVAL 做 accept/correct/reject | Owner 指定 reviewer/criteria/output/evidence；裁决缺失不自动通过 |
 | A7 技能行为 | 五项 metadata、sourcepins、24项代码测试已过；独立 trigger/行为适配未验 | 定义正/负触发与有界行为 cases，观察五项 target wrappers 的实际 route/stop/parity | Owner 批准 runtime与可观察 cost；记录 shared/independent context限制，无调用能力不伪造 benchmark |
 | A8 Human 岗位对齐 | 只有 Owner，不虚构第二位 Human | Owner 点名实际参与者、岗位/责任/交付/接受位，同一 Mission 进行 confirmation/correction | 参与者与权限由 Human 决定，未参与/确认 not_run |

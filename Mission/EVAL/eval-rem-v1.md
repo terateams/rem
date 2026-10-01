@@ -6,7 +6,7 @@
 
 ## 阶段边界（Owner-approved scope split）
 
-Owner于2026-09-30当前会话明确“批准一次范围拆分”。bootstrap R1按独立创建/软件基线交付/验证交接清单收口；本EVAL仍持全部A1-A13产品判据，不删除、不降级、不自动通过真实Human/model/task要求。后续工作见 [runtime validation plan](../../Repo/shape/plan-runtime-validation-2026-09-30.md)。R1关闭不等于本EVAL完成或V1.0release。
+Owner于2026-09-30当前会话明确“批准一次范围拆分”。bootstrap R1按独立创建/软件基线交付/验证交接清单收口；本EVAL仍持全部A1-A13产品判据，不删除、不降级、不自动通过真实Human/model/task要求。后续工作见 [runtime validation plan](../../Repo/days/2026-09-30/plan-runtime-validation.md)。R1关闭不等于本EVAL完成或V1.0release。
 
 独立VSC启动与Luna picker证据见 [startup observation](../evidence/2026-09-30-vsc-startup.md)；这是实际startup smoke与UI观察，不是全部技能加载/backend model/full双场景归因。
 

@@ -5,15 +5,16 @@
 > **Date**: 2026-09-30
 > **Owner**: yangjun / bitguts
 > **Status**: Approval recorded; M1 executed; M2/M3 blocked on stated gates
+> **Current closeout**: Historical 2026-09-30 approval snapshot; M1-M3 are Owner-accepted `Done` in [the 2026-10-01 closeout Audit](2026-10-01-cloudflare-motions-followup.md).
 > **Decision Source**: Owner current conversation: “批准3个motion, 执行第一个M1”
 
 ## Approval
 
 Owner approved the defined scopes of all three Motions and directed sequential handling in this order:
 
-1. [M1 EGO DNS registry](../../Repo/shape/Motion/motion-ego-dns-registry-2026-09-30.md)
-2. [M2 `cf` CLI and stack decision](../../Repo/shape/Motion/motion-cf-cli-stack-decision-2026-09-30.md)
-3. [M3 external delivery implementation](../../Repo/shape/Motion/motion-teamsbook-cloudflare-delivery-2026-09-30.md)
+1. [M1 EGO DNS registry](../../Repo/days/2026-10-01/Motion/motion-ego-dns-registry-2026-09-30.md)
+2. [M2 `cf` CLI and stack decision](../../Repo/days/2026-10-01/Motion/motion-cf-cli-stack-decision-2026-09-30.md)
+3. [M3 external delivery implementation](../../Repo/days/2026-10-01/Motion/motion-teamsbook-cloudflare-delivery-2026-09-30.md)
 
 Approval applies only to each Motion's written scope, exclusions, and gates. It does not verify domain/Zone control, select an unspecified application or hostname, supply a budget, or waive required per-action permissions.
 

@@ -1,17 +1,25 @@
-# today - 2026-09-30
+# today - 2026-10-01
 
-本段最新验收：Owner 已接受 `Mission/teamsbook.org/index.md` 用于 staging-preview 准备；仍为 non-authority，未 HTML/build，未进行 Cloudflare staging/deployment。M3 仍受 identity/domain evidence 与 Motion gates 阻塞。
+本段 supersedes 2026-09-30 handoff；完整旧快照保存在 [today archive](days/2026-09-30/today.md)。
 
-本段最新内容状态：Owner 已接受 `Mission/teamsbook.org/index.md` 用于 staging-preview 准备；仍为 non-authority，未构建/发布；覆盖下方旧的路径缺失与未接受状态。
+## Cloudflare delivery
 
-本段最新状态 supersedes 下方旧摘要：Access 意图为全部 verified `@TeraTeams.com` 邮箱（不是具名 Entra group），域归属/claim 未核验；`Mission/teamsbook.org/index.md` 已作为 non-authority Draft 创建，待 Human review，未构建/发布。Zone/Free 仍是 Owner self-attestation，M2/M3 继续 Blocked。
+Owner 报告使用 `bitguts@gmail.com` 登录并确认 `teamsbook.org` Cloudflare account/Zone，且服务已部署和验证。Owner 在本会话确认采用公开 Cloudflare Pages 单页服务：`https://rem.teamsbook.org/<slug>`，无登录或访问控制。实现材料位于 `D:\Codex\projects\rem.teamsbook.org`，部署/验收材料位于 `D:\codex\rem.teamsbook.org`；本次归档于 [Owner-provided evidence](../Mission/evidence/2026-10-01-cloudflare-pages-owner-report.md)。
 
-本段最新内容状态：Owner 已授权起草 REM 工作方法介绍；[Mission/teamsbook.org/index.md](../Mission/teamsbook.org/index.md) 已建立为本地 non-authority Draft，待 Human review，尚未构建/发布。这覆盖下方先前“路径不存在”的记录。
+材料报告 Pages deployment `success`、自定义域名/HTTPS `active`；`/` 与 `/demo` 为 200 且与本地文件一致，`.html` 路径重定向，未知 slug 为 404，5 项 Python tests 与 `rem.py check` 通过。Copilot 在集成浏览器打开了 `/demo`，但未执行完整交互或 Cloudflare API 检查。上述账号、DNS、部署和测试结果来自 Owner 提供的记录，未由 Agent 独立重跑。
 
-本段最新交付决定 supersedes 下方较早摘要：Owner 选择私有静态文件、`rem.teamsbook.org`、Microsoft Entra SSO、共享只读，并允许所有 verified `@TeraTeams.com` 邮箱；这是全域 allow，不是具名 group，域归属/Entra claim 未验证。`Mission/teamsbook.org` 不存在，当前没有可部署内容。Free-only、staging 后 production；M2/M3 仍 Blocked。没有 Cloudflare 登录、API 操作、DNS 变更或部署。
+## Three Motions
 
-日期基线：2026-09-30；时区：China Standard Time (UTC+08:00)；今日=9/30，昨日=9/29，明日=10/1。运行日期与基线冲突先 Andon。
+- **M1 EGO DNS**: `Done`。Owner 接受 canonical record；hostname 为 Owner-confirmed operational，registrar/registrant 仍 unknown。
+- **M2 cf/stack**: `Done`。当前方案为 `cf@1.0.0-beta.9` 管理资源、`wrangler@4.145.0` 执行 Pages Direct Upload；旧 Worker/Access 候选已退休。Owner 确认费用 `0` 且已验证。
+- **M3 delivery**: `Done`。公开 `/slug` 静态 HTML，无 Access/Entra；Owner 接受部署结果。rollback rehearsal 经 Owner 决定不需要，独立运维交接已废止。
 
-本段 Owner 批准 rem bootstrap；workspace=`D:\Github\rem`。现场沿用源会话 Player 已确认 WP-002 / ALAB，只作本段声明，不固化默认 inventory。VSC 1.139.1 / PowerShell 7.6.6 / Python 3.14.0 是本机观察；Profile / Settings Sync 未验证。Copilot 订阅 / Sol-Luna picker 为 Human 声明，非实际双场景运行证明。
+三份 Motion 已完成 `Audit First` History Triage，并由 source retirement 移入 `Repo/days/2026-10-01/Motion/`。`Mission/teamsbook.org/index.md` 仍是 non-authority draft，尚未确认它是线上首页的来源。产品 EVAL A1-A13 不因 Pages 部署而改变。
 
-当前任务：rem bootstrap / 产品 EVAL 继续按现有 Mission 管理；对外交付已定为私有门户/文件、hostname `rem.teamsbook.org`、Microsoft Entra SSO、共享只读/no-upload/no-per-user-ACL、Free-only，先 staging 后 production。M1 EGO/DNS 根域和 hostname 均为 `target / unverified`；Owner 报告 full Zone/control 与 Free entitlement 已确认但未独立核验。允许 Entra group 名称未提供；所给 `Mission/teamsbook.org` 路径不存在，暂无可部署内容。M2 候选 Worker Static Assets + hostname-based Access 已被 Owner 接受，C3 pass、C4 blocked；M3 仍 Blocked。样例依赖 high advisory 不自动修复、不带入 rem。细节见 Mission/Audit/2026-09-30-ego-dns-registry.md 与 Mission/Audit/2026-09-30-cf-cli-stack-m2.md。未登录 Cloudflare、未调用 account/resource API、未改 DNS、未部署、未采购或变更预算；产品 A1-A13 与 Human acceptance 不变。
+## Runtime and worktree
+
+日期基线：2026-10-01；时区：China Standard Time (UTC+08:00)。唯一 Primary 仍为 `Story-rem`，`selected_method=null`。
+
+Git 检查时 `main` 与 `origin/main` 同步；已存在的 `Repo/shape/TeamsPage/README.md` 修改和未跟踪 `MPS-260930S3004-rem-instance-rem.html` 均保留原样，不宣称 worktree clean。
+
+最终 `python scripts/verify.py`：`structure=pass`、`failures=[]`；`human_review`、`runtime_models`、`role_alignment` 均为 `not_run`。未登录 Cloudflare，未调用 account/resource API，未改 DNS，未部署或采购。

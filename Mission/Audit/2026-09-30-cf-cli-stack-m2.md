@@ -3,7 +3,8 @@
 > **Date**: 2026-09-30
 > **Owner**: yangjun / bitguts
 > **Status**: Blocked after public capability review and bounded local validation
-> **Source Motion**: [motion-cf-cli-stack-decision](../../Repo/shape/Motion/motion-cf-cli-stack-decision-2026-09-30.md)
+> **Source Motion**: [motion-cf-cli-stack-decision](../../Repo/days/2026-10-01/Motion/motion-cf-cli-stack-decision-2026-09-30.md)
+> **Current closeout**: This is the 2026-09-30 historical M2 snapshot. The accepted Pages implementation and `Done` decision are recorded in [2026-10-01 closeout Audit](2026-10-01-cloudflare-motions-followup.md).
 > **Source Status at Runtime Approval**: Draft
 > **Runtime Approval**: Owner instruction in the current conversation to split and execute sequentially; bounded to public documentation/package checks and pinned, unauthenticated local CLI smoke
 
@@ -40,7 +41,7 @@
 
 **Subsequent content decision**: Owner authorized local content creation and later accepted [Mission/teamsbook.org/index.md](../teamsbook.org/index.md) for staging-preview preparation. It remains a non-authority draft; no HTML build, Cloudflare staging or publication occurred.
 
-The bounded toolchain smoke supports using the official `cf` CLI as the candidate API tool, pinned to the tested beta version for any later approved experiment. The isolated generic sample verified typed-config generation, local build and the direct no-auth dry-run path, but npm reported a high-severity transitive dependency advisory. Owner accepted Worker Static Assets plus hostname-based Access for private portal/files at `rem.teamsbook.org`, Microsoft Entra SSO, shared read-only files, and an allow rule for any verified `@TeraTeams.com` email. The [capability matrix](../../Repo/shape/cloudflare-capability-matrix-2026-09-30.md) records that this is domain-wide, not a named group.
+The bounded toolchain smoke supports using the official `cf` CLI as the candidate API tool, pinned to the tested beta version for any later approved experiment. The isolated generic sample verified typed-config generation, local build and the direct no-auth dry-run path, but npm reported a high-severity transitive dependency advisory. Owner accepted Worker Static Assets plus hostname-based Access for private portal/files at `rem.teamsbook.org`, Microsoft Entra SSO, shared read-only files, and an allow rule for any verified `@TeraTeams.com` email. The [capability matrix](../../Repo/days/2026-09-30/cloudflare-capability-matrix.md) records that this is domain-wide, not a named group.
 
 Owner selected Free-only and staging->production and reports Zone/control and Free entitlement verified; these remain self-attestations, not independent account observations. Domain ownership/Entra claim mapping for `@TeraTeams.com`, acceptance of the content draft, any additional files, and rollback boundaries remain unresolved or unverified. Resource-level rem config/build and all account operations remain `not_run`.
 

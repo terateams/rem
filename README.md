@@ -23,7 +23,7 @@ python scripts/verify.py
 python scripts/mirror.py --request Mission/Requests/bootstrap.toml --approved-by bitguts --approval-evidence Mission/Audit/2026-09-30-bootstrap.md --content-reviewed
 ```
 
-`--content-reviewed` 只能在 Human / Agent 已按授权完成 no-secret 审查后使用，不赋予权限。文件组显式声明，保留原始非空行与所有 frozen source bytes；数字、状态和句子均可回查。镜页目录为 [review custody](Repo/shape/teamspage/README.md)。打开 HTML 可离线评审，链接返回原件；内容修改与 Tools 执行回到 VSC / owning workflow。
+`--content-reviewed` 只能在 Human / Agent 已按授权完成 no-secret 审查后使用，不赋予权限。文件组显式声明，保留原始非空行与所有 frozen source bytes；数字、状态和句子均可回查。镜页目录为 [review custody](Repo/shape/TeamsPage/README.md)。打开 HTML 可离线评审，链接返回原件；内容修改与 Tools 执行回到 VSC / owning workflow。
 
 ## 完成边界
 

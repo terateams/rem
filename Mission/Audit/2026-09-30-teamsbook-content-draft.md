@@ -3,7 +3,7 @@
 > **Date**: 2026-09-30
 > **Owner**: yangjun / bitguts
 > **Status**: Accepted for staging-preview preparation; build/publish pending
-> **Source Motion**: [M3 external delivery](../../Repo/shape/Motion/motion-teamsbook-cloudflare-delivery-2026-09-30.md)
+> **Source Motion**: [M3 external delivery](../../Repo/days/2026-10-01/Motion/motion-teamsbook-cloudflare-delivery-2026-09-30.md)
 > **Approval Evidence**: Owner selected “Create new content” and specified “门户内容是: REM工作方法的推广” in the current conversation.
 > **Acceptance Evidence**: Owner current conversation: “审核通过, 批准执行” (2026-09-30), interpreted as acceptance for staging-preview preparation only.
 
