@@ -21,7 +21,7 @@ class RuntimeSnapshotTests(unittest.TestCase):
             "Ego/Working.md": "# Synthetic mode\n",
             "Mission/Story-fixture.md": "# Synthetic commitment\n",
             "Mission/EVAL/fixture.md": "# Synthetic acceptance\n",
-            ".github/copilot-instructions.md": "# Synthetic authority\n",
+            "AGENTS.md": "# Synthetic authority\n",
             "Repo/today.md": "# today - 2026-09-07\n",
             "Repo/now.md": "# now\n2026-09-07\n",
         }
@@ -43,7 +43,7 @@ class RuntimeSnapshotTests(unittest.TestCase):
             "observed_at": "2026-09-07T10:00:00+08:00",
             "baseline_date": "2026-09-07",
             "scope": "synthetic behavior test",
-            "binding": {"mission": "Mission/Story-fixture.md", "eval": "Mission/EVAL/fixture.md", "authority": ".github/copilot-instructions.md"},
+            "binding": {"mission": "Mission/Story-fixture.md", "eval": "Mission/EVAL/fixture.md", "authority": "AGENTS.md"},
             "selected_method": None,
             "permission": {"snapshot_write": True, "approved_by": "fixture-owner", "approval_evidence": "synthetic test grant", "allowed_sources": list(files), "content_reviewed_no_secrets": True},
             "observations": {

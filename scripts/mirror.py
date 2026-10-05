@@ -18,7 +18,7 @@ import mps
 
 REQUIRED = [
     'Ego/Ego-rem.md', 'Ego/EdgeTeam.md', 'Ego/Naming.md', 'Ego/Working.md',
-    '.github/copilot-instructions.md', 'Repo/today.md', 'Repo/now.md',
+    'AGENTS.md', 'Repo/today.md', 'Repo/now.md',
 ]
 SECRET_PATTERN = re.compile(r'github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+|-----BEGIN [A-Z ]*PRIVATE KEY-----')
 
@@ -58,7 +58,7 @@ def build_request(repo: Path, config: dict, actor: str, approval: str, reviewed:
         'verification_route': 'Compare Agent outputs against the bound Mission EVAL and inspect action evidence.',
     }
     for slot in ('summary', 'unknowns.0', 'decision_rights', 'next_action', 'verification_route'):
-        voice[slot] = {'kind': 'rule_marker', 'rule_id': 'rem-mission-review', 'sources': [mission, evaluation, '.github/copilot-instructions.md']}
+        voice[slot] = {'kind': 'rule_marker', 'rule_id': 'rem-mission-review', 'sources': [mission, evaluation, 'AGENTS.md']}
     observations = {
         name: {'source_claims': [], 'Fact': [], 'Claim': [], 'Credence': 'unknown',
                'unknowns': ['No independent EGO observation supplied by this adapter.'], 'delta': []}
@@ -72,7 +72,7 @@ def build_request(repo: Path, config: dict, actor: str, approval: str, reviewed:
         'snapshot': {
             'schema_version': '1.0', 'run_id': f'rem-{uuid.uuid4().hex[:16]}', 'slug': 'rem',
             'baseline_date': baseline.group(1), 'scope': config['scope'],
-            'binding': {'mission': mission, 'eval': evaluation, 'authority': '.github/copilot-instructions.md'},
+            'binding': {'mission': mission, 'eval': evaluation, 'authority': 'AGENTS.md'},
             'selected_method': None,
             'permission': {'snapshot_write': True, 'teamspage_write': True, 'approved_by': actor,
                            'approval_evidence': approval, 'allowed_sources': sources,

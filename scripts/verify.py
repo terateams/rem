@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
-    'README.md', 'AGENTS.md', '.github/copilot-instructions.md',
+    'README.md', 'AGENTS.md',
     'Ego/Ego-rem.md', 'Ego/EdgeTeam.md', 'Ego/Naming.md', 'Ego/Working.md',
     'Mission/Story-rem.md', 'Mission/EVAL/eval-rem-v1.md',
     'Repo/INTENT.md', 'Repo/today.md', 'Repo/now.md', 'Repo/DONE.md',

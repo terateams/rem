@@ -36,7 +36,7 @@ def source_file(repo: Path, relative: str) -> Path:
     require("\\" not in relative, "Use repository-relative POSIX paths")
     path = Path(relative)
     require(not path.is_absolute() and ".." not in path.parts, "Source path escapes repo")
-    require(path.parts[0] in {"Ego", "Mission", "Repo", ".github"}, "Source outside allowlisted surfaces")
+    require(path.parts[0] in {"Ego", "Mission", "Repo", "AGENTS.md"}, "Source outside allowlisted surfaces")
     require(path.suffix == ".md", "Only explicit Markdown sources are supported")
     require(not relative.startswith("Repo/Dojo/"), "Practice output cannot supply authority")
     target = (repo / path).resolve()
@@ -72,7 +72,7 @@ def prepare(repo: Path, payload: dict) -> tuple[str, dict[str, str]]:
     require(isinstance(allowed, list) and all(isinstance(item, str) for item in allowed), "Missing source allowlist")
     binding = payload.get("binding", {})
     require(isinstance(binding, dict), "Missing RAM binding")
-    for name, prefix in (("mission", "Mission/Story-"), ("eval", "Mission/EVAL/"), ("authority", ".github/")):
+    for name, prefix in (("mission", "Mission/Story-"), ("eval", "Mission/EVAL/"), ("authority", "AGENTS.md")):
         require(isinstance(binding.get(name), str) and binding[name].startswith(prefix), f"Missing or invalid {name} binding")
     method = payload.get("selected_method")
     require("selected_method" in payload, "Declare selected_method, including null")

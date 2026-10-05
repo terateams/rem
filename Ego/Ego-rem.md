@@ -3,7 +3,7 @@
 > **Object**: rem EGO
 > **Type**: instance entry
 > **Owner**: yangjun / bitguts
-> **Authority**: [Story](../Mission/Story-rem.md) / [AI仓规](../.github/copilot-instructions.md)
+> **Authority**: [Story](../Mission/Story-rem.md) / [AGENTS](../AGENTS.md)
 > **Status**: active
 > **Version**: 1.0.0
 

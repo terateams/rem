@@ -39,15 +39,15 @@
     },
     {
       "path": ".agents/skills/np0/scripts/runtime_snapshot.py",
-      "sha256": "f2ef669f2e3789ad0b0bcbc6d0d5a2d4369bbf2c57467935adf10585815c0c15",
-      "reason": "Target path adapter accepts Ego/ sources and emits Ego-{slug}.md; canonical NP0 capsule remains unchanged.",
-      "validation": "python .agents/skills/np0/scripts/test_runtime_snapshot.py"
+      "sha256": "7bdf51a24b7b134c140f127ad583efcc18b81636f9dbf3ebb9fdc606bf412f36",
+      "reason": "Target adapter uses the sole AGENTS.md authority binding and canonical Ego/ source paths; canonical NP0 capsule remains unchanged.",
+      "validation": "python .agents/skills/np0/scripts/test_runtime_snapshot.py; python scripts/verify.py"
     },
     {
       "path": ".agents/skills/np0/scripts/test_runtime_snapshot.py",
-      "sha256": "446f60bf249fde7a108c3978fe0a5b78f16ffd3636cdf36ec34523297ff8650a",
-      "reason": "Target runtime snapshot fixtures for the canonical Ego/ path.",
-      "validation": "python .agents/skills/np0/scripts/test_runtime_snapshot.py"
+      "sha256": "6ecc7bdd1045c266ebdb2ca8b6a42765ca3a740a92d16be7320805f6cf98b6eb",
+      "reason": "Target runtime snapshot fixtures for the sole AGENTS.md authority and canonical Ego/ path.",
+      "validation": "python .agents/skills/np0/scripts/test_runtime_snapshot.py; python scripts/verify.py"
     }
   ]
 }
