@@ -2,7 +2,9 @@
 
 > **Date**: 2026-10-05
 > **Owner**: yangjun / bitguts
-> **Status**: Executing
+> **Status**: Executed
+> **Updated**: 2026-10-05
+> **Execution Audit**: [canonical Audit](../../../Mission/Audit/2026-10-05-ego-path-migration.md)
 > **Type**: repository naming / path migration
 > **Service Object**: rem canonical Ego path
 > **Primary Route**: [Story-rem](../../../Mission/Story-rem.md) -> EVAL
@@ -47,3 +49,7 @@
 ## Landing / Rollback
 
 canonical 路径为 `Ego/`；历史事实文字与上游标识不因目录改名重写。若后续需要回退，使用新的反向迁移提交，不 reset、rewrite 或 force-push 既有历史。Human acceptance 与产品 Mission EVAL 不由机器检查推导。
+
+## Execution Result - 2026-10-05
+
+实现、验证与首次 push 结果见 [canonical Audit](../../../Mission/Audit/2026-10-05-ego-path-migration.md)。Commit `c3158d3` 已普通推送到 `main`；Owner acceptance pending，因此 Motion 保持在 working surface，不退休为历史源。
