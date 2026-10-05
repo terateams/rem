@@ -1,6 +1,6 @@
 # Story-rem - T本智能软件V1.0
 
-> **Owner**: yangjun / bitguts
+> **Player**: yangjun / bitguts
 > **Status**: active
 > **Role**: exactly one Primary Mission
 > **EVAL**: [eval-rem-v1](EVAL/eval-rem-v1.md)

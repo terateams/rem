@@ -1,10 +1,10 @@
 # EVAL - rem V1.0
 
-> **Owner**: bitguts
+> **Player**: bitguts
 > **Status**: in-progress
-> **Source**: Owner 已批准的 EGO-T189 rem bootstrap Motion A1-A13；见 [bootstrap](../Audit/2026-09-30-bootstrap.md)
+> **Source**: Player 已批准的 EGO-T189 rem bootstrap Motion A1-A13；见 [bootstrap](../Audit/2026-09-30-bootstrap.md)
 
-## 阶段边界（Owner-approved scope split）
+## 阶段边界（Player-approved scope split）
 
 Owner于2026-09-30当前会话明确“批准一次范围拆分”。bootstrap R1按独立创建/软件基线交付/验证交接清单收口；本EVAL仍持全部A1-A13产品判据，不删除、不降级、不自动通过真实Human/model/task要求。后续工作见 [runtime validation plan](../../Repo/days/2026-09-30/plan-runtime-validation.md)。R1关闭不等于本EVAL完成或V1.0release。
 
@@ -12,7 +12,7 @@ Owner于2026-09-30当前会话明确“批准一次范围拆分”。bootstrap R
 
 | ID | Criterion | Required evidence | Status |
 | --- | --- | --- | --- |
-| A1 | EGO / one Primary / EVAL / RCI / VSC binding | target structure and authority checks | machine_pass / independent VSC startup observed / full behavior pending |
+| A1 | EGO / one Primary / EVAL / RA仓规 / VSC binding | target structure and authority checks | machine_pass / independent VSC startup observed / full behavior pending |
 | A2 | independent target, no T189 / CRAFTS active dependency | allowlist / pins / dependency / negative probes | machine_pass |
 | A3 | explicit group, revision/hash/dirty/scope/omissions | target adapter and negative tests | machine_pass |
 | A4 | built-in offline HTML Mirror Page, rebuild/freshness/voice/ID | actual target artifact + validator | machine_pass / Human review separate |
@@ -26,7 +26,7 @@ Owner于2026-09-30当前会话明确“批准一次范围拆分”。bootstrap R
 | A12 | Human source revision + authorized Tools action | real diff / tool result / permission / new snapshot / task EVAL | authorized Agent local_tool_pass / actual Human task loop pending |
 | A13 | Luna bounded maintenance + Mission regression | actual Luna work, approved change / tests / handoff | not_run |
 
-Owner 声明本机订阅有效且 picker 两者可选；该声明只覆盖 entitlement / visibility observation，不证明 Sol/Luna 两场景已跑。单人 Owner 不虚构第二 Human；软件 tests 不代替 A5/A8/A10/A11/A13。
+Player 声明本机订阅有效且 picker 两者可选；该声明只覆盖 entitlement / visibility observation，不证明 Sol/Luna 两场景已跑。单人 Player 不虚构第二 Human；软件 tests 不代替 A5/A8/A10/A11/A13。
 
 机器检查命令与结果见 [bootstrap Audit](../Audit/2026-09-30-bootstrap.md)。原样文件pins与adapter测试的通过只证明其具体slice，绝不把所有验收项改成pass。
 

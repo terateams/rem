@@ -1,6 +1,6 @@
 #!/bin/sh
 # RA仓规 check. Run from the repository root: sh scripts/ra-check.sh
-RA_VERSION=0.6.1
+RA_VERSION=0.6.5
 fail=0
 err() { echo "FAIL: $1"; fail=1; }
 
@@ -36,6 +36,13 @@ if [ -d .agents/skills ]; then
     [ "${#desc}" -le 1024 ] || err "$s: description is longer than 1024 characters"
   done
 fi
+
+# Rule 13: the rule source exists
+[ -f Ego/RAP.md ] || err "Ego/RAP.md is missing"
+
+# Rule 8: SKILL.md only in .agents/skills (AgentSkill) and Ego/TeamSkill (TeamSkill note)
+stray=$(find . \( -path ./.git -o -path ./node_modules -o -path ./.agents/skills -o -path ./Ego/TeamSkill \) -prune -o -name SKILL.md -print)
+[ -z "$stray" ] || err "SKILL.md outside .agents/skills and Ego/TeamSkill: $stray"
 
 [ "$fail" -eq 0 ] && echo "RA仓规 $RA_VERSION: OK"
 exit "$fail"

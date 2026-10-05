@@ -1,6 +1,6 @@
 # rem Skill Deployment / Provenance
 
-Source=`terateams/EGO-T189` commit `70090b756d2c4f4e75912ec9f3ede2ff3e8cc0a0`。Owner 在当前会话批准 target architecture / creation / initial commit-push，明确 Private、独立新历史、D:\Github\rem、TeraTeams持有、bitguts Owner、授权材料/必要证据保留与org默认访问。
+Source=`terateams/EGO-T189` commit `70090b756d2c4f4e75912ec9f3ede2ff3e8cc0a0`。Player 在当前会话批准 target architecture / creation / initial commit-push，明确 Private、独立新历史、D:\Github\rem、TeraTeams持有、bitguts Player、授权材料/必要证据保留与org默认访问。
 
 ## 能力清单
 
@@ -8,10 +8,10 @@ Source=`terateams/EGO-T189` commit `70090b756d2c4f4e75912ec9f3ede2ff3e8cc0a0`。
 |---|---|---|---|---|---|
 | Narrative / naming / bounded action | np0 | adapt-for-target | source package + unchanged canonical capsule | target wrapper / binding，capsule hash parity、generic snapshot tests | target baseline；上游公理改动另 gate |
 | startup / pause | rem-ready | adapt-for-target | source skill workflow / complete REM | no T189 defaults；实际日期/git/cursor/permission核验 | 不覆盖未知游标；sync/config另 gate |
-| Motion lifecycle | motioner | adapt-for-target | source Motion Lifecycle semantics | finite statuses / runtime approval / landing / retirement，target wrapper | canonical trace留存，非显然 admission Owner |
+| Motion lifecycle | motioner | adapt-for-target | source Motion Lifecycle semantics | finite statuses / runtime approval / landing / retirement，target wrapper | canonical trace留存，非显然 admission Player |
 | maintenance / feedback | looper | adapt-for-target | source portable maintenance contract | target report-first / no CRAFTS resolver / bounded fixes | rollback source pin；authority/external/cost另 gate |
 | built-in Mirror Page | teamspage | adapt-for-target | generic MPS original engine / runtime contract | explicit Mission-group adapter / all selected source lines / voice/provenance / rebuild/freshness | fixed engine pin；new snapshot不覆盖，source不写回 |
-| subscription / two workloads | Human + VSC/Copilot | target configuration, no new Skill | Owner declaration / runtime gates | Sol Mission；Luna self；actual runs not inferred | no automated picker/billing change；fallback另批 |
+| subscription / two workloads | Human + VSC/Copilot | target configuration, no new Skill | Player declaration / runtime gates | Sol Mission；Luna self；actual runs not inferred | no automated picker/billing change；fallback另批 |
 | task actions / Tools evidence | Human/generic Agent + deterministic tools | target capability binding | approved scope / Mission/EVAL | actual verify tool evidence、source changes、new snapshot；真实任务验收另判 | no unapproved cloud or irreversible action |
 
 identity_gap_count=0 identified；Skill adaptation_work_count=5；provider_route_count=0 installed；Human gate groups=2；deterministic tool groups=4。Five packages不是完整技能行为benchmark；静态metadata/discovery、target runtime smoke和negative fixtures必须分别说明局限。

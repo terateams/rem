@@ -2,13 +2,13 @@
 
 ## Latest Handoff - 2026-10-02
 
-Owner 请求“start using the Copilot harness for this VSC”。本次按 `rem-ready` 完成启动检查；Owner 在本会话批准日期刷新，并已先将完整 2026-10-01 `Repo/today.md` 保存至 [前日快照](days/2026-10-01/today.md)。刷新仅涉及 `Repo/today.md`、本 handoff 与该快照。
+Player 请求“start using the Copilot harness for this VSC”。本次按 `rem-ready` 完成启动检查；Player 在本会话批准日期刷新，并已先将完整 2026-10-01 `Repo/today.md` 保存至 [前日快照](days/2026-10-01/today.md)。刷新仅涉及 `Repo/today.md`、本 handoff 与该快照。
 
 ## Mission Binding
 
 - 唯一 Primary=`Story-rem`；EVAL=`eval-rem-v1`；Secondary=0；`selected_method=null`。
 - `python scripts/verify.py` 为 `structure=pass`、`failures=[]`；Human review、runtime models、role alignment 均为 `not_run`。
-- 当前只有 startup 请求，没有指定首个真实 runtime-validation task。依 [INTENT](INTENT.md)，开始 Sol/Luna workload、真实任务、外部 Tools 或新的并行 WIP 前，需由 Owner 明确 task binding 与 runtime/action permission、cost、stop rule。
+- 当前只有 startup 请求，没有指定首个真实 runtime-validation task。依 [INTENT](INTENT.md)，开始 Sol/Luna workload、真实任务、外部 Tools 或新的并行 WIP 前，需由 Player 明确 task binding 与 runtime/action permission、cost、stop rule。
 
 ## VSC and Repository State
 
@@ -20,4 +20,4 @@ Owner 请求“start using the Copilot harness for this VSC”。本次按 `rem-
 
 ## Next Entry
 
-等待 Owner 指定首个 bounded task 及其 evidence、runtime/action permission、cost 和 stop rule。未获授权前不自动选择模型、不做外部或付费操作，也不把 picker/结构检查视为真实 workload 或 Human acceptance。
+等待 Player 指定首个 bounded task 及其 evidence、runtime/action permission、cost 和 stop rule。未获授权前不自动选择模型、不做外部或付费操作，也不把 picker/结构检查视为真实 workload 或 Human acceptance。

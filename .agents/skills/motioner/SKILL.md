@@ -8,7 +8,7 @@ metadata:
 
 # rem Motion operator
 
-Motion=`Repo/Motion/motion-{slug}-{YYYY-MM-DD}.md`。header含Date/Owner/Status/Type/Service Object/Primary Route/Source Request，正文含问题、裁决、scope/out-of-scope、执行、验收、landing/consumer audit/rollback。
+Motion=`Repo/Motion/motion-{slug}-{YYYY-MM-DD}.md`。header含Date/Player/Status/Type/Service Object/Primary Route/Source Request，正文含问题、裁决、scope/out-of-scope、执行、验收、landing/consumer audit/rollback。
 
 finite Status：Draft、Approved、Executing、Blocked、Executed、Done、Withdrawn、Rejected、Superseded。R1/R2/R3是round，不是Status。Draft无批准只审阅；当前对话显式approval可以执行approved scope，Audit记录source仍Draft与runtime approval，不静默改为Approved冒充durable evidence。
 

@@ -1,0 +1,659 @@
+<title>RA仓规 · rap-teamspage</title>
+<style>
+/* Layout: one reading column. Scope, rules, figures, Init, audit, skills, costs, shaping, evidence. */
+:root {
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --fg: #1b2127;
+  --muted: #56616b;
+  --line: #d6dce1;
+  --accent: #1f5f8b;
+  --accent-bg: #e1eef7;
+  --ok: #1a7f4b;
+  --ok-bg: #e3f3ea;
+  --warn: #8f5500;
+  --warn-bg: #fbeed5;
+  --bad: #b3261e;
+  --bad-bg: #fbe4e2;
+  --code-bg: #eceff2;
+  --font-body: "IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14181c; --surface: #1c2227; --fg: #e6eaee; --muted: #9aa5af; --line: #2d363d;
+    --accent: #6db3e3; --accent-bg: #172733; --ok: #5fcf92; --ok-bg: #153325;
+    --warn: #e8b55c; --warn-bg: #3a2c10; --bad: #f08a82; --bad-bg: #3d1c1a; --code-bg: #262d33;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14181c; --surface: #1c2227; --fg: #e6eaee; --muted: #9aa5af; --line: #2d363d;
+  --accent: #6db3e3; --accent-bg: #172733; --ok: #5fcf92; --ok-bg: #153325;
+  --warn: #e8b55c; --warn-bg: #3a2c10; --bad: #f08a82; --bad-bg: #3d1c1a; --code-bg: #262d33;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.7; padding-inline: 16px; padding-block: 32px 56px; }
+main { max-width: 880px; margin-inline: auto; display: flex; flex-direction: column; gap: 40px; }
+section { min-width: 0; }
+h1 { font-size: 1.8rem; line-height: 1.3; margin: 0 0 4px; font-weight: 600; text-wrap: balance; }
+h2 { font-size: 1.15rem; margin: 0 0 12px; font-weight: 600; text-wrap: balance; }
+p { margin: 0 0 10px; }
+.sub { font-size: 1rem; color: var(--accent); font-weight: 500; margin: 0 0 8px; }
+.lede { color: var(--muted); max-width: 65ch; margin: 0; }
+code { font-family: var(--font-mono); font-size: 0.86em; background: var(--code-bg); padding: 1px 6px; border-radius: 3px; overflow-wrap: anywhere; }
+a { color: var(--accent); }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 720px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+th { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--muted); font-weight: 500; background: var(--code-bg); }
+tr:last-child td { border-bottom: 0; }
+td.n { width: 2.5em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tag { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0 7px; border-radius: 3px; white-space: nowrap; }
+.tag.ok { color: var(--ok); background: var(--ok-bg); }
+.tag.warn { color: var(--warn); background: var(--warn-bg); }
+.tag.bad { color: var(--bad); background: var(--bad-bg); }
+.tag.own { color: var(--accent); background: var(--accent-bg); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; }
+.box ol, .box ul { margin: 0; padding-left: 1.3em; }
+.box li { margin-bottom: 8px; }
+.box li:last-child { margin-bottom: 0; }
+figure { margin: 14px 0 0; }
+figure svg { display: block; width: 100%; max-width: 720px; height: auto; color: var(--fg); }
+figcaption { color: var(--muted); font-size: 0.88rem; margin-top: 8px; max-width: 70ch; }
+.fig-box { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px; overflow-x: auto; }
+svg .box-s { fill: var(--surface); stroke: currentColor; stroke-width: 1.5; }
+svg .box-key { fill: var(--accent-bg); stroke: var(--accent); stroke-width: 2; }
+svg .box-dash { fill: var(--surface); stroke: currentColor; stroke-width: 1.5; stroke-dasharray: 6 4; }
+svg .box-bad { fill: var(--bad-bg); stroke: var(--bad); stroke-width: 1.5; }
+svg .edge { stroke: currentColor; stroke-width: 1.5; fill: none; }
+svg .edge-key { stroke: var(--accent); stroke-width: 2; fill: none; }
+svg .edge-dash { stroke: currentColor; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+svg .edge-bad { stroke: var(--bad); stroke-width: 1.5; fill: none; }
+svg text { fill: currentColor; font-family: var(--font-body); font-size: 13px; }
+svg .mono { font-family: var(--font-mono); font-size: 13px; font-weight: 500; }
+svg .small { font-size: 11.5px; fill: var(--muted); }
+svg .lbl { font-size: 11.5px; fill: var(--muted); }
+pre { margin: 0; padding: 14px 16px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; tab-size: 4; }
+.codelabel { font-size: 0.85rem; color: var(--muted); margin: 14px 0 6px; }
+ol.steps { margin: 0; padding-left: 1.4em; }
+ol.steps li { margin-bottom: 12px; }
+.muted { color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<main>
+  <header>
+    <h1>RA仓规</h1>
+    <p class="sub">RA = Rem Agent</p>
+    <p class="lede">RA仓规 tells SI agents how to work in a REM repository. 本页给人读；给 SI 读的规则只在仓库根目录的 <code>AGENTS.md</code>；规则的源头是 <code>Ego/RAP.md</code>。本页是它的影页（Narrative Page）：叙事不是事实，两者不一致以 RAP 为准。</p>
+    <div class="scroll" style="margin-top:14px">
+      <table style="min-width:560px">
+        <tbody>
+          <tr>
+            <td><strong>服务对象<br>Serves</strong></td>
+            <td>The REM repository <a href="https://github.com/terateams/rem">terateams/rem</a>. REM (REM工作法) = Repo × EGO × Mission. Repo (仓库) holds the files and the evidence. EGO (责任主体) holds who is responsible, how they work, and the skills. Mission (任务) holds the goal and its EVAL (验收标准).</td>
+            <td>Sources: <a href="https://github.com/terateams/rem/blob/df022f4/README.md">README</a>, <a href="https://github.com/terateams/rem/blob/df022f4/Ego/Ego-rem.md">EGO-rem</a>, <a href="https://github.com/terateams/rem/blob/df022f4/Mission/Story-rem.md">Story-rem</a>. The repository says: EGO, Mission, and Repo make a complete REM.</td>
+          </tr>
+          <tr>
+            <td><strong>读者<br>Readers</strong></td>
+            <td>Two groups. Business people (商务人士) read this page, decide, and run the acceptance test. SI agents follow <code>AGENTS.md</code>. They do not need this page. People who work in the repository read <code>Ego/RAP.md</code> (RAP = Rem Agent Protocol), the short human note.</td>
+            <td><span class="tag own">Player</span> The two groups. <span class="tag warn">SI</span> The split: this page and <code>Ego/RAP.md</code> for people, <code>AGENTS.md</code> for SI. File names are in English.</td>
+          </tr>
+          <tr>
+            <td><strong>叙事方式<br>Narrative</strong></td>
+            <td>Answer first (结论先行). Each section starts with the rule or the result. The reason and the source follow. One sentence holds one idea. A figure shows how a rule reaches a tool.</td>
+            <td><span class="tag own">Player</span> ASD-STE100, Chinese key terms, a source for every conclusion. <span class="tag warn">SI</span> Answer first.</td>
+          </tr>
+          <tr>
+            <td><strong>时效<br>Freshness</strong></td>
+            <td>2026-10-05. Facts checked on this date: VS Code 1.140 (2026-09-30), Codex 26.930.31730 (2026-10-03), repository commit <code>df022f4</code> (2026-10-05). Check again when one of them changes.</td>
+            <td><a href="https://code.visualstudio.com/updates">VS Code release notes</a>, <span class="tag own">Player</span> Codex version, <a href="https://github.com/terateams/rem/commit/df022f4">commit</a>. The word "Freshness" is the one the REM repository uses: <a href="https://github.com/terateams/rem/blob/596ce1a/.github/copilot-instructions.md">AI仓规 header</a>.</td>
+          </tr>
+          <tr>
+            <td><strong>版本<br>Version</strong></td>
+            <td><span class="tag ok">Version 0.6.5</span> <span class="tag ok">Build 20261005.19</span> <span class="tag warn">Draft（草案）</span> The rules for numbers are in "Version and build".</td>
+            <td><span class="tag warn">SI</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </header>
+
+  <section>
+    <h2>影页信息（Narrative Page header）</h2>
+    <div class="scroll">
+      <table style="min-width:560px">
+        <tbody>
+          <tr><td><strong>类型</strong></td><td>Narrative Page（影页）。叙事不是事实。non-authority, no-writeback. 它是 <code>Ego/RAP.md</code> 的影页。</td></tr>
+          <tr><td><strong>来源文件</strong></td><td><code>Ego/RAP.md</code> (0.6.5), <code>AGENTS.md</code>, <code>scripts/ra-check.sh</code>, <code>.github/workflows/ra-check.yml</code>, <code>Ego/Naming.md</code>.</td></tr>
+          <tr><td><strong>提交</strong></td><td>Base commit <code>df022f4</code>. The files <code>Ego/RAP.md</code> and the new <code>AGENTS.md</code> are not committed yet. Write the new commit hash here after they land.</td></tr>
+          <tr><td><strong>生成</strong></td><td>Claude (<code>claude-sonnet-5-5</code>) in a Claude Code session, 2026-10-05. Not generated by VS Code Copilot or Codex.</td></tr>
+          <tr><td><strong>过期</strong></td><td>This page is stale when a source file changes. The source wins.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>如何读来源（How to read sources）</h2>
+    <div class="box">
+      <ul>
+        <li>A link is a vendor document, a changelog, or an issue report. It supports the statement.</li>
+        <li><span class="tag own">Player</span> means the Player decided it. No source is needed.</li>
+        <li><span class="tag warn">SI</span> means SI proposes it. No vendor document requires it. SI (Super Intelligence) is the word this page uses for every AI model born after 2026-06. In this page, "I" is SI and "you" is the Player (行动者，选手): the one who acts, decides, and owns the repository. Today the Player is mostly a human. This page has no separate Owner role.</li>
+        <li><span class="tag bad">Not verified</span> means I found no source.</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>范围（Scope）</h2>
+    <div class="box">
+      <ul>
+        <li>RA仓规 is the rule set for SI agents in one repository. It tells agents how to work in that repository. It does not describe the REM method itself.</li>
+        <li>REM is a working method (工作法). The Player describes the repository as: "T本智能软件V1.0: NP0 + complete REM collaboration, Mission EVAL, role alignment and built-in HTML Mirror Pages." <span class="tag own">Player</span> Repository: <a href="https://github.com/terateams/rem">terateams/rem</a>.</li>
+        <li>REM is in progress (正在完善中). The rules in <code>AGENTS.md</code> will change often. <span class="tag own">Player</span></li>
+        <li>Workbench (工作台): VS Code with Copilot and Codex only. Claude Code is out of scope for now. <span class="tag own">Player</span> The aim is to focus on the RA仓规 implementation.</li>
+        <li>REM is a method and a template (模板). RA仓规 leads REM (RA仓规领先REM): the work on RA仓规 improves REM. Where REM and RA仓规 differ, REM changes. After <code>Ego/RAP.md</code> lands in the repository, RAP is the source and this page follows it. <span class="tag own">Player</span></li>
+        <li>In scope: Copilot in VS Code, GitHub Copilot Enterprise, Codex.</li>
+        <li>Out of scope: Claude Code, Visual Studio, JetBrains, Xcode, Eclipse, other tools. Operating system details (Windows, macOS, Linux) are also out of scope. <span class="tag own">Player</span></li>
+        <li>REM serves business users (商务), not programmers. RA仓规 does not cover programming scenes: code review, the Copilot CLI, build tools. <span class="tag own">Player</span></li>
+        <li>I read the repository on 2026-10-05 (commit df022f4). I could not see your local, uncommitted changes. See section "审计（Audit）".</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>规则（Rules）</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>#</th><th>规则（Rule）</th><th>来源（Source）</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="n">1</td>
+            <td><code>AGENTS.md</code> in the repository root is the only instruction file. (唯一的指令文件。)</td>
+            <td><span class="tag own">Player</span> Every tool in scope reads it: <a href="https://code.visualstudio.com/docs/agent-customization/custom-instructions">VS Code</a>, <a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md.md">Codex</a>, <a href="https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/">cloud agent</a>.</td>
+          </tr>
+          <tr>
+            <td class="n">2</td>
+            <td>Do not keep these files: <code>.github/copilot-instructions.md</code>, <code>.github/instructions/</code>.</td>
+            <td><span class="tag own">Player</span> One file means one source of truth. Both files are Copilot files: <a href="https://docs.github.com/en/copilot/reference/custom-instructions-support">support matrix</a>.</td>
+          </tr>
+          <tr>
+            <td class="n">3</td>
+            <td>Do not use nested <code>AGENTS.md</code> files. Use one root file.</td>
+            <td>Nested files are experimental and off by default in VS Code: <a href="https://code.visualstudio.com/docs/agent-customization/custom-instructions">docs</a>.</td>
+          </tr>
+          <tr>
+            <td class="n">4</td>
+            <td>Copilot organization instructions (组织级指令) hold rules for the whole organization. They do not hold REM rules.</td>
+            <td><span class="tag own">Player</span> They have the lowest priority: <a href="https://docs.github.com/en/copilot/concepts/prompting/response-customization">GitHub docs</a>. They apply to github.com surfaces: <a href="https://github.blog/changelog/2026-04-02-copilot-organization-custom-instructions-are-generally-available/">changelog</a>.</td>
+          </tr>
+          <tr>
+            <td class="n">5</td>
+            <td>An instruction is advice. A hook is enforcement (指令是建议，钩子才是执法). Put hard safety rules in hooks (钩子) or CI gates (持续集成门禁). Do not rely on <code>AGENTS.md</code> for them. Hard safety rules protect credentials (凭证) and stop destructive actions (破坏性操作).</td>
+            <td>Copilot hooks are <code>.github/hooks/*.json</code>: <a href="https://docs.github.com/en/copilot/reference/customization-cheat-sheet">cheat sheet</a>. A model can forget an instruction when the context is large: <span class="tag warn">SI</span>. A hook is not an instruction file, so it does not break Rule 1.</td>
+          </tr>
+          <tr>
+            <td class="n">6</td>
+            <td>Use Codex version 26.930.31730 or later.</td>
+            <td>Codex 26.930.31730, released 2026-10-03: <span class="tag own">Player</span>.</td>
+          </tr>
+          <tr>
+            <td class="n">7</td>
+            <td>Start with no skills (技能). Add one when a REM step repeats and needs a script or a template.</td>
+            <td><span class="tag warn">SI</span> Build the smallest working version first.</td>
+          </tr>
+          <tr>
+            <td class="n">8</td>
+            <td>Put each skill (AgentSkill) in <code>.agents/skills/&lt;name&gt;/SKILL.md</code>. Do not make other skill folders. One exception: <code>Ego/TeamSkill/&lt;name&gt;/SKILL.md</code> is a REM TeamSkill note, not a skill. Allow no other <code>SKILL.md</code>.</td>
+            <td>Both tools in scope read <code>.agents/skills/</code>. See the table in "Skills". REM itself separates a TeamSkill (<code>Ego/TeamSkill/</code>) from a production skill (<a href="https://github.com/terateams/rem/blob/df022f4/Ego/TeamSkill/TeamSkill.md">TeamSkill.md</a>), and the pinned code <code>mps.py</code> names the path. <span class="tag warn">SI</span> The exception. No document lists <code>Ego/</code> as a scan path.</td>
+          </tr>
+          <tr>
+            <td class="n">9</td>
+            <td>Write each skill <code>description</code> in at most 1024 characters. State what the skill does (功能), when to run it (触发条件), and when NOT to run it (排除条件). The <code>name</code> must match the folder name.</td>
+            <td>Limit, name rule, and loading: <a href="https://code.visualstudio.com/docs/agent-customization/agent-skills">VS Code agent skills</a>. Trigger words first: <a href="https://learn.chatgpt.com/docs/build-skills">Codex skills</a>. The exclusion part: <span class="tag warn">SI</span>.</td>
+          </tr>
+          <tr>
+            <td class="n">10</td>
+            <td>Run every acceptance test in VS Code first, then in Codex.</td>
+            <td><span class="tag own">Player</span> VS Code 1.140 is the stable build on 2026-09-30: <a href="https://code.visualstudio.com/updates">release notes</a>.</td>
+          </tr>
+          <tr>
+            <td class="n">11</td>
+            <td>The script <code>ra-check</code> must pass before every merge. Run it in CI.</td>
+            <td><span class="tag warn">SI</span> It applies Rule 5 to this specification. See "Init".</td>
+          </tr>
+          <tr>
+            <td class="n">12</td>
+            <td>Create every new REM repository from the RA template. This deploys RA仓规 at creation (Init).</td>
+            <td><span class="tag own">Player</span> A repository made from a template gets the template files and one initial commit: <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">GitHub docs</a>.</td>
+          </tr>
+          <tr>
+            <td class="n">13</td>
+            <td>Write <code>AGENTS.md</code> for SI first: hard limits first, runtime notes last. The source of all rules is <code>Ego/RAP.md</code> (RAP = Rem Agent Protocol). This page is a Narrative Page (影页) of RAP. If they differ, RAP wins. RAP grants no authority. All file names are in English.</td>
+            <td><span class="tag own">Player</span> <code>AGENTS.md</code> is for SI. RAP is the source of the rules. File names are English. <span class="tag warn">SI</span> The order of the sections. <code>ra-check</code> checks only that <code>Ego/RAP.md</code> exists. A person checks the order of the sections.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>文件名（File names）</h2>
+    <p>RA = Rem Agent. <span class="tag own">Player</span> The word 仓规 is not part of "RA". "RA仓规" as a whole is the name of this rule set.</p>
+    <div class="scroll">
+      <table style="min-width:600px">
+        <thead><tr><th>名称（Name）</th><th>意义（Meaning）</th><th>读者（Reader）</th></tr></thead>
+        <tbody>
+          <tr><td>RA仓规</td><td>The rule set. This page is its specification.</td><td>Player</td></tr>
+          <tr><td><code>AGENTS.md</code></td><td>The only instruction file, in the repository root.</td><td>SI</td></tr>
+          <tr><td><code>Ego/RAP.md</code></td><td>RAP = Rem Agent Protocol. The source of the 13 rules, inside the repository. It is not a fourth part of REM.</td><td>Player</td></tr>
+          <tr><td><code>scripts/ra-check.sh</code></td><td>The static check.</td><td>CI, Player</td></tr>
+          <tr><td><code>Repo/TeamsPage/rap-teamspage.html</code></td><td>This page. A Narrative Page (影页) of <code>Ego/RAP.md</code>. It is not a source. The header names the sources, the commit, the tool, and the date. It works offline: no external script or font. The upstream copy is the Claude artifact.</td><td>Player</td></tr>
+          <tr><td><code>.github/workflows/ra-check.yml</code></td><td>The CI gate that runs the check.</td><td>CI</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>图 1：规则如何到达各工具</h2>
+    <figure>
+      <div class="fig-box">
+        <svg viewBox="0 0 720 340" role="img" aria-label="AGENTS.md is read by Copilot in VS Code, Codex, and by the cloud agent on github.com. Organization instructions apply to Copilot Chat and the cloud agent on github.com.">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+            </marker>
+            <marker id="arrk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" style="fill:var(--accent)"/>
+            </marker>
+          </defs>
+          <rect class="box-key" x="20" y="70" width="200" height="70" rx="4"/>
+          <text class="mono" x="120" y="100" text-anchor="middle">AGENTS.md</text>
+          <text class="small" x="120" y="120" text-anchor="middle">agent rules, repo root</text>
+
+          <rect class="box-s" x="20" y="250" width="200" height="70" rx="4"/>
+          <text x="120" y="280" text-anchor="middle">Organization instructions</text>
+          <text class="small" x="120" y="300" text-anchor="middle">rules for the whole organization</text>
+
+          <rect class="box-s" x="480" y="20" width="220" height="56" rx="4"/>
+          <text x="590" y="44" text-anchor="middle">Copilot in VS Code</text>
+          <text class="small" x="590" y="63" text-anchor="middle">1.140</text>
+
+          <rect class="box-s" x="480" y="100" width="220" height="56" rx="4"/>
+          <text x="590" y="124" text-anchor="middle">Codex</text>
+          <text class="small" x="590" y="143" text-anchor="middle">max 32 KiB total</text>
+
+          <rect class="box-s" x="480" y="260" width="220" height="64" rx="4"/>
+          <text x="590" y="284" text-anchor="middle">github.com</text>
+          <text class="small" x="590" y="303" text-anchor="middle">Chat · cloud agent</text>
+
+          <line class="edge-key" x1="220" y1="85" x2="478" y2="48" marker-end="url(#arrk)"/>
+          <text class="lbl" x="330" y="58">reads</text>
+          <line class="edge-key" x1="220" y1="100" x2="478" y2="128" marker-end="url(#arrk)"/>
+          <text class="lbl" x="330" y="106">reads</text>
+          <line class="edge-key" x1="220" y1="132" x2="478" y2="272" marker-end="url(#arrk)"/>
+          <text class="lbl" x="330" y="232">reads (not Chat)</text>
+          <line class="edge" x1="220" y1="290" x2="478" y2="300" marker-end="url(#arr)"/>
+          <text class="lbl" x="300" y="318">applies</text>
+        </svg>
+      </div>
+      <figcaption>Blue arrows carry the agent rules. Every tool in scope reads <code>AGENTS.md</code> directly. No second file exists. Sources: the links in Rule 1, and the <a href="https://docs.github.com/en/copilot/reference/custom-instructions-support">GitHub support matrix</a> for "not Chat".</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Init：创建时部署（Make）</h2>
+    <p>Init (初始化) is the method that deploys RA仓规 when a REM repository is created. <span class="tag own">Player</span> Your word for it is "make". Init covers creation only. RA仓规 has no migration tool for old repositories.</p>
+    <figure>
+      <div class="fig-box">
+        <svg viewBox="0 0 740 250" role="img" aria-label="Init in 5 steps: the template repository terateams/rem holds the kit. Use this template makes a new REM repository. The ra-check workflow runs. The Player fills AGENTS.md. The acceptance test runs in VS Code, then in Codex. Organization instructions are set once for the organization.">
+          <defs>
+            <marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+            </marker>
+            <marker id="a4k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" style="fill:var(--accent)"/>
+            </marker>
+          </defs>
+          <rect class="box-key" x="10" y="40" width="120" height="80" rx="4"/>
+          <text x="70" y="72" text-anchor="middle">1 Template</text>
+          <text class="small" x="70" y="94" text-anchor="middle">terateams/rem</text>
+          <text class="small" x="70" y="110" text-anchor="middle">with the kit</text>
+
+          <rect class="box-s" x="160" y="40" width="120" height="80" rx="4"/>
+          <text x="220" y="72" text-anchor="middle">2 Create</text>
+          <text class="small" x="220" y="94" text-anchor="middle">Use this template</text>
+          <text class="small" x="220" y="110" text-anchor="middle">new REM repo</text>
+
+          <rect class="box-s" x="310" y="40" width="120" height="80" rx="4"/>
+          <text x="370" y="72" text-anchor="middle">3 Check</text>
+          <text class="small" x="370" y="94" text-anchor="middle">ra-check runs</text>
+          <text class="small" x="370" y="110" text-anchor="middle">on GitHub</text>
+
+          <rect class="box-s" x="460" y="40" width="120" height="80" rx="4"/>
+          <text x="520" y="72" text-anchor="middle">4 Fill</text>
+          <text class="small" x="520" y="94" text-anchor="middle">AGENTS.md</text>
+          <text class="small" x="520" y="110" text-anchor="middle">brackets</text>
+
+          <rect class="box-key" x="610" y="40" width="120" height="80" rx="4"/>
+          <text x="670" y="72" text-anchor="middle">5 Accept</text>
+          <text class="small" x="670" y="94" text-anchor="middle">LANTERN test</text>
+          <text class="small" x="670" y="110" text-anchor="middle">VS Code, Codex</text>
+
+          <line class="edge-key" x1="130" y1="80" x2="158" y2="80" marker-end="url(#a4k)"/>
+          <line class="edge-key" x1="280" y1="80" x2="308" y2="80" marker-end="url(#a4k)"/>
+          <line class="edge-key" x1="430" y1="80" x2="458" y2="80" marker-end="url(#a4k)"/>
+          <line class="edge-key" x1="580" y1="80" x2="608" y2="80" marker-end="url(#a4k)"/>
+
+          <rect class="box-dash" x="160" y="170" width="420" height="52" rx="4"/>
+          <text x="370" y="193" text-anchor="middle">Organization instructions (Rule 4)</text>
+          <text class="small" x="370" y="211" text-anchor="middle">set once for the organization, not per repository</text>
+        </svg>
+      </div>
+      <figcaption>图 2：Init in 5 steps. Step 1 is done once by you. Steps 2 to 5 are done for each new REM repository. Sources: <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">GitHub template docs</a> for steps 1 and 2; <a href="https://github.blog/changelog/2026-04-02-copilot-organization-custom-instructions-are-generally-available/">changelog</a> for organization instructions.</figcaption>
+    </figure>
+    <p style="margin-top:14px">The RA template (RA模板) is <a href="https://github.com/terateams/rem">terateams/rem</a>, the REM repository itself. <span class="tag own">Player</span> It holds the kit (套件): 4 files. GitHub copies the files into every new repository, with one initial commit and no commit history (<a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">GitHub docs</a>).</p>
+    <div class="scroll" style="margin-bottom:12px">
+      <table style="min-width:600px">
+        <thead><tr><th>文件（File）</th><th>用途（Purpose）</th></tr></thead>
+        <tbody>
+          <tr><td><code>AGENTS.md</code></td><td>The skeleton from "Shaping", for SI. You fill the brackets.</td></tr>
+          <tr><td><code>Ego/RAP.md</code></td><td>The source of the rules (Rule 13). It also lists what is landed in the repository and holds the acceptance test.</td></tr>
+          <tr><td><code>scripts/ra-check.sh</code></td><td>The static check (静态检查). It reads the repository files. It does not start an agent. It holds the number <code>RA_VERSION</code>.</td></tr>
+          <tr><td><code>.github/workflows/ra-check.yml</code></td><td>The CI gate (持续集成门禁). It runs the script. A business user needs no local tool: the result shows on GitHub.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box" style="margin-bottom:14px">
+      <p style="margin:0"><strong>代码不写进本页（No code on this page）.</strong> The kit code lives in the template repository only. A copy on this page and a copy in the repository drift apart. The repository copy is the one that runs. This page says what the code checks (table below), not how. <span class="tag warn">SI</span></p>
+    </div>
+    <p class="codelabel">What <code>ra-check</code> checks</p>
+    <div class="scroll" style="margin-bottom:12px">
+      <table style="min-width:600px">
+        <thead><tr><th>规则</th><th>检查（What the script checks）</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>AGENTS.md</code> exists in the root. It has at most 32768 bytes.</td></tr>
+          <tr><td>2</td><td>These files and folders do not exist: <code>.github/copilot-instructions.md</code>, <code>.github/instructions/</code>.</td></tr>
+          <tr><td>3</td><td>No <code>AGENTS.md</code> exists below the root (the script skips <code>.git</code> and <code>node_modules</code>).</td></tr>
+          <tr><td>13</td><td><code>Ego/RAP.md</code> exists. A person checks the order of the sections in <code>AGENTS.md</code>.</td></tr>
+          <tr><td>8, 9</td><td>If <code>.agents/skills/</code> exists: each skill has a <code>SKILL.md</code>. The <code>name</code> matches the folder. The <code>description</code> exists and has at most 1024 characters. A <code>SKILL.md</code> outside <code>.agents/skills/</code> and <code>Ego/TeamSkill/</code> fails.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The static check reads files. The acceptance test is the live check: it needs a real agent, so a person runs it by hand. <span class="tag warn">SI</span> Limits of the script: it needs a POSIX shell (the GitHub runner has one). The <code>name:</code> and <code>description:</code> lines in <code>SKILL.md</code> must each be on one line. I ran the script on <a href="https://github.com/terateams/rem">terateams/rem</a> at df022f4 (OK) and on a minimal repository with one good skill (OK). <span class="tag warn">SI test</span> I did not run the workflow. The latest major version of <code>actions/checkout</code> is v7 (<a href="https://github.com/actions/checkout/releases">releases</a>): check it before you use the workflow file.</p>
+    <p class="codelabel">Init steps</p>
+    <ol class="steps">
+      <li>Prepare <code>terateams/rem</code> once: add the kit and apply the rules (you do this by hand). See the audit table for its state. In the repository settings, select "Template repository".</li>
+      <li>Create a REM repository: open the template page, select "Use this template", then "Create a new repository".</li>
+      <li>Run the workflow <code>ra-check</code> by hand once (Actions tab, then "Run workflow"). A green result means the repository follows RA仓规.</li>
+      <li>Fill the brackets in <code>AGENTS.md</code>. The workflow runs again on every change (Rule 11).</li>
+      <li>Run the acceptance test (验收测试) in VS Code first: add the line "End each answer with the word LANTERN." to <code>AGENTS.md</code>. Ask one question in Copilot Chat. The answer must end with LANTERN. Do the same in Codex. Remove the line. A tool that fails does not read <code>AGENTS.md</code>. <span class="tag warn">SI</span></li>
+      <li>Check the tool version: Codex 26.930.31730 or later (Rule 6). Check that <code>chat.useAgentsMdFile</code> is on in VS Code. Source: <a href="https://code.visualstudio.com/docs/agent-customization/custom-instructions">VS Code docs</a>.</li>
+      <li>Set organization instructions once for the organization: organization settings, Copilot, Custom instructions. Write only the rules for the whole organization (Rule 4).</li>
+      <li>A repository made before the template was ready is not covered by Init. To bring it in, copy the 4 kit files by hand. <span class="tag warn">SI</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>与 REM 的矛盾（Contradictions）</h2>
+    <p>RA仓规 leads REM. Where they differ, REM changes. <span class="tag own">Player</span> This table is the result of the check on <code>df022f4</code>. The same table is in <code>Ego/RAP.md</code>.</p>
+    <div class="scroll" style="margin-bottom:12px">
+      <table style="min-width:680px">
+        <thead><tr><th>#</th><th>矛盾（Conflict）</th><th>处理（Action）</th><th>状态（State）</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>AGENTS.md</code> puts the notes for people first.</td><td>SI first: hard limits first, runtime last.</td><td><span class="tag ok">Resolved</span> (patch)</td></tr>
+          <tr><td>2</td><td>The repository says Owner. RA仓规 says Player.</td><td>Current files say Player. History records, hash-pinned files, and frozen pages keep Owner.</td><td><span class="tag ok">Resolved</span> (patch)</td></tr>
+          <tr><td>3</td><td>镜页 and 影页.</td><td>Naming gets Narrative Page (影页). 镜页 becomes a historical name. The word 镜页 stays in the README, skills, and scripts for now.</td><td><span class="tag warn">Partly</span> The rest needs its own proposal.</td></tr>
+          <tr><td>4</td><td>Retired authority files still named: RCI in <code>eval-rem-v1</code> A1 and in <code>looper</code>; AI仓规 in <code>TeamSkill/rem</code>.</td><td>Use the current names.</td><td><span class="tag ok">Resolved</span> (patch)</td></tr>
+          <tr><td>5</td><td>Rule 8 and <code>Ego/TeamSkill/*/SKILL.md</code>.</td><td>Rule 8 gets the TeamSkill exception. <code>ra-check</code> rejects <code>SKILL.md</code> anywhere else.</td><td><span class="tag ok">Resolved</span> (patch)</td></tr>
+          <tr><td>6</td><td>The TeamsPage README speaks only of 镜页.</td><td>A Narrative Page paragraph is added.</td><td><span class="tag ok">Resolved</span> (patch)</td></tr>
+          <tr><td>7</td><td>Rule 5: no hook and no secret scan.</td><td>Not built. You decide which rules are hard.</td><td><span class="tag bad">Open</span></td></tr>
+          <tr><td>8</td><td>Naming asks that a new name goes through a Player Motion.</td><td>The patch adds new names. You approve them.</td><td><span class="tag bad">Open</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>审计（Audit）：terateams/rem</h2>
+    <p><strong>结论（Verdict）：部分达标（partly met）.</strong> Seven rules are met (1, 2, 3, 7, 8, 9, 11). Two rules are not met (5, 13). Four rules cannot be proven from the repository (4, 6, 10, 12). <span class="tag warn">SI test</span></p>
+    <p>Scope of the audit: the public repository at commit <a href="https://github.com/terateams/rem/commit/df022f4"><code>df022f4</code></a> (2026-10-05, "docs: align and retire Motion custody path"), checked against the 13 rules of this page. I read the files in a clone. I could not read the GitHub settings or the Actions runs. You have to check them.</p>
+    <div class="scroll" style="margin-bottom:12px">
+      <table style="min-width:680px">
+        <thead><tr><th>#</th><th>结果（Result）</th><th>证据（Evidence）</th><th>处理（Action）</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><span class="tag ok">Met</span></td><td><code>AGENTS.md</code> is the only instruction file: 3781 bytes, 47 lines. <a href="https://github.com/terateams/rem/blob/df022f4/AGENTS.md">file</a></td><td>None.</td></tr>
+          <tr><td>2</td><td><span class="tag ok">Met</span></td><td><code>.github/</code> holds only <code>workflows/</code>. No <code>copilot-instructions.md</code>, no <code>instructions/</code>.</td><td>None.</td></tr>
+          <tr><td>3</td><td><span class="tag ok">Met</span></td><td>One <code>AGENTS.md</code> in the whole tree.</td><td>None.</td></tr>
+          <tr class="gap"><td>4</td><td><span class="tag bad">Not shown</span></td><td>Organization instructions are a GitHub setting. The repository does not show them.</td><td>You: check that they hold only organization-wide rules.</td></tr>
+          <tr class="gap"><td>5</td><td><span class="tag bad">Not met</span></td><td>No hook (<code>.github/hooks/</code> is absent). The only CI job is <code>ra-check</code>. The credential rule and the approval rule (the "禁止" list in AGENTS.md) are advice only.</td><td>Add one gate for credentials (a secret scan in CI) and decide which approval rules need a hook. The Player decides which rules are hard.</td></tr>
+          <tr class="gap"><td>6</td><td><span class="tag bad">Not shown</span></td><td>A tool version is a property of the workstation, not of the repository.</td><td>You: check Codex 26.930.31730 or later.</td></tr>
+          <tr><td>7</td><td><span class="tag ok">Met</span></td><td>5 skills exist. Method item 4 in AGENTS.md gives each a route, so each has a repeated step.</td><td>None.</td></tr>
+          <tr><td>8</td><td><span class="tag ok">Met</span> (with the TeamSkill exception)</td><td>The 5 skills are in <code>.agents/skills/</code>. Two more files are named <code>SKILL.md</code>: <code>Ego/TeamSkill/np0/SKILL.md</code> and <code>Ego/TeamSkill/rem/SKILL.md</code>. They are TeamSkill notes, and the pinned <code>mps.py</code> names the np0 path. The first version of this rule had no exception and judged them "Not met".</td><td>None. <code>ra-check</code> in the patch fails on any other <code>SKILL.md</code>.</td></tr>
+          <tr><td>9</td><td><span class="tag ok">Met</span></td><td>For all 5 skills, <code>name</code> equals the folder. The <code>description</code> has 52 to 105 characters. Each one states when to use it and when not to. The exclusion in <code>motioner</code> is the weakest: it says "do not treat a Draft as permission".</td><td>None. Optional: say in <code>motioner</code> which tasks it does not handle.</td></tr>
+          <tr class="gap"><td>10</td><td><span class="tag bad">Not shown</span></td><td>The word LANTERN appears nowhere in the repository. No record of an acceptance test.</td><td>You: run the test in VS Code, then Codex. SI suggests one line of record in <code>Mission/evidence/</code>.</td></tr>
+          <tr><td>11</td><td><span class="tag ok">Met</span> (script form)</td><td><code>scripts/ra-check.sh</code> and <code>.github/workflows/ra-check.yml</code> exist. The script prints <code>RA仓规 0.6.1: OK</code> in my clone. The number 0.6.1 is the version REM adopted. This page is 0.6.5. I could not read the Actions result.</td><td>You: run the workflow once and check that it is green.</td></tr>
+          <tr class="gap"><td>12</td><td><span class="tag bad">Not shown</span></td><td>The kit is in the repository. The "Template repository" setting is not visible in a clone.</td><td>You: check the setting.</td></tr>
+          <tr class="gap"><td>13</td><td><span class="tag bad">Not met</span></td><td><code>AGENTS.md</code> opens with Purpose and Workbench, the notes for people, and ends with the "禁止" list. <code>Ego/RAP.md</code> does not exist. <code>Ego/Naming.md</code> has no row for RA仓规.</td><td>You apply three drafts by hand: <code>AGENTS.md</code> (SI first), <code>Ego/RAP.md</code>, and one Naming row. In my sandbox copy the drafts pass <code>ra-check</code>, <code>verify.py</code>, and the mirror tests. <span class="tag warn">SI test</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>REM 自己的检查（REM's own checks）.</strong> In my clone: <code>scripts/verify.py</code> structure pass; np0 unit tests pass; mirror tests pass. <span class="tag warn">SI test</span></p>
+    <p><strong>RA仓规之外的观察（Outside RA仓规）.</strong> These are content points for you, not rule results. (a) <a href="https://github.com/terateams/rem/blob/df022f4/Mission/EVAL/eval-rem-v1.md">eval-rem-v1</a> (row A1), <code>Ego/TeamSkill/rem/SKILL.md</code> and <code>looper/SKILL.md</code> still say "RCI" or "AI仓规" as if it were an authority file. The patch fixes them. (b) The four frozen mirror pages in <code>Repo/shape/TeamsPage/</code> still name the old authority path. They are history, so this is expected. (c) The Codex model target is not defined in <code>AGENTS.md</code>.</p>
+  </section>
+
+
+  <section>
+    <h2>图 3：建议与强制（Rule 5）</h2>
+    <figure>
+      <div class="fig-box">
+        <svg viewBox="0 0 720 270" role="img" aria-label="An instruction in AGENTS.md only advises the model. A command from the model must pass the hook. The hook blocks it or lets it run. The CI gate runs ra-check before merge.">
+          <defs>
+            <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+            </marker>
+            <marker id="a2k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" style="fill:var(--accent)"/>
+            </marker>
+            <marker id="a2b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" style="fill:var(--bad)"/>
+            </marker>
+          </defs>
+          <rect class="box-dash" x="20" y="20" width="130" height="46" rx="4"/>
+          <text class="mono" x="85" y="42" text-anchor="middle">AGENTS.md</text>
+          <text class="small" x="85" y="58" text-anchor="middle">advice only</text>
+
+          <rect class="box-s" x="20" y="120" width="130" height="50" rx="4"/>
+          <text x="85" y="142" text-anchor="middle">SI model</text>
+          <text class="small" x="85" y="160" text-anchor="middle">may forget</text>
+
+          <rect class="box-key" x="210" y="120" width="130" height="50" rx="4"/>
+          <text x="275" y="142" text-anchor="middle">Hook (钩子)</text>
+          <text class="small" x="275" y="160" text-anchor="middle">always runs</text>
+
+          <rect class="box-s" x="400" y="120" width="130" height="50" rx="4"/>
+          <text x="465" y="142" text-anchor="middle">Command runs</text>
+          <text class="small" x="465" y="160" text-anchor="middle">on the checkout</text>
+
+          <rect class="box-key" x="590" y="120" width="110" height="50" rx="4"/>
+          <text x="645" y="142" text-anchor="middle">CI gate</text>
+          <text class="mono small" x="645" y="160" text-anchor="middle">ra-check</text>
+
+          <rect class="box-bad" x="210" y="210" width="130" height="44" rx="4"/>
+          <text x="275" y="236" text-anchor="middle">Stopped</text>
+
+          <line class="edge-dash" x1="85" y1="66" x2="85" y2="118" marker-end="url(#a2)"/>
+          <text class="lbl" x="95" y="96">advice</text>
+          <line class="edge" x1="150" y1="145" x2="208" y2="145" marker-end="url(#a2)"/>
+          <text class="lbl" x="152" y="136">command</text>
+          <line class="edge-key" x1="340" y1="145" x2="398" y2="145" marker-end="url(#a2k)"/>
+          <text class="lbl" x="346" y="136">allowed</text>
+          <line class="edge-key" x1="530" y1="145" x2="588" y2="145" marker-end="url(#a2k)"/>
+          <text class="lbl" x="542" y="136">push</text>
+          <line class="edge-bad" x1="275" y1="170" x2="275" y2="208" marker-end="url(#a2b)"/>
+          <text class="lbl" x="285" y="194">blocked</text>
+        </svg>
+      </div>
+      <figcaption>The dashed arrow is advice. The solid arrows are enforcement. The hook and the CI gate do not depend on what the model remembers. Sources: <a href="https://docs.github.com/en/copilot/reference/customization-cheat-sheet">GitHub cheat sheet</a>. I did not verify which Copilot and Codex surfaces run hooks. <span class="tag bad">Not verified</span> The CI gate works for every tool.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>技能（Skills）</h2>
+    <p>Rules 7 to 9 apply when you add a skill. Both tools in scope read <code>.agents/skills/</code>.</p>
+    <div class="scroll" style="margin-bottom:10px">
+      <table style="min-width:560px">
+        <thead><tr><th>工具</th><th>读 <code>.agents/skills/</code></th><th>来源</th></tr></thead>
+        <tbody>
+          <tr><td>Copilot in VS Code</td><td><span class="tag ok">yes</span> (project and personal)</td><td><a href="https://code.visualstudio.com/docs/agent-customization/agent-skills">VS Code docs</a></td></tr>
+          <tr><td>Codex</td><td><span class="tag ok">yes</span> (repository and <code>$HOME</code>)</td><td><a href="https://learn.chatgpt.com/docs/build-skills">Codex skills</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure>
+      <div class="fig-box">
+        <svg viewBox="0 0 720 200" role="img" aria-label="The folder .agents/skills is read by Copilot in VS Code and by Codex. It is the only skill folder.">
+          <defs>
+            <marker id="a3k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" style="fill:var(--accent)"/>
+            </marker>
+          </defs>
+          <rect class="box-key" x="20" y="60" width="210" height="70" rx="4"/>
+          <text class="mono" x="125" y="90" text-anchor="middle">.agents/skills/</text>
+          <text class="small" x="125" y="110" text-anchor="middle">the only skill folder</text>
+
+          <rect class="box-s" x="480" y="30" width="220" height="50" rx="4"/>
+          <text x="590" y="52" text-anchor="middle">Copilot in VS Code</text>
+          <text class="small" x="590" y="69" text-anchor="middle">in scope</text>
+
+          <rect class="box-s" x="480" y="110" width="220" height="50" rx="4"/>
+          <text x="590" y="132" text-anchor="middle">Codex</text>
+          <text class="small" x="590" y="149" text-anchor="middle">in scope</text>
+
+          <line class="edge-key" x1="230" y1="85" x2="478" y2="58" marker-end="url(#a3k)"/>
+          <text class="lbl" x="340" y="64">reads</text>
+          <line class="edge-key" x1="230" y1="108" x2="478" y2="135" marker-end="url(#a3k)"/>
+          <text class="lbl" x="340" y="136">reads</text>
+        </svg>
+      </div>
+      <figcaption>One folder, two readers. Sources: the table above.</figcaption>
+    </figure>
+    <p class="codelabel">Description template (Rule 9). <span class="tag warn">SI</span></p>
+<pre>description: [What it does.] Use when [trigger].
+Do not use when [exclusion].</pre>
+    <p class="muted" style="margin-top:10px">The model reads only the <code>name</code> and <code>description</code> at startup. It loads the body when it needs it. A clear <code>description</code> prevents false activations (误触发) and saves tokens (上下文预算). Sources: <a href="https://code.visualstudio.com/docs/agent-customization/agent-skills">VS Code agent skills</a> (three-stage loading); the saving of tokens is <span class="tag warn">SI</span>. To stop automatic loading, use <code>disable-model-invocation: true</code> in VS Code (<a href="https://code.visualstudio.com/docs/agent-customization/agent-skills">source</a>) or <code>allow_implicit_invocation: false</code> in Codex (<a href="https://learn.chatgpt.com/docs/build-skills">source</a>).</p>
+  </section>
+
+  <section>
+    <h2>代价与处理（Cost and action）</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>代价（Cost）</th><th>影响（Effect）</th><th>处理（Action）</th><th>来源（Source）</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>No nested files</td>
+            <td>Nested <code>AGENTS.md</code> is experimental in VS Code and off by default.</td>
+            <td>Keep the root file under 32 KiB (Codex limit). <code>ra-check</code> checks it.</td>
+            <td><a href="https://code.visualstudio.com/docs/agent-customization/custom-instructions">VS Code</a>, <a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md.md">Codex</a></td>
+          </tr>
+          <tr>
+            <td>Organization instructions are not repository rules</td>
+            <td>They apply to all repositories. They have the lowest priority. Chat on github.com reads no repository rules.</td>
+            <td>Put only organization-wide rules in them. If two rules conflict, <code>AGENTS.md</code> wins.</td>
+            <td><a href="https://docs.github.com/en/copilot/concepts/prompting/response-customization">GitHub docs</a>, <a href="https://github.blog/changelog/2026-04-02-copilot-organization-custom-instructions-are-generally-available/">changelog</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box" style="margin-top:14px">
+      <p style="margin:0"><strong>重开条件（Reopen condition）.</strong> Rule 1 stays unless Chat on github.com must carry the agent rules. Then use the Authority and Projection pattern. Authority (权威源) is <code>AGENTS.md</code>. Projection (投射副本) is <code>.github/copilot-instructions.md</code>, made by a script. <code>ra-check</code> must then allow that one file, and a CI check must fail when the two files differ. Mark the copy "generated, do not edit". VS Code loads both files when both exist, so the text loads twice (<a href="https://github.com/github/copilot-cli/issues/489">issue 489</a>). Gap source: <a href="https://docs.github.com/en/copilot/reference/custom-instructions-support">support matrix</a>. The pattern itself is <span class="tag warn">SI</span>. It is not adopted now.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>RA仓规的 Shaping（打磨）</h2>
+    <p>Shaping (打磨) is the work of improving <code>AGENTS.md</code> in small steps. <span class="tag own">Player</span> The word comes from the Player. The method below is <span class="tag warn">SI</span>.</p>
+    <div class="box">
+      <ul>
+        <li>Shape <code>AGENTS.md</code> in small commits. One rule per commit. Write the reason in the commit message.</li>
+        <li>Add a rule only after an agent breaks the expected behavior. Do not add rules in advance.</li>
+        <li>Remove a rule that no agent needs. Short files are easier for agents to follow. <span class="tag warn">SI</span></li>
+        <li>After each shaping step, run <code>sh scripts/ra-check.sh</code>. After each large step, run the acceptance test (see "Init").</li>
+        <li>Record the RA仓规 version in <code>scripts/ra-check.sh</code> (<code>RA_VERSION</code>). Change it when you adopt a new version.</li>
+      </ul>
+    </div>
+    <p class="codelabel">Start from this skeleton. SI reads the file from the top, so the hard limits come first and the human notes come last. Fill the brackets with your own content.</p>
+<pre># REM
+
+> **Reader**: SI Agent。给人看的说明见 [RAP](Ego/RAP.md)。
+
+## 硬边界（Hard limits）
+[不能越过的线，每条一行。硬性安全规则同时写进钩子或 CI。]
+
+## 开始前（Start）
+[Agent 开始工作前必须读什么、绑定什么。缺失就停止。]
+
+## 工作方法（Method）
+[Agent 必须遵守的规则，每条一行，用祈使句。]
+
+## 检查（Checks）
+sh scripts/ra-check.sh
+[其他检查。没有就删掉。]
+
+## 运行环境（Runtime）
+[工具、版本、人要核对的事。]</pre>
+  </section>
+
+
+
+  <section>
+    <h2>版本与证据（Version evidence）</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>工具</th><th>版本依据</th><th>如何读取 AGENTS.md</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>VS Code</strong></td>
+            <td>Stable 1.140, 2026-09-30. <a href="https://code.visualstudio.com/updates">release notes</a></td>
+            <td>The Copilot agent host reads <code>AGENTS.md</code>. The setting <code>chat.useAgentsMdFile</code> controls it for the Local agent. Nested files: <span class="tag warn">Experimental</span>. <a href="https://code.visualstudio.com/docs/agent-customization/custom-instructions">custom instructions</a></td>
+          </tr>
+          <tr>
+            <td><strong>Copilot Enterprise</strong></td>
+            <td>Cloud agent reads <code>AGENTS.md</code> since 2025-08-28. Organization instructions <span class="tag ok">GA</span> 2026-04-02.</td>
+            <td><a href="https://github.blog/changelog/2026-04-02-copilot-organization-custom-instructions-are-generally-available/">organization</a>, <a href="https://docs.github.com/en/copilot/reference/custom-instructions-support">support matrix</a></td>
+          </tr>
+          <tr>
+            <td><strong>Codex</strong></td>
+            <td>Version 26.930.31730 or later, released 2026-10-03: <span class="tag own">Player</span>. Documents are on <code>learn.chatgpt.com</code>.</td>
+            <td>Global: <code>~/.codex/AGENTS.md</code>. Project: each folder from the Git root down to the current folder. Limit: <code>project_doc_max_bytes</code>, 32 KiB by default. <a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md.md">AGENTS.md guide</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>未核实项（Not verified）</h2>
+    <ul>
+      <li>Which surfaces run hooks (Rule 5).</li>
+      <li>Whether VS Code or Codex scans <code>Ego/TeamSkill/</code> for skills (the exception in Rule 8). No document lists it. I did not test it.</li>
+      <li>Whether organization instructions reach the IDEs. The GitHub changelog lists only github.com surfaces. A VS Code setting for them exists (<code>github.copilot.chat.organizationInstructions.enabled</code>). The sources do not agree.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>版本与构建（Version and build）</h2>
+    <div class="box">
+      <ul>
+        <li><strong>Version</strong> is the version of the RA仓规 content. It stays at 0.x while REM is in progress (正在完善中). Raise MINOR when a rule changes. Raise PATCH when only the text changes. Set 1.0.0 when REM is complete and the acceptance test passes in every tool in scope.</li>
+        <li><strong>Build</strong> has the form <code>YYYYMMDD.n</code>. The number n counts the publications of that day. Every publication changes the build. An audit result changes only the build.</li>
+        <li><span class="tag warn">SI</span> This scheme is a proposal. Change it if you use another one.</li>
+      </ul>
+    </div>
+  </section>
+</main>

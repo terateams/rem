@@ -4,7 +4,7 @@
 
 ## Current Focus
 
-本次请求是为当前 VSC 启动 rem/Copilot harness；这是 startup 检查，不是首个真实 Sol 或 Luna workload。Owner 已批准刷新日期基线。首个 bounded runtime-validation task、具体 runtime/action permission、cost 与 stop rule 尚未指定；依 [INTENT](INTENT.md) 暂不启动对应工作。
+本次请求是为当前 VSC 启动 rem/Copilot harness；这是 startup 检查，不是首个真实 Sol 或 Luna workload。Player 已批准刷新日期基线。首个 bounded runtime-validation task、具体 runtime/action permission、cost 与 stop rule 尚未指定；依 [INTENT](INTENT.md) 暂不启动对应工作。
 
 M1 EGO DNS、M2 CLI/stack、M3 delivery 维持 `Done`，细节和来源边界见前日快照。产品 EVAL A1-A13 仍未因此完成；唯一 Primary=`Story-rem`，`selected_method=null`，Secondary=0。
 
@@ -17,4 +17,4 @@ M1 EGO DNS、M2 CLI/stack、M3 delivery 维持 `Done`，细节和来源边界见
 - 活跃 VSC Profile、Settings Sync、未保存 editor buffers、当前 picker/model selection、Copilot entitlement 与 backend runtime 未独立核验。CLI/标准 extensions 目录未找到 Copilot package match；这不用于推断当前 profile 的安装或启用状态。
 - `python scripts/verify.py`：`structure=pass`、`failures=[]`；`human_review`、`runtime_models`、`role_alignment` 均为 `not_run`。
 
-未 fetch、未修改 INTENT/EVAL、未执行模型 workload、未调用外部 Tools、未产生付费或部署动作。人类验收与角色对齐仍由 Owner/实际参与者决定。
+未 fetch、未修改 INTENT/EVAL、未执行模型 workload、未调用外部 Tools、未产生付费或部署动作。人类验收与角色对齐仍由 Player/实际参与者决定。
