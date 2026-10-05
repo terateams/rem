@@ -2,7 +2,7 @@
 
 > **Owner**: yangjun / bitguts
 > **Freshness**: 2026-10-05
-> **Authority**: 本文件是本 repo 唯一的 agent 指令文件，不继承 EGO-T189 实例规则。
+> **Authority**: 本文件是本 repo 唯一的 agent 指令文件。
 
 ## 目的（Purpose）
 
@@ -36,5 +36,4 @@ rem = T本智能软件V1.0：完整 REM（Repo × EGO × Mission）协同软件�
 
 - 生产 skills 只在 `.agents/skills/<name>/`。
 - 外部、破坏、付费、权限 / authority 变更须 Owner gate；先验证后声称完成。
-- 不改动外部 EGO-T189 source repo。
 - 不新增第二个指令文件。
