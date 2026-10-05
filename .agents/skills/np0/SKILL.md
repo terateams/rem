@@ -12,4 +12,4 @@ metadata:
 
 绑定 target EGO quartet、Story/EVAL、日期、permissions 与 actual evidence；区分 Fact/Claim/Unknown，将 Narrative 收敛为 scope、named distinction、decision-rights、one bounded next action 与 verification route。Human 决定、权限、Mission admission 不从叙事推导。
 
-`scripts/runtime_snapshot.py` 原样继承 target-neutral四文件 observation；输出归 Dojo，non-authority/no-writeback；source hash/date/authorization缺失 blocked。需要镜页 handoff 到 teamspage / scripts/mirror.py，不复制 renderer。Trigger negatives：普通排版、已经明确代码任务、无 REM binding、要求伪造 facts/approval 均不以 NP0 自动推进。
+`scripts/runtime_snapshot.py` 原样继承 target-neutral四文件 observation；输出归 Dojo，non-authority/no-writeback；source hash/date/authorization缺失 blocked。需要确定性 MPS artifact 时 handoff 到 teamspage / scripts/mirror.py，不复制 renderer；Narrative Page 不由 MPS renderer 生成。Trigger negatives：普通排版、已经明确代码任务、无 REM binding、要求伪造 facts/approval 均不以 NP0 自动推进。

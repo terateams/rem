@@ -1,12 +1,12 @@
 ---
 name: teamspage
-description: "为 rem 的显式 Mission 文件组生成、验证和比较内生 HTML 镜页；不做 Narrative authoring、Human验收、通用MPV/MPR或无REM绑定网页。"
+description: "为 rem 的显式 Mission 文件组生成、验证和比较确定性 MPS HTML artifact；不做 Narrative Page authoring、Human验收、通用MPV/MPR或无REM绑定网页。"
 metadata:
   status: in-production
   source_commit: 70090b756d2c4f4e75912ec9f3ede2ff3e8cc0a0
 ---
 
-# rem built-in Mirror Page
+# rem deterministic MPS artifact tool
 
 实现identity保留小写 `teamspage`，不是额外用户产品；文件 custody 目录固定为 `Repo/TeamsPage/`，与 `Repo/Motion/` 同级。`scripts/mirror.py`读取explicit target request构造 typed inputs，generic MPS freeze source bytes/hash/revision/dirty与sentence provenance。只允许reviewed/no-secret且获授权的来源；declaration不是grant。
 

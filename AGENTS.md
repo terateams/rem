@@ -32,14 +32,16 @@ rem = T本智能软件V1.0：完整 REM（Repo × EGO × Mission）协同软件�
 6. Skill routes：np0 处理有界叙事；rem-ready 启动 / 暂停；motioner 管 Draft -> Approved -> execution -> landing / source retirement；looper report-first 维护；teamspage 生成与验证由 `scripts/mirror.py` 产出的确定性影页。skills 单一 identity，登记在 [TeamSkill](Ego/TeamSkill/TeamSkill.md)。
 7. practice / observation 归 `Repo/Dojo`。正式证据按 Mission custody。Decision / Audit / Ego admission 需 owning Human，不从 raw evidence 自动升格。完成的 Motion 经 canonical Audit、consumer audit、History triage 后退休到 `Repo/days/<date>/Motion/`。
 8. NP0 capsule 与 pinned NP0 / MPS 原样继承，不改写、不自动升级。
-9. 修改 Agent 配置（本文件、技能、检查、CI）前先读 [RAP](Ego/RAP.md)，改后运行 `sh scripts/ra-check.sh`。
+9. 修改 Agent 配置（本文件、技能、检查、CI）前先读 [RAP](Ego/RAP.md)，改后运行 `uv run python scripts/ra-check.py`。
 10. 中文主叙事，English stable fields。不设第二 SSOT。冲突时本文件优先于 skill 默认值。
 
 ## 检查（Checks）
 
-- `sh scripts/ra-check.sh`：RA仓规静态检查。
-- `python scripts/verify.py`：rem 结构与 source pin 检查。
+- `uv run python scripts/ra-check.py`：RA仓规静态检查。
+- `uv run python scripts/verify.py`：rem 结构与 source pin 检查。
 
 ## 运行环境（Runtime）
 
 VS Code + GitHub Copilot + Codex（版本 26.930.31730 或更高）。Copilot：Sol 为 Mission 推演 / 执行目标，Luna 为 rem 软件维护目标。Codex：模型目标尚未定义。模型与 picker 由 Human 选择并核验；不声称已自动切换或已启用。订阅 / 席位不可用时 blocked，替代方案须 Player approval。
+
+RWB（详见 [Rwb](Ego/Rwb.md)）：以操作系统为基础，VS Code 加按需安装的 CLI。接入顺序为 CLI、MCP、computer use（兜底）。Mac、Linux、WSL2 用 bash 一系，Windows 原生用 PowerShell 7；shell 只写调用，有逻辑的部分用 Node 或 Python。CLI 按需安装、用后移除；任何安装前须 Player 批准（包括 npx、uvx），运行器调用须钉版本，不用 latest；保留 CLI 登记见 [Tools](Ego/Tools.md)。安装与移除按 Method 4 留证。仓库自有 Python 脚本统一用 `uv run python`，Python 3.14 由根目录 `.python-version` 固定；缺少 CLI 或 Python 时不自动安装。

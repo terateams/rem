@@ -1,22 +1,23 @@
 # today - 2026-10-05
 
-本段 supersedes 2026-10-02 handoff；完整快照见 [today archive](days/2026-10-04/today.md)。
+本段 supersedes pre-revision 2026-10-05 handoff；完整快照见 [today archive](days/2026-10-05/today.md)。RWB/RA 本地修订与验证见 [canonical Audit](../Mission/Audit/2026-10-05-rwb-ra-compatibility.md) 和 [Motion](Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md)。
 
 ## Current Focus
 
-本次完成 rem-ready 启动核验及 macOS 终端环境修复。VS Code 用户设置原将 `terminal.integrated.cwd` 固定为 `D:\Codex`；移除该覆盖后，新终端 `pwd` 返回 `/Users/bitguts/Github/rem`。动作记录见 [terminal cwd evidence](../Mission/evidence/2026-10-05-macos-terminal-cwd-fix.json)。
+Player 要求理解并执行《REM修订方案》；实际基线为 `f192d17`，并非方案所读 `a789753`。执行了已裁决的 RWB/RA 本地修订：保留并接入 Player 原有 `Ego/Rwb.md` draft，落地 `.python-version=3.14`、RAP 0.6.6、Python RA checker 与 `uv run python` 路线、M2 CLI 登记、活动术语对齐和 RAP Narrative Page 更新。
 
-Owner 已批准刷新 daily state；刷新前 handoff（内容日期 2026-10-02）已完整归档至 [前日快照](days/2026-10-04/today.md)。唯一 Primary=`Story-rem`；EVAL=`eval-rem-v1`；Secondary=0；`selected_method=null`。尚未指定首个 bounded runtime-validation task、runtime/action permission、cost 与 stop rule；依 [INTENT](INTENT.md) 不启动 Sol/Luna workload、真实任务或外部 Tools。
+Player 选择 D3 为 `uv run python`。本机 `uv 0.12.14` 低于 RWB 草稿所列 `0.12.23`；该机运行 `uv run python --version` 为 Python 3.14.4。未安装或升级 CLI。RWB 仍为 draft，未推导为 Player acceptance。
 
-M1 EGO DNS、M2 CLI/stack、M3 delivery 维持 `Done`。产品 EVAL A1-A13 不因本次 startup 或结构检查而完成。
+daily refresh 前完整 handoff 已按 Player 指定保存至同日 [快照](days/2026-10-05/today.md)；原 10/04 快照保留。RAP/RA 修订 Motion 已 `Executed`，Player acceptance pending；产品唯一 Primary=`Story-rem`，EVAL=`eval-rem-v1`，Secondary=0，`selected_method=null`。
 
 ## rem-ready Startup
 
-- Host date/time 为 `2026-10-05 16:22 CST (+08:00)`；系统为 macOS `27.0.1`，`arm64`。
-- Workspace 与新终端 cwd 均为 `/Users/bitguts/Github/rem`。VS Code CLI 为 `1.140.0` (`arm64`)；Python 为 `3.14.4` (`/opt/homebrew/bin/python3`)。
-- 已安装 `ms-python.python@2026.6.0`、`ms-python.vscode-pylance@2026.4.1`、`openai.chatgpt@26.930.51102`；Codex 扩展版本高于仓规最低 `26.930.31730`。Codex CLI 为 `0.144.5`。
-- 刷新前 `main` worktree clean，HEAD 相对本地 `origin/main` ref 为 `0 ahead / 0 behind`；未 fetch，远端当前状态仍 unknown。`Repo/Dojo` 无 tracked、untracked 或 ignored 状态项。刷新产生的仓库变更限于 handoff、快照与本次 evidence。
-- Owner 确认活动编辑器已保存。Active VSC Profile、Settings Sync、Copilot entitlement、picker/model selection 与 backend runtime 未独立核验；当前 Copilot chat 及已安装扩展不证明真实 Sol/Luna workload。
-- `/opt/homebrew/bin/python3 scripts/verify.py`：`structure=pass`、`failures=[]`；`human_review`、`runtime_models`、`role_alignment` 均为 `not_run`。
+- Host date/time 为 `2026-10-05 21:35 CST (+08:00)`；系统为 macOS `27.0.1 arm64`；workspace / terminal cwd 为 `/Users/bitguts/Github/rem`。
+- VS Code `1.140.0 arm64`；Codex 扩展 `26.930.51102`；Python `3.14.4`；本机 uv `0.12.14`，未自动更新。
+- 基线 `main` 对本地 `origin/main` ref 为 `0/0`；未 fetch，远端新鲜度 unknown。修订为本地未提交工作区变更。
+- `uv run python scripts/ra-check.py`：`RA仓规 0.6.6: OK`；`uv run python scripts/verify.py`：`structure=pass`、`failures=[]`。
+- `uv run python .agents/skills/np0/scripts/test_runtime_snapshot.py`：10/10 pass。
+- MPS suite：13/16 pass；3 个失败已在干净 `f192d17` 临时归档复现，分别是 g-tier fixture、macOS `/private` 路径比较与 fixture 忽略 HTML 后的既有 Audit 链接。未改 MPS code/tests/pins。
+- Active Profile、Settings Sync、Copilot entitlement、picker/model/backend 与 Player LANTERN acceptance 未核验/未运行；Human review、role alignment、runtime models 均为 `not_run`。
 
-未执行模型 workload、真实 task、外部/付费动作或部署。Human review、角色对齐及产品 EVAL acceptance 仍由 Owner/实际参与者决定。
+未执行模型 workload、CLI 安装、外部/付费动作、部署、commit 或 push。D4 PDF CLI、RAP Rule 5 hooks/secrets、CI Actions 与 Template repository settings 仍为 pending/unknown；MPS 基线失败未扩大修复。

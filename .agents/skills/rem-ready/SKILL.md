@@ -10,7 +10,7 @@ metadata:
 
 ## Authority
 
-SI follows root `AGENTS.md`; `Ego/RAP.md` is the sole source of RA rules. This skill is an operational route, not another authority or permission grant. Do not treat retired RCI as a current rules source. Before changing Agent configuration, read RAP; after the change, run `sh scripts/ra-check.sh`.
+SI follows root `AGENTS.md`; `Ego/RAP.md` is the sole source of RA rules. This skill is an operational route, not another authority or permission grant. Do not treat retired RCI as a current rules source. Before changing Agent configuration, read RAP; after the change, run `uv run python scripts/ra-check.py`.
 
 ## Inspect-first
 
@@ -26,6 +26,6 @@ If the date baseline is stale and Git/editor state is dirty, behind, or unknown,
 
 ## Validation and Handoff
 
-Read the actual output of `python scripts/verify.py`; report `not_run` / `unknown` where checks were not performed. Call `scripts/mirror.py` only for an explicitly scoped and authorized deterministic MPS artifact; Narrative Pages are not MPS artifacts. A valid local startup entry does not mean all EVAL A1-A13 gates passed.
+Read the actual output of `uv run python scripts/verify.py`; report `not_run` / `unknown` where checks were not performed. Call `scripts/mirror.py` only for an explicitly scoped and authorized deterministic MPS artifact; Narrative Pages are not MPS artifacts. A valid local startup entry does not mean all EVAL A1-A13 gates passed.
 
 An optional rem-ready Narrative Page is a read-only projection. It is non-authority / no-writeback, does not replace this skill, `AGENTS.md`, or RAP, and does not prove readiness. Scope its sources explicitly; mark it stale when a source changes. Away work is limited to date, Git, Dojo, and cursor risks, with a clear return entry. External, destructive, paid, release, commit/push, permission expansion, and configuration changes require the applicable Player approval. Never claim synced or ready without evidence.

@@ -8,6 +8,7 @@
 |---|---|---|
 | rem | T本智能软件V1.0 产品 / repo | 不是 REM 工作法改名 |
 | REM | Repo × EGO × Mission 完整工作法 | 不依赖 CRAFTS；非 HTML 转换器 |
+| RWB | Rem Workbench（RW底座） | 操作系统上的 VS Code + CLI 工作台；不是 REM 第四组成部分、指令文件或权限来源 |
 | NP0 | Narrative is Principle Zero | 通用 capsule 原样继承，不创造 Naming ID |
 | Narrative Page / 影页 | SI 基于 Repo 实况叙事生成的 HTML 页：Mission 工作评审视图、Infographic 等；VS Code Copilot 与 Codex 均可生成 | 叙事不是事实；non-authority / no-writeback；页头写明来源文件与提交哈希、生成工具与版本、日期；来源变更后即过期；不替代原件或 Human 裁决 |
 | Mirror Page / 镜页 | 历史名，已吸收进 Narrative Page | 不再新增；既有镜页保留为历史，不改写 |

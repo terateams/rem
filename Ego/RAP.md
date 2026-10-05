@@ -2,14 +2,22 @@
 
 > **Player**: yangjun / bitguts
 > **Status**: active
-> **Version**: 0.6.5（与 `scripts/ra-check.sh` 的 `RA_VERSION` 一致）
+> **Version**: 0.6.6（与 `scripts/ra-check.py` 的 `RA_VERSION` 一致）
 > **Freshness**: 2026-10-05
 
 **Reader**: Player（商务人士与 Human 参与者）。SI Agent 平时读 [AGENTS.md](../AGENTS.md)；修改 Agent 配置时读本文件。
 
 RA = Rem Agent。RA仓规是 Agent 配置的规则集，本文件（RAP）是它的**唯一规则源头**。RAP 不是 REM 的第四组成部分，不赋权，不替代 Mission / EVAL。给 SI 执行的那部分规则写在 `AGENTS.md`。
 
-RA仓规的 HTML 页是本文件的影页（Narrative Page）：叙事不是事实，只说明本文件；两者不一致以本文件为准。当前影页：`Repo/TeamsPage/rap-teamspage.html`（离线可读；不写成链接，因为 `verify.py` 的测试夹具会排除 HTML）。上游同一页：[RA仓规](https://claude.ai/artifact/QRffFZS2MwvYBLGvYmd2sH)。
+RA仓规的 HTML 页是本文件的影页（Narrative Page）：叙事不是事实，只说明本文件；两者不一致以 RAP 为准。当前影页：`Repo/TeamsPage/rap-teamspage.html`（离线可读；不写成链接，因为 `verify.py` 的测试夹具会排除 HTML）。
+
+## 范围（Scope）
+
+- RA仓规是单个 REM 仓库中 SI Agent 的工作规则；它说明 Agent 如何在仓库中工作，不定义 REM 方法本身。
+- REM 是方法与模板，当前仍在完善中；RA仓规领先 REM。两者有差异时，REM 按 Player 决定修订。RAP 是规则源，影页跟随 RAP。
+- 工作台是 VS Code、Copilot 与 Codex。Claude Code、Visual Studio、JetBrains、Xcode、Eclipse 与其它工具不在当前范围内。
+- 范围内包括 VS Code 中的 Copilot、GitHub Copilot Enterprise 与 Codex。RA仓规服务商务人士，不覆盖程序员工作场景，例如代码审查、Copilot CLI 或构建工具。
+- 操作系统与 terminal 基线见 [RWB](Rwb.md)。RWB 是工作台说明，不是 REM 第四组成部分、指令文件或权限来源。
 
 ## 规则（Rules）
 
@@ -36,7 +44,7 @@ RA仓规的 HTML 页是本文件的影页（Narrative Page）：叙事不是事�
 | 规则源头 | 本文件 | 已落地 |
 | 唯一指令文件 | [AGENTS.md](../AGENTS.md) | 已落地 |
 | 技能 | `.agents/skills/<name>/SKILL.md` | 已落地；`Ego/TeamSkill/*/SKILL.md` 是 TeamSkill 说明，按规则 8 例外保留 |
-| 静态检查 | `sh scripts/ra-check.sh` | 已落地 |
+| 静态检查 | `uv run python scripts/ra-check.py` | 已落地 |
 | CI 门禁 | `.github/workflows/ra-check.yml` | 已落地；Actions 结果由 Player 核验 |
 | 硬性安全规则的钩子 / CI | 未建 | pending |
 | 验收测试记录 | `Mission/evidence/` | not_run |
@@ -44,18 +52,19 @@ RA仓规的 HTML 页是本文件的影页（Narrative Page）：叙事不是事�
 
 ## 与 REM 的矛盾（Contradictions）
 
-RA仓规领先 REM：两者不一致时，REM 改。下表记录 2026-10-05 对 `df022f4` 检查的结果。
+RA仓规领先 REM：两者不一致时，REM 改。下表保留以 `df022f4` 为基线的历史项；本次活动文件复核基线为 `f192d17`，具体修订见当前 Motion 与 Audit。
 
 | # | 矛盾 | 处理 | 状态 |
 |---|---|---|---|
 | 1 | `AGENTS.md` 把给人看的内容放在前面 | 改为 SI 优先：硬边界在前，运行环境在后 | 已解决（补丁） |
-| 2 | 仓库用 Owner，RA仓规用 Player | 现行文件统一为 Player。历史记录、哈希锁定文件、冻结页保留 Owner | 已解决（补丁） |
-| 3 | 镜页与影页 | Naming 增加 Narrative Page / 影页，镜页为历史名。README、技能、脚本里的“镜页”字样暂留 | 部分解决；其余需单独提议 |
+| 2 | 仓库部分活动文件用 Owner，RA仓规用 Player | 本次对齐列明的活动文件；历史记录与哈希锁定文件保留当时用词 | 已解决（本次对齐） |
+| 3 | 镜页与影页 | 活动说明统一使用 Narrative Page / 影页；确定性 MPS artifact 与历史来源保持各自边界 | 已解决（本次对齐） |
 | 4 | 已退役权威文件的残留：`eval-rem-v1` A1 的 RCI、`TeamSkill/rem` 的 AI仓规、`looper` 的 RCI | 改为现行名称 | 已解决（补丁） |
 | 5 | 规则 8 与 `Ego/TeamSkill/*/SKILL.md` | 规则 8 加 TeamSkill 例外（REM 自己区分 TeamSkill 与 AgentSkill，`mps.py` 固定引用该路径）；`ra-check` 拒绝其他位置的 `SKILL.md` | 已解决（补丁） |
 | 6 | TeamsPage 目录说明只讲镜页 | `Repo/TeamsPage/README.md` 增加影页说明 | 已解决（补丁） |
 | 7 | 规则 5：没有钩子，也没有凭证扫描 | 未建。Player 先定哪些规则是硬性的 | open |
-| 8 | Naming 要求新名字走 Player Motion | 本补丁新增了名字，需 Player 批准 | open |
+| 8 | Naming 要求新名字走 Player Motion | RWB 名称经本次 Player 修订 Motion 授权 | 已解决（本次 Motion） |
+| 9 | RAP 缺少 Scope，旧影页含有未由 RAP 约束的范围段落 | 将有来源的范围陈述写入 RAP，并让影页跟随 RAP；OS / terminal 基线指向 RWB | 已解决（本次修订） |
 
 ## 验收测试（LANTERN）
 

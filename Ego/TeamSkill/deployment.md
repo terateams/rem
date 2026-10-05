@@ -10,7 +10,7 @@ Source=`terateams/EGO-T189` commit `70090b756d2c4f4e75912ec9f3ede2ff3e8cc0a0`。
 | startup / pause | rem-ready | adapt-for-target | source skill workflow / complete REM | no T189 defaults；实际日期/git/cursor/permission核验 | 不覆盖未知游标；sync/config另 gate |
 | Motion lifecycle | motioner | adapt-for-target | source Motion Lifecycle semantics | finite statuses / runtime approval / landing / retirement，target wrapper | canonical trace留存，非显然 admission Player |
 | maintenance / feedback | looper | adapt-for-target | source portable maintenance contract | target report-first / no CRAFTS resolver / bounded fixes | rollback source pin；authority/external/cost另 gate |
-| built-in Mirror Page | teamspage | adapt-for-target | generic MPS original engine / runtime contract | explicit Mission-group adapter / all selected source lines / voice/provenance / rebuild/freshness | fixed engine pin；new snapshot不覆盖，source不写回 |
+| built-in deterministic MPS artifact | teamspage | adapt-for-target | generic MPS original engine / runtime contract | explicit Mission-group adapter / all selected source lines / voice/provenance / rebuild/freshness | fixed engine pin；new snapshot不覆盖，source不写回 |
 | subscription / two workloads | Human + VSC/Copilot | target configuration, no new Skill | Player declaration / runtime gates | Sol Mission；Luna self；actual runs not inferred | no automated picker/billing change；fallback另批 |
 | task actions / Tools evidence | Human/generic Agent + deterministic tools | target capability binding | approved scope / Mission/EVAL | actual verify tool evidence、source changes、new snapshot；真实任务验收另判 | no unapproved cloud or irreversible action |
 
@@ -26,12 +26,12 @@ identity_gap_count=0 identified；Skill adaptation_work_count=5；provider_route
 
 ## Access / license / retention
 
-Private，org 默认可继承访问，不另授用户/团队权限。目标责任与访问由 Owner确认。Source pin没有root LICENSE；此处只有Owner授权的私有派生，不发明开源许可、不publish或宣称第三方材料可无条件分发。公开或commercial发布须另审source package/license/notice与distribution许可。
+Private，org 默认可继承访问，不另授用户/团队权限。目标责任与访问由 Player 确认。Source pin没有root LICENSE；此处只有Player授权的私有派生，不发明开源许可、不publish或宣称第三方材料可无条件分发。公开或commercial发布须另审source package/license/notice与distribution许可。
 
-原件、必要审批与行动证据保留；Mirror Page阶段性process artifact，原件改动后旧页stale，清理需要owning review closeout，唯一evidence不自动删除。source unchanged pins在需要升级时走Motion/source delta/tests。
+原件、必要审批与行动证据保留；影页与确定性 MPS artifact 是阶段性 HTML review artifacts，来源变化后各自 stale，清理需要 owning review closeout，唯一 evidence 不自动删除。source unchanged pins在需要升级时走Motion/source delta/tests。
 
 ## 验证与回退
 
-`python scripts/verify.py`：target结构/links/source pin；`python -m unittest discover -s scripts -p "test_*.py"`：adapter负例与MPS rebuild/freshness；原样NP0 snapshot suite独立执行。它们不证明actual model ID、Human acceptance、不同Human对齐或完整real任务。
+`uv run python scripts/verify.py`：target结构/links/source pin；`uv run python -m unittest discover -s scripts -p "test_*.py"`：adapter负例与MPS rebuild/freshness；原样NP0 snapshot suite独立执行。它们不证明actual model ID、Human acceptance、不同Human对齐或完整real任务。
 
-目标初始commit作为rollback point。软件后续改动保留diff/test/evidence；未批准不reset/rewrite/delete远端，不撤销Owner权限或订阅。模型picker/config/账号与外部tool副作用不能由本地Git回退冒称已撤销。
+目标初始commit作为rollback point。软件后续改动保留diff/test/evidence；未批准不reset/rewrite/delete远端，不撤销Player权限或订阅。模型picker/config/账号与外部tool副作用不能由本地Git回退冒称已撤销。

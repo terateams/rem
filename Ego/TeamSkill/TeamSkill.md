@@ -7,7 +7,7 @@
 | Startup / pause | [Working](../Working.md) | [rem-ready](../../.agents/skills/rem-ready/SKILL.md) | subscription / model facts remain independently gated; prior daily snapshots go to `Repo/days/YYYY-MM-DD/today.md` |
 | Motion lifecycle | [REM](rem/SKILL.md) | [motioner](../../.agents/skills/motioner/SKILL.md) | finite lifecycle, landing / Audit / retirement to `Repo/days/<closeout-date>/Motion/` |
 | Maintenance / path migration | [REM](rem/SKILL.md) | [looper](../../.agents/skills/looper/SKILL.md) | report-first, bounded repair; inventory and relink dated asset moves |
-| Built-in Mirror Page | [Naming](../Naming.md) | [teamspage](../../.agents/skills/teamspage/SKILL.md) | seven MPS source assets remain pinned; path-only `mps.py` / contract target deltas are hash-checked; custody at `Repo/TeamsPage/` |
+| Deterministic MPS artifact | [Naming](../Naming.md) | [teamspage](../../.agents/skills/teamspage/SKILL.md) | seven MPS source assets remain pinned; path-only `mps.py` / contract target deltas are hash-checked; custody at `Repo/TeamsPage/` |
 
 Daily snapshot custody belongs to rem-ready; closed Motion source retirement belongs to motioner; looper performs approved path/asset migrations. If an archive category has no clear owner, motioner decides the route first. The Skill identity remains lowercase `teamspage`; only the repository custody directory uses `TeamsPage`.
 
