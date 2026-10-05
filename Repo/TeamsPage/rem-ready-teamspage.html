@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rem-ready | Narrative Page</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f6f3;
+      --ink: #192923;
+      --muted: #596a62;
+      --line: #cbd4cd;
+      --panel: #ffffff;
+      --green: #28634d;
+      --green-wash: #e5efe8;
+      --copper: #a9522b;
+      --copper-wash: #f5e9df;
+      --blue: #355d68;
+      --blue-wash: #e7eff0;
+      --code: #e9ede9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    main { max-width: 1040px; margin: 0 auto; padding: 36px 24px 64px; }
+    header { border-bottom: 2px solid var(--ink); padding-bottom: 24px; }
+    .eyebrow { margin: 0 0 8px; color: var(--green); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; }
+    h1 { margin: 0; font-size: 2rem; line-height: 1.15; font-weight: 700; }
+    .subtitle { margin: 8px 0 0; color: var(--muted); font-size: 1.05rem; }
+    .authority-label { display: inline-block; margin-top: 18px; padding: 5px 9px; color: #71331c; background: var(--copper-wash); border-left: 3px solid var(--copper); font-size: 0.78rem; font-weight: 700; }
+    .intro { max-width: 72ch; margin: 18px 0 0; }
+    section { padding: 26px 0; border-bottom: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 1.2rem; line-height: 1.3; }
+    p { margin: 0 0 10px; }
+    p:last-child { margin-bottom: 0; }
+    .roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .role { padding-top: 10px; border-top: 3px solid var(--green); }
+    .role:nth-child(2) { border-color: var(--blue); }
+    .role:nth-child(3) { border-color: var(--copper); }
+    .role h3 { margin: 0 0 5px; font-size: 1rem; }
+    .role p { color: var(--muted); font-size: 0.92rem; }
+    .route { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 18px 0 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .route-step { position: relative; min-width: 0; padding: 14px 20px 14px 0; }
+    .route-step + .route-step { padding-left: 20px; border-left: 1px solid var(--line); }
+    .route-step b { display: block; color: var(--green); font-size: 0.78rem; }
+    .route-step span { display: block; margin-top: 3px; font-weight: 600; }
+    .route-step small { display: block; margin-top: 4px; color: var(--muted); font-size: 0.86rem; }
+    ul, ol { margin: 0; padding-left: 1.25rem; }
+    li { margin: 0 0 8px; }
+    li:last-child { margin-bottom: 0; }
+    .stop { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
+    .stop strong { color: var(--copper); }
+    code { padding: 1px 5px; background: var(--code); border-radius: 3px; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.86em; overflow-wrap: anywhere; }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .meta { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .meta th, .meta td { padding: 9px 10px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .meta th { width: 150px; color: var(--muted); font-weight: 600; }
+    .sources { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .source { display: grid; grid-template-columns: minmax(210px, 1fr) minmax(0, 2fr); gap: 12px; padding-top: 9px; border-top: 1px solid var(--line); }
+    .source code { font-size: 0.76rem; }
+    .closing { padding-top: 20px; color: var(--muted); font-size: 0.88rem; }
+    @media (max-width: 680px) {
+      main { padding: 26px 16px 44px; }
+      .roles, .route { grid-template-columns: 1fr; }
+      .role { padding-bottom: 8px; }
+      .route-step, .route-step + .route-step { padding: 12px 0; border-left: 0; }
+      .route-step + .route-step { border-top: 1px solid var(--line); }
+      .stop, .source { grid-template-columns: 1fr; gap: 3px; }
+      .meta th { width: 105px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Rem startup / handoff</p>
+      <h1>rem-ready</h1>
+      <p class="subtitle">启动、暂停、日期与工作面核验、安全交接</p>
+      <span class="authority-label">Narrative Page · NON-AUTHORITY · NO-WRITEBACK</span>
+      <p class="intro">本页叙述 rem-ready 的职责与边界。它不是规则源、批准或验收证据；遇到差异，以列出的原始文件和 Player 决定为准。</p>
+    </header>
+
+    <section aria-labelledby="authority-title">
+      <h2 id="authority-title">规则从哪里来</h2>
+      <div class="roles">
+        <article class="role">
+          <h3><a href="../../AGENTS.md">AGENTS.md</a> · SI 执行入口</h3>
+          <p>规定本仓库 Agent 的硬边界、开始条件、工作方法与检查。SI 日常遵循它。</p>
+        </article>
+        <article class="role">
+          <h3><a href="../../Ego/RAP.md">Ego/RAP.md</a> · RA 规则源头</h3>
+          <p>Rem Agent Protocol 是 RA 规则的唯一源头。RAP 不替代 Mission / EVAL，也不自行授予权限。</p>
+        </article>
+        <article class="role">
+          <h3><a href="../../.agents/skills/rem-ready/SKILL.md">rem-ready Skill</a> · 操作流程</h3>
+          <p>提供 startup 与 handoff 步骤。它是工作流入口，不是第二套 authority。已退役的 RCI 不作为当前规则源。</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="route-title">
+      <h2 id="route-title">开工路线</h2>
+      <div class="route" role="list" aria-label="rem-ready 流程">
+        <div class="route-step" role="listitem"><b>01 · BIND</b><span>对齐任务与日期</span><small>读取 today、now、INTENT、EGO quartet；绑定唯一 Primary、EVAL、Secondary=0 与时区。</small></div>
+        <div class="route-step" role="listitem"><b>02 · INSPECT</b><span>检查现场，不推测</span><small>Git、编辑器缓冲、Dojo、终端 cwd、VSC/Profile/Sync/extensions 与必要 runtime 分别核验。</small></div>
+        <div class="route-step" role="listitem"><b>03 · HAND OFF</b><span>验证并说明下一步</span><small>读 verify.py 实际结果；未知标 unknown，未执行标 not_run，交接不替代 Human 判断。</small></div>
+      </div>
+      <p>当前任务绑定还必须满足 INTENT 与 Mission 的 scope、责任位、证据、EVAL、permission、cost 和 stop rule。Picker 可见或扩展已安装，不等于实际模型运行。</p>
+    </section>
+
+    <section aria-labelledby="andon-title">
+      <h2 id="andon-title">Andon 与日期刷新</h2>
+      <div class="stop"><strong>暂停并请 Player 选路径</strong><span>日期基线 stale，且 Git / editor 状态 dirty、behind 或 unknown 时。不得 stash、reset、pull、覆盖或静默刷新。</span></div>
+      <div class="stop"><strong>只在批准后刷新</strong><span>先将刷新前完整 <code>Repo/today.md</code> 归档到以前一日命名的 <code>Repo/days/YYYY-MM-DD/today.md</code>；再更新 <code>today.md</code>，随后更新 <code>now.md</code>。日常启动不改写 <code>INTENT.md</code>。</span></div>
+      <div class="stop"><strong>不推断远端同步</strong><span>默认不 fetch；只比较现有本地 refs。未 fetch 时，远端新鲜度仍为 unknown。</span></div>
+    </section>
+
+    <section aria-labelledby="evidence-title">
+      <h2 id="evidence-title">证据边界</h2>
+      <ul>
+        <li>当前运行日期、Git 状态、分支 ahead/behind、editor dirty、Dojo 路径和归档状态要分别核验。</li>
+        <li>终端 cwd 与 workspace 是两项事实；Profile、Settings Sync、插件、设备、订阅声明、picker 和真实 backend 不互相代证。</li>
+        <li>Sol 是 Mission workload，Luna 是软件维护 workload；不自动切换模型。无 task binding、permission 或 budget 时，停止相应 action。</li>
+        <li><code>scripts/verify.py</code> 的结构通过不等于 A1-A13 全部通过；Human review、role alignment 和真实模型运行分别留证。</li>
+        <li><code>scripts/mirror.py</code> 只用于显式授权的确定性 MPS artifact。Narrative Page 不是 MPS artifact，也不自动生成或写回来源。</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="provenance-title">
+      <h2 id="provenance-title">页面来源与生成记录</h2>
+      <table class="meta">
+        <tbody>
+          <tr><th>类型</th><td>rem-ready 的 Narrative Page；离线静态 HTML；non-authority / no-writeback。</td></tr>
+          <tr><th>基线提交</th><td><code>a789753ee7be22e411c7bcf5e47d34934482efc5</code>。页面按该本地 HEAD 及下列已哈希的工作区输入叙述；基线提交本身不包含未提交修改。</td></tr>
+          <tr><th>生成工具</th><td>GitHub Copilot in VS Code <code>1.140.0</code>；本次会话的模型/runtime ID 未独立核验。</td></tr>
+          <tr><th>日期</th><td>2026-10-05</td></tr>
+          <tr><th>时效</th><td>任一列出的 source 改变后，本页即 stale；回到原文件核实。本页不证明 Human acceptance 或实际 runtime。</td></tr>
+        </tbody>
+      </table>
+      <div class="sources" style="margin-top: 14px">
+        <div class="source"><a href="../../.agents/skills/rem-ready/SKILL.md">.agents/skills/rem-ready/SKILL.md</a><code>SHA-256 d3fb73476c5d440a9a2ab0520209e44d81bc66a03473122dd6484c345123f63a</code></div>
+        <div class="source"><a href="../../AGENTS.md">AGENTS.md</a><code>SHA-256 2630eed2e07aba0eb2e3e530733467a851819a87cd585d380b2a4749cec8cb1f</code></div>
+        <div class="source"><a href="../../Ego/RAP.md">Ego/RAP.md · 0.6.5</a><code>SHA-256 b4955d553e00e91686349124f52c2689aef4d1b6b7fd3ab4e96f4dbb8e0e08cb</code></div>
+        <div class="source"><a href="../../Ego/Naming.md">Ego/Naming.md</a><code>SHA-256 2fab82e45477cb08673047071329e746472365e9422ae66899bb5432db158aa6</code></div>
+        <div class="source"><a href="../../Ego/TeamSkill/TeamSkill.md">Ego/TeamSkill/TeamSkill.md</a><code>SHA-256 f6d1a916641edf69f967bb1e3d9c963031da7e02930edc7136ba13e6fad5a9c4</code></div>
+      </div>
+      <p class="closing">来源文件是事实，Narrative 是解释。缺少绑定、许可或证据时，回到原件并保持 blocked / unknown。</p>
+    </section>
+  </main>
+</body>
+</html>

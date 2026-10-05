@@ -1,23 +1,23 @@
 # now
 
-## Latest Handoff - 2026-10-02
+## Latest Handoff - 2026-10-05
 
-Player 请求“start using the Copilot harness for this VSC”。本次按 `rem-ready` 完成启动检查；Player 在本会话批准日期刷新，并已先将完整 2026-10-01 `Repo/today.md` 保存至 [前日快照](days/2026-10-01/today.md)。刷新仅涉及 `Repo/today.md`、本 handoff 与该快照。
+Owner requested a macOS environment correction and verification, then approved the daily-state refresh. The prior `Repo/today.md` content (dated 2026-10-02) was archived under [the 2026-10-04 snapshot](days/2026-10-04/today.md) before refreshing `Repo/today.md` and this handoff. `INTENT` was not changed.
 
 ## Mission Binding
 
-- 唯一 Primary=`Story-rem`；EVAL=`eval-rem-v1`；Secondary=0；`selected_method=null`。
-- `python scripts/verify.py` 为 `structure=pass`、`failures=[]`；Human review、runtime models、role alignment 均为 `not_run`。
-- 当前只有 startup 请求，没有指定首个真实 runtime-validation task。依 [INTENT](INTENT.md)，开始 Sol/Luna workload、真实任务、外部 Tools 或新的并行 WIP 前，需由 Player 明确 task binding 与 runtime/action permission、cost、stop rule。
+- Exactly one Primary=`Story-rem`; EVAL=`eval-rem-v1`; Secondary=0; `selected_method=null`.
+- `/opt/homebrew/bin/python3 scripts/verify.py`: `structure=pass`, `failures=[]`; Human review, runtime models, and role alignment remain `not_run`.
+- No first real runtime-validation task was specified. Before Sol/Luna workloads, real tasks, external Tools, or new parallel WIP, the Owner must define task binding, runtime/action permission, cost, and stop rule per [INTENT](INTENT.md).
 
-## VSC and Repository State
+## Environment and Repository State
 
-- Windows workspace：`D:\Github\rem`；本次 `Get-Location` 返回 workspace 路径，terminal cwd 后续持续性未单独确认。VSC CLI `1.140.0`；当前对话为 GitHub Copilot 会话。
-- 活跃 Profile、Settings Sync、未保存 editor buffers、picker/model、订阅 entitlement 与实际 backend 未核验。命令行/标准 extensions 目录未返回 Copilot package match；不据此判断当前 profile。
-- 提交前现场核验：`main` 有 2 个已修改文件（`Repo/now.md`、`Repo/today.md`）和 1 个未跟踪归档（`Repo/days/2026-10-01/today.md`），均为前次获准 startup refresh 的记录。本地 `HEAD` 相对现有 `origin/main` ref 为 `0/0`。本次未 fetch，因此远端最新状态 unknown。
-- `Repo/Dojo/README.md` 存在且 worktree 无 Dojo 改动。
-- 2026-10-01 的 delivery/M1-M3 状态无新变更，详细 snapshot 已归档；产品 EVAL A1-A13 仍未完成。
+- macOS `27.0.1`, `arm64`; host date/time `2026-10-05 16:22 CST (+08:00)`. VS Code `1.140.0` (`arm64`); Python `3.14.4` from `/opt/homebrew/bin/python3`.
+- Removed the stale VS Code user setting `terminal.integrated.cwd=D:\Codex`; a new integrated terminal returned `/Users/bitguts/Github/rem` from `pwd`. The action is recorded in [terminal cwd evidence](../Mission/evidence/2026-10-05-macos-terminal-cwd-fix.json).
+- Installed extensions include Python `2026.6.0`, Pylance `2026.4.1`, and OpenAI Codex `26.930.51102` (above the repo minimum `26.930.31730`); Codex CLI is `0.144.5`.
+- Before the approved handoff refresh, `main` was clean and `0 ahead / 0 behind` versus the local `origin/main` ref. No fetch was performed, so remote freshness remains unknown. `Repo/Dojo` had no tracked, untracked, or ignored status entries. Current worktree changes are limited to the approved daily snapshot/handoff refresh and its evidence record.
+- The Owner confirmed the active editor buffer is saved. Active VSC Profile, Settings Sync, Copilot entitlement, picker/model selection, and backend runtime remain unverified. The active Copilot chat and installed extensions do not prove actual Sol/Luna workloads.
 
 ## Next Entry
 
-等待 Player 指定首个 bounded task 及其 evidence、runtime/action permission、cost 和 stop rule。未获授权前不自动选择模型、不做外部或付费操作，也不把 picker/结构检查视为真实 workload 或 Human acceptance。
+Wait for the Owner to specify the first bounded runtime-validation task and its evidence, runtime/action permission, cost, and stop rule. Do not automatically select a model or perform external/paid actions; do not treat startup or structure checks as a real workload or Human acceptance.

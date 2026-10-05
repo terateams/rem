@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "actor": "GitHub Copilot / authorized by bitguts",
+  "approval_evidence": "Owner request in current conversation: fix the macOS environment; follow-up request: verify.",
+  "mission": "Mission/Story-rem.md",
+  "task": "rem-ready startup / macOS terminal cwd correction",
+  "tool": "VS Code user settings and integrated terminal",
+  "action": "Removed terminal.integrated.cwd=D:\\Codex from the VS Code user settings and verified a new terminal.",
+  "permission_cost": "Owner-requested local user configuration change; no external call, paid action, or deployment.",
+  "inputs": {
+    "workspace": "/Users/bitguts/Github/rem",
+    "stale_cwd_override": "D:\\Codex",
+    "observed_startup_path": "/Users/bitguts/Github/rem/D:\\Codex"
+  },
+  "observed_at": "2026-10-05T16:22:18+08:00",
+  "source_commit": "a789753ee7be22e411c7bcf5e47d34934482efc5",
+  "result": {
+    "terminal_pwd": "/Users/bitguts/Github/rem",
+    "host": "macOS 27.0.1 arm64",
+    "vscode": "1.140.0 arm64",
+    "python": "3.14.4 at /opt/homebrew/bin/python3",
+    "codex_extension": "openai.chatgpt@26.930.51102",
+    "codex_cli": "0.144.5",
+    "verify": {
+      "command": "/opt/homebrew/bin/python3 scripts/verify.py",
+      "structure": "pass",
+      "failures": [],
+      "human_review": "not_run",
+      "runtime_models": "not_run",
+      "role_alignment": "not_run"
+    }
+  },
+  "side_effect": "Only the local VS Code user setting changed during the environment fix; no repository code changed as part of that setting change.",
+  "evidence_locator": "Mission/evidence/2026-10-05-macos-terminal-cwd-fix.json",
+  "human_acceptance": "not_run",
+  "next_action": "Wait for an Owner-defined bounded runtime-validation task with permission, cost, and stop rule before any workload."
+}
