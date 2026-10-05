@@ -6,7 +6,7 @@ evidence  可复算命令，或可定位的记录 ID 清单
 > **Version**: 3.3.0
 > **Date**: 2026-09-27
 > **Owner**: yangjun (Code Name: bitguts)
-> **Authority**: 本文件持 TeamPage MPS runtime How；产品边界与原则见 [concept-rem-teamspage.md](../../../../EGO/TeamSkill/rem/references/concept-rem-teamspage.md)。
+> **Authority**: 本文件持 TeamPage MPS runtime How；产品边界与原则见 [concept-rem-teamspage.md](../../../../Ego/TeamSkill/rem/references/concept-rem-teamspage.md)。
 > **Consumers**: [TeamPage AgentSkill](../SKILL.md) · [rem-ready T189 adapter](../../../rem-ready/scripts/today_mps_adapter.py) · NP0 handoff
 
 ## 1. Typed Request

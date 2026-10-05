@@ -43,7 +43,7 @@ Owner confirmed the public, no-authentication scope and the `/slug` route. The s
 
 ## Consumer Audit and History Triage
 
-- M1 consumer: [EGO DNS canonical record](../../EGO/DNS/teamsbook.org.md) remains the single root-domain source and now records `rem.teamsbook.org` as Owner-confirmed operational while retaining unknown registrar/registrant identity.
+- M1 consumer: [EGO DNS canonical record](../../Ego/DNS/teamsbook.org.md) remains the single root-domain source and now records `rem.teamsbook.org` as Owner-confirmed operational while retaining unknown registrar/registrant identity.
 - M2 consumer: [2026-10-01 capability matrix](../../Repo/days/2026-10-01/cloudflare-capability-matrix.md) matches the supplied project materials: `cf` resource management, Wrangler Pages Direct Upload, complete `site/` upload, public static HTML, no Access/Entra runtime.
 - M3 consumer: Owner-accepted public route `https://rem.teamsbook.org/<slug>` matches the deployment record and `/demo` browser load. The prior private Entra design is historical and not an active requirement.
 - **History Triage Result**: `Audit First`. Current EGO, stack decision, evidence, and closeout outcomes are landed in canonical records; 2026-09-30 Motions and audits remain provenance, not current execution instructions.

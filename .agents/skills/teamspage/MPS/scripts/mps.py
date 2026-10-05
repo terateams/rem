@@ -64,7 +64,7 @@ def input_source(repo: Path, relative: str) -> Path:
     require(isinstance(relative, str) and "\\" not in relative, "Invalid source path")
     path = Path(relative)
     require(not path.is_absolute() and ".." not in path.parts and bool(path.parts), "Source path escapes repo")
-    require(path.parts[0] in {"EGO", "Mission"} and path.suffix == ".json", "Unsupported structured source")
+    require(path.parts[0] in {"Ego", "Mission"} and path.suffix == ".json", "Unsupported structured source")
     target = (repo / path).resolve()
     require(target.is_relative_to(repo) and target.is_file(), f"Missing or escaped source: {relative}")
     return target
@@ -438,7 +438,7 @@ def build_model(repo: Path, request: dict, *, generated_at: str | None = None,
 
 
 def project_np0(target: dict, sources: dict, projection_sources: dict) -> tuple[list, list]:
-    registry_path = projection_sources.get("registry", "EGO/TeamSkill/np0/references/name-registry.md")
+    registry_path = projection_sources.get("registry", "Ego/TeamSkill/np0/references/name-registry.md")
     entries = []
     findings = []
     chinese_map = {
@@ -513,9 +513,9 @@ def project_np0(target: dict, sources: dict, projection_sources: dict) -> tuple[
                 "name_key": "np0",
                 "labels": "Namespace: teamskill/np0 | Cadence: Audit + eval + consumer review",
                 "domain": "Core (公理核心)",
-                "authority_route": "EGO/TeamSkill/np0/SKILL.md",
+                "authority_route": "Ego/TeamSkill/np0/SKILL.md",
                 "boundary": "NP0 = Narrative is Principle Zero; P0 is not a fifth layer",
-                "source": "EGO/Naming.md#L1",
+                "source": "Ego/Naming.md#L1",
                 "allocation": "assigned",
                 "lifecycle": "active",
                 "entity_lifecycle": "not_applicable (L0 axiom)",
@@ -530,9 +530,9 @@ def project_np0(target: dict, sources: dict, projection_sources: dict) -> tuple[
                 "name_key": "narrative",
                 "labels": "Namespace: teamskill/np0/narrative | Cadence: Audit",
                 "domain": "Narrative (零阶叙事)",
-                "authority_route": "EGO/TeamSkill/np0/Narrative.md",
+                "authority_route": "Ego/TeamSkill/np0/Narrative.md",
                 "boundary": "L0 executable context; distinct from CRAFTS S-domain Story",
-                "source": "EGO/Naming.md#L1",
+                "source": "Ego/Naming.md#L1",
                 "allocation": "assigned",
                 "lifecycle": "active",
                 "entity_lifecycle": "not_applicable (L0 axiom)",
@@ -547,9 +547,9 @@ def project_np0(target: dict, sources: dict, projection_sources: dict) -> tuple[
                 "name_key": "naming",
                 "labels": "Namespace: teamskill/np0/naming | Cadence: Audit",
                 "domain": "Naming (离散固态记忆)",
-                "authority_route": "EGO/TeamSkill/np0/Naming.md",
+                "authority_route": "Ego/TeamSkill/np0/Naming.md",
                 "boundary": "Master Naming Registry SSOT",
-                "source": "EGO/Naming.md#L1",
+                "source": "Ego/Naming.md#L1",
                 "allocation": "assigned",
                 "lifecycle": "active",
                 "entity_lifecycle": "not_applicable (L0 axiom)",
@@ -564,9 +564,9 @@ def project_np0(target: dict, sources: dict, projection_sources: dict) -> tuple[
                 "name_key": "ontology",
                 "labels": "Namespace: teamskill/np0/ontology | Cadence: Audit",
                 "domain": "Ontology (语义强约束)",
-                "authority_route": "EGO/TeamSkill/np0/Narrative.md",
+                "authority_route": "Ego/TeamSkill/np0/Narrative.md",
                 "boundary": "Bounded semantics",
-                "source": "EGO/Naming.md#L1",
+                "source": "Ego/Naming.md#L1",
                 "allocation": "assigned",
                 "lifecycle": "active",
                 "entity_lifecycle": "not_applicable (L0 axiom)",
@@ -855,7 +855,7 @@ def render_html(model: dict) -> str:
             ):
                 overview += f'<article class="domain"><strong>{title}</strong><small>{label}</small></article>'
         else:
-            for title, label in (("EGO", "持续行动主体"), ("Mission", "可验收承诺"), ("Repo", "制度化执行与交接")):
+            for title, label in (("Ego", "持续行动主体"), ("Mission", "可验收承诺"), ("Repo", "制度化执行与交接")):
                 overview += f'<article class="domain"><strong>{title}</strong><small>{label}</small></article>'
     overview += '</div><p class="scope">' + " · ".join(bound(f"target.{field}") for field in sorted(semantic["target"])) + '</p>'
     overview += '<section class="distortions"><h3>失真声明</h3>'
@@ -1191,7 +1191,7 @@ def record_review(artifact: Path, review: dict) -> Path:
 def find_repo_root(start: Path | None = None) -> Path:
     current = (start or Path.cwd()).resolve()
     for directory in [current, *current.parents]:
-        if (directory / ".git").is_dir() or ((directory / "Repo").is_dir() and (directory / "EGO").is_dir()):
+        if (directory / ".git").is_dir() or ((directory / "Repo").is_dir() and (directory / "Ego").is_dir()):
             return directory
     return current
 

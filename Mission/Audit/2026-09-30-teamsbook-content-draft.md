@@ -11,7 +11,7 @@
 
 Created one local, non-authority Markdown draft for the private portal at `Mission/teamsbook.org/index.md`. The draft describes REM as `Repo × EGO × Mission`, the Mission/EVAL work loop, Human/Agent decision boundaries, Mirror Page as a read-only projection, and stop/permission rules.
 
-The content was grounded in [README](../../README.md), [EGO Working](../../EGO/Working.md), [EGO Naming](../../EGO/Naming.md), [Story-rem](../Story-rem.md), and [EVAL](../EVAL/eval-rem-v1.md). It adds no new governed method, authority, product guarantee, customer claim, or Cloudflare capability claim. The metadata comment records source references for review.
+The content was grounded in [README](../../README.md), [EGO Working](../../Ego/Working.md), [EGO Naming](../../Ego/Naming.md), [Story-rem](../Story-rem.md), and [EVAL](../EVAL/eval-rem-v1.md). It adds no new governed method, authority, product guarantee, customer claim, or Cloudflare capability claim. The metadata comment records source references for review.
 
 ## Action Evidence
 

@@ -2,7 +2,7 @@
 Status: Draft / non-authority content
 Target: rem.teamsbook.org
 Audience: Private portal; allow intent is any verified `@TeraTeams.com` email; domain ownership/Entra claim remain unverified
-Review sources: README.md; EGO/Working.md; EGO/Naming.md; Mission/Story-rem.md; Mission/EVAL/eval-rem-v1.md
+Review sources: README.md; Ego/Working.md; Ego/Naming.md; Mission/Story-rem.md; Mission/EVAL/eval-rem-v1.md
 This file does not amend those sources or constitute product acceptance.
 -->
 

@@ -18,7 +18,7 @@ identity_gap_count=0 identified；Skill adaptation_work_count=5；provider_route
 
 ## 原样与适配分开
 
-[source-manifest.json](source-manifest.json) 记录七项原样 bytes/hash，以及两项仅为 custody 大小写适配的 target deltas。MPS engine 的其余 manifest/loader/template 与通用 snapshot tests 保持原样；`mps.py` 和 runtime contract 只将 live custody 更新为 `Repo/shape/TeamsPage/`，allocator 仍扫描历史小写 Git 路径。target delta hashes 与理由均入 manifest 并由 `scripts/verify.py` 检查。没有复制 source mps_crafts.py、MPV pilot、T189 fast registry、业务包、历史、Dojo、用户配置、.venv或credentials。
+[source-manifest.json](source-manifest.json) 记录五项原样 bytes/hash，以及四项 target deltas。NP0 runtime snapshot 与配套 tests 只适配目标 `Ego/` 路径；MPS 的 `mps.py` 与 runtime contract 记录当前 `Ego/` / `Repo/shape/TeamsPage/` 路径，allocator 仍扫描历史小写 Git 路径。其余 MPS engine manifest/loader/template 与 generic MPS tests 保持原样。target delta hashes 与理由均入 manifest 并由 `scripts/verify.py` 检查。没有复制 source mps_crafts.py、MPV pilot、T189 fast registry、业务包、历史、Dojo、用户配置、.venv或credentials。
 
 源 generic MPS 可描述 CRAFTS / NP0 alternatives，但目标 adapter只构造 namespace=REM、selected_method=null、不提供projection_sources；该 dormant code不是 target active domain dependency。原样文件中的历史词条 / 来源出处不冒称 target runtime fact，也不对原样代码作全词机械替换。
 

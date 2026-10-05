@@ -6,11 +6,11 @@
 
 ## 工作入口
 
-- [EGO](EGO/EGO-rem.md)：责任主体、工作方式与通用能力。
+- [Ego](Ego/Ego-rem.md)：责任主体、工作方式与通用能力。
 - [Mission](Mission/Story-rem.md) -> [EVAL](Mission/EVAL/eval-rem-v1.md)：产品承诺与验收。
 - [INTENT](Repo/INTENT.md) -> [today](Repo/today.md) / [now](Repo/now.md) -> [DONE](Repo/DONE.md)：当前执行与交接。
 - [岗位责任](Mission/roles.md)、[Agent 输出](Mission/outputs.md)、[行动证据](Mission/evidence/README.md)。
-- [技能登记](EGO/TeamSkill/TeamSkill.md)、[工具](EGO/Tools.md)、[来源与适配](EGO/TeamSkill/deployment.md)。
+- [技能登记](Ego/TeamSkill/TeamSkill.md)、[工具](Ego/Tools.md)、[来源与适配](Ego/TeamSkill/deployment.md)。
 
 ## 内生镜页
 

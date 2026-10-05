@@ -4,7 +4,7 @@
 > **Status**: active
 > **Role**: exactly one Primary Mission
 > **EVAL**: [eval-rem-v1](EVAL/eval-rem-v1.md)
-> **EGO**: [rem](../EGO/EGO-rem.md)
+> **EGO**: [rem](../Ego/Ego-rem.md)
 > **Selected Method**: null
 > **Secondary Missions**: 0
 

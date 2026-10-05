@@ -9,16 +9,8 @@
       "sha256": "0b534f72ba37df8799616f91b993f466530611f6eb4b5d084494260f6a0754f6"
     },
     {
-      "path": "EGO/TeamSkill/np0/references/np0-axiom-capsule.md",
+      "path": "Ego/TeamSkill/np0/references/np0-axiom-capsule.md",
       "sha256": "0b534f72ba37df8799616f91b993f466530611f6eb4b5d084494260f6a0754f6"
-    },
-    {
-      "path": ".agents/skills/np0/scripts/runtime_snapshot.py",
-      "sha256": "62c38d77e0f3507c09859ed217a3a6f2f972b4ccd45bbfceef3d31f3ad3527d3"
-    },
-    {
-      "path": ".agents/skills/np0/scripts/test_runtime_snapshot.py",
-      "sha256": "735ae21b4e65adce3afec685582d8226c93b1de367d89df69f8bdf59ff5b5b1e"
     },
     {
       "path": ".agents/skills/teamspage/MPS/scripts/embedded_manifest.py",
@@ -36,14 +28,26 @@
   "target_deltas": [
     {
       "path": ".agents/skills/teamspage/MPS/scripts/mps.py",
-      "sha256": "d511df27b6a839bd350a93a34cb9b2ab8f4cf580f2892efeaab9b9ee46948bc1",
-      "reason": "Owner-directed Repo/shape/TeamsPage custody path; preserve Git history scans for the legacy lowercase path.",
+      "sha256": "5121ed848bab02f6a48e14d797690b74e4a1b72da81c6ecae9b3b77b8d4a7cb7",
+      "reason": "Owner-directed Ego root and Repo/shape/TeamsPage custody paths; preserve Git history scans for the legacy lowercase path.",
       "validation": "scripts/test_mirror.py: output-path and historical-path tests"
     },
     {
       "path": ".agents/skills/teamspage/references/teamspage-runtime-contract.md",
-      "sha256": "49e17fd07f4ba39e9d8ead367ef5cf7f11c7cf8d8301a6d83d6c0bb5b7929232",
-      "reason": "Document current TeamsPage custody path and legacy history scan."
+      "sha256": "05e3e6236c97bb69a969d071b27746e55179ee72f4be2900415314f0d587af47",
+      "reason": "Document current Ego root and TeamsPage custody paths and legacy history scan."
+    },
+    {
+      "path": ".agents/skills/np0/scripts/runtime_snapshot.py",
+      "sha256": "f2ef669f2e3789ad0b0bcbc6d0d5a2d4369bbf2c57467935adf10585815c0c15",
+      "reason": "Target path adapter accepts Ego/ sources and emits Ego-{slug}.md; canonical NP0 capsule remains unchanged.",
+      "validation": "python .agents/skills/np0/scripts/test_runtime_snapshot.py"
+    },
+    {
+      "path": ".agents/skills/np0/scripts/test_runtime_snapshot.py",
+      "sha256": "446f60bf249fde7a108c3978fe0a5b78f16ffd3636cdf36ec34523297ff8650a",
+      "reason": "Target runtime snapshot fixtures for the canonical Ego/ path.",
+      "validation": "python .agents/skills/np0/scripts/test_runtime_snapshot.py"
     }
   ]
 }

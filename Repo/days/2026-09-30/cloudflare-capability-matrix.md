@@ -3,7 +3,7 @@
 > **Date**: 2026-09-30
 > **Owner**: yangjun / bitguts
 > **Status**: Superseded 2026-10-01 by [the public Pages matrix](../2026-10-01/cloudflare-capability-matrix.md); this file preserves the original private Worker + Access candidate.
-> **Binding**: [EGO DNS target](../../../EGO/DNS/teamsbook.org.md) · [M2 Motion](../2026-10-01/Motion/motion-cf-cli-stack-decision-2026-09-30.md)
+> **Binding**: [EGO DNS target](../../../Ego/DNS/teamsbook.org.md) · [M2 Motion](../2026-10-01/Motion/motion-cf-cli-stack-decision-2026-09-30.md)
 > **Evidence**: [M2 Audit](../../../Mission/Audit/2026-09-30-cf-cli-stack-m2.md)
 > **Content**: [REM method draft](../../../Mission/teamsbook.org/index.md) — local only, non-authority; its relationship to live Pages content is not established
 

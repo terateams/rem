@@ -135,9 +135,11 @@ class MirrorTests(unittest.TestCase):
     def test_structure_and_unchanged_pins(self) -> None:
         result = verify.inspect(self.repo)
         self.assertEqual(result['failures'], [])
-        manifest = json.loads((self.repo / 'EGO/TeamSkill/source-manifest.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(manifest['unchanged_files']), 7)
+        manifest = json.loads((self.repo / 'Ego/TeamSkill/source-manifest.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(manifest['unchanged_files']), 5)
         self.assertEqual({delta['path'] for delta in manifest['target_deltas']}, {
+            '.agents/skills/np0/scripts/runtime_snapshot.py',
+            '.agents/skills/np0/scripts/test_runtime_snapshot.py',
             '.agents/skills/teamspage/MPS/scripts/mps.py',
             '.agents/skills/teamspage/references/teamspage-runtime-contract.md',
         })

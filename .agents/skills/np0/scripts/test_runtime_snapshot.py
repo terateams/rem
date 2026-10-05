@@ -15,10 +15,10 @@ class RuntimeSnapshotTests(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.repo = Path(self.temporary.name).resolve()
         files = {
-            "EGO/EGO-fixture.md": "# Synthetic EGO\n",
-            "EGO/EdgeTeam.md": "# Synthetic team\n",
-            "EGO/Naming.md": "# Synthetic naming\n",
-            "EGO/Working.md": "# Synthetic mode\n",
+            "Ego/Ego-fixture.md": "# Synthetic Ego\n",
+            "Ego/EdgeTeam.md": "# Synthetic team\n",
+            "Ego/Naming.md": "# Synthetic naming\n",
+            "Ego/Working.md": "# Synthetic mode\n",
             "Mission/Story-fixture.md": "# Synthetic commitment\n",
             "Mission/EVAL/fixture.md": "# Synthetic acceptance\n",
             ".github/copilot-instructions.md": "# Synthetic authority\n",
@@ -48,7 +48,7 @@ class RuntimeSnapshotTests(unittest.TestCase):
             "permission": {"snapshot_write": True, "approved_by": "fixture-owner", "approval_evidence": "synthetic test grant", "allowed_sources": list(files), "content_reviewed_no_secrets": True},
             "observations": {
                 name: {"source_claims": ["Fixture source statement"], "Fact": [], "Claim": [], "Credence": "unknown", "unknowns": ["No independent observation"], "delta": []}
-                for name in ("EGO-fixture.md", "EdgeTeam.md", "Naming.md", "Working.md")
+                for name in ("Ego-fixture.md", "EdgeTeam.md", "Naming.md", "Working.md")
             },
         }
 
@@ -68,7 +68,7 @@ class RuntimeSnapshotTests(unittest.TestCase):
         self.assertIn('"Credence": "unknown"', (output / "Naming.md").read_text(encoding="utf-8"))
 
     def test_selected_crafts_is_explicit_source_not_global_requirement(self):
-        relative = "EGO/CRAFTS.md"
+        relative = "Ego/CRAFTS.md"
         (self.repo / relative).write_text("# Synthetic selected CRAFTS\n", encoding="utf-8")
         self.payload["selected_method"] = {"name": "CRAFTS", "source": relative}
         self.payload["permission"]["allowed_sources"].append(relative)
@@ -84,7 +84,7 @@ class RuntimeSnapshotTests(unittest.TestCase):
                     prepare(self.repo, payload)
 
     def test_missing_ego_blocks(self):
-        (self.repo / "EGO/Working.md").unlink()
+        (self.repo / "Ego/Working.md").unlink()
         with self.assertRaises(SnapshotBlocked):
             generate(self.repo, self.payload)
         self.assertEqual([], list((self.repo / "Repo/Dojo").iterdir()))
@@ -102,12 +102,12 @@ class RuntimeSnapshotTests(unittest.TestCase):
         payload["observed_at"] = "2026-09-08T10:00:00+08:00"
         with self.assertRaises(SnapshotBlocked):
             prepare(self.repo, payload)
-        (self.repo / "EGO/Working.md").write_text("changed", encoding="utf-8")
+        (self.repo / "Ego/Working.md").write_text("changed", encoding="utf-8")
         with self.assertRaises(SnapshotBlocked):
             prepare(self.repo, self.payload)
 
     def test_dirty_source_is_visible_when_hash_matches(self):
-        relative = "EGO/Working.md"
+        relative = "Ego/Working.md"
         (self.repo / relative).write_text("# changed\n", encoding="utf-8")
         self.payload["source_sha256"][relative] = self.digest(relative)
         text = prepare(self.repo, self.payload)[1]["Working.md"]

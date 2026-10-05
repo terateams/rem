@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
     'README.md', 'AGENTS.md', '.github/copilot-instructions.md',
-    'EGO/EGO-rem.md', 'EGO/EdgeTeam.md', 'EGO/Naming.md', 'EGO/Working.md',
+    'Ego/Ego-rem.md', 'Ego/EdgeTeam.md', 'Ego/Naming.md', 'Ego/Working.md',
     'Mission/Story-rem.md', 'Mission/EVAL/eval-rem-v1.md',
     'Repo/INTENT.md', 'Repo/today.md', 'Repo/now.md', 'Repo/DONE.md',
     'Repo/shape/Motion/README.md', 'Repo/shape/TeamsPage/README.md', 'Repo/Dojo/README.md',
@@ -32,7 +32,7 @@ def inspect(repo: Path) -> dict:
             destination = (source.parent / target.split('#')[0]).resolve()
             if not destination.is_relative_to(repo) or not destination.exists():
                 failures.append(f'link:{source.relative_to(repo)}:{target}')
-    manifest_path = repo / 'EGO/TeamSkill/source-manifest.json'
+    manifest_path = repo / 'Ego/TeamSkill/source-manifest.json'
     if manifest_path.is_file():
         manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
         for field, label in (('unchanged_files', 'pin'), ('target_deltas', 'target-delta')):

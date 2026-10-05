@@ -17,7 +17,7 @@ sys.path.insert(0, str(MPS_SCRIPTS))
 import mps
 
 REQUIRED = [
-    'EGO/EGO-rem.md', 'EGO/EdgeTeam.md', 'EGO/Naming.md', 'EGO/Working.md',
+    'Ego/Ego-rem.md', 'Ego/EdgeTeam.md', 'Ego/Naming.md', 'Ego/Working.md',
     '.github/copilot-instructions.md', 'Repo/today.md', 'Repo/now.md',
 ]
 SECRET_PATTERN = re.compile(r'github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+|-----BEGIN [A-Z ]*PRIVATE KEY-----')
@@ -62,7 +62,7 @@ def build_request(repo: Path, config: dict, actor: str, approval: str, reviewed:
     observations = {
         name: {'source_claims': [], 'Fact': [], 'Claim': [], 'Credence': 'unknown',
                'unknowns': ['No independent EGO observation supplied by this adapter.'], 'delta': []}
-        for name in ('EGO-rem.md', 'EdgeTeam.md', 'Naming.md', 'Working.md')
+        for name in ('Ego-rem.md', 'EdgeTeam.md', 'Naming.md', 'Working.md')
     }
     structural = subprocess.run(
         [sys.executable, str(repo / 'scripts/verify.py'), '--repo', str(repo)],

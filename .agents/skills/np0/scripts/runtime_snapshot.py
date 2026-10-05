@@ -36,7 +36,7 @@ def source_file(repo: Path, relative: str) -> Path:
     require("\\" not in relative, "Use repository-relative POSIX paths")
     path = Path(relative)
     require(not path.is_absolute() and ".." not in path.parts, "Source path escapes repo")
-    require(path.parts[0] in {"EGO", "Mission", "Repo", ".github"}, "Source outside allowlisted surfaces")
+    require(path.parts[0] in {"Ego", "Mission", "Repo", ".github"}, "Source outside allowlisted surfaces")
     require(path.suffix == ".md", "Only explicit Markdown sources are supported")
     require(not relative.startswith("Repo/Dojo/"), "Practice output cannot supply authority")
     target = (repo / path).resolve()
@@ -78,10 +78,10 @@ def prepare(repo: Path, payload: dict) -> tuple[str, dict[str, str]]:
     require("selected_method" in payload, "Declare selected_method, including null")
     if method is not None:
         require(isinstance(method, dict) and isinstance(method.get("name"), str) and bool(method["name"]), "Invalid selected method")
-        require(isinstance(method.get("source"), str) and method["source"].startswith("EGO/"), "Missing selected-method source")
-    working_name = "Working.md" if (repo / "EGO" / "Working.md").is_file() else "ATM.md"
-    filenames = [f"EGO-{slug}.md", "EdgeTeam.md", "Naming.md", working_name]
-    paths = [f"EGO/{name}" for name in filenames]
+        require(isinstance(method.get("source"), str) and method["source"].startswith("Ego/"), "Missing selected-method source")
+    working_name = "Working.md" if (repo / "Ego" / "Working.md").is_file() else "ATM.md"
+    filenames = [f"Ego-{slug}.md", "EdgeTeam.md", "Naming.md", working_name]
+    paths = [f"Ego/{name}" for name in filenames]
     paths += [binding["mission"], binding["eval"], binding["authority"], "Repo/today.md", "Repo/now.md"]
     if method is not None:
         paths.append(method["source"])
@@ -124,8 +124,8 @@ def prepare(repo: Path, payload: dict) -> tuple[str, dict[str, str]]:
             require(all(isinstance(value, str) and bool(value.strip()) for value in fact.values()), "Empty fact evidence")
         envelope = {
             "authority": "non-authority/no-writeback",
-            "source_path": f"EGO/{name}",
-            "source_revision": revisions[f"EGO/{name}"],
+            "source_path": f"Ego/{name}",
+            "source_revision": revisions[f"Ego/{name}"],
             "binding_revisions": revisions,
             "observed_at": observed_at,
             "scope": payload["scope"],

@@ -3,7 +3,7 @@
 > **Date**: 2026-10-01
 > **Owner**: yangjun / bitguts
 > **Status**: Done by Owner acceptance; source retired 2026-10-01
-> **Binding**: [EGO DNS record](../../../EGO/DNS/teamsbook.org.md) · [M2 Motion](Motion/motion-cf-cli-stack-decision-2026-09-30.md) · [M3 Motion](Motion/motion-teamsbook-cloudflare-delivery-2026-09-30.md)
+> **Binding**: [EGO DNS record](../../../Ego/DNS/teamsbook.org.md) · [M2 Motion](Motion/motion-cf-cli-stack-decision-2026-09-30.md) · [M3 Motion](Motion/motion-teamsbook-cloudflare-delivery-2026-09-30.md)
 > **Evidence**: [Owner-provided deployment report](../../../Mission/evidence/2026-10-01-cloudflare-pages-owner-report.md) · [follow-up Audit](../../../Mission/Audit/2026-10-01-cloudflare-motions-followup.md)
 > **Previous candidate**: [2026-09-30 matrix](../2026-09-30/cloudflare-capability-matrix.md), retained as historical and superseded
 
