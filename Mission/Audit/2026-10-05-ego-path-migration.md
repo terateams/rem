@@ -4,7 +4,7 @@
 > **Owner**: yangjun / bitguts
 > **Status**: Executed; Owner acceptance pending
 > **Scope**: Git-tracked root and entry-path casing migration, target path adapters, references, validation, and push
-> **Source Motion**: [motion-ego-path-migration](../../Repo/shape/Motion/motion-ego-path-migration-2026-10-05.md)
+> **Source Motion**: [motion-ego-path-migration](../../Repo/Motion/motion-ego-path-migration-2026-10-05.md)
 > **Runtime Approval**: Owner current conversation: “要发布 Ego，还需先把大小写改名和相关路径迁移正式登记到 Git，再验证并推送”
 > **Implementation Commit**: `c3158d3` (`Adopt canonical Ego path casing`)
 > **History Triage Result**: Audit First; source retirement pending Owner acceptance
