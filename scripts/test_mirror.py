@@ -89,7 +89,10 @@ class MirrorTests(unittest.TestCase):
         self.assertIsNone(model['semantic']['selected_method'])
         self.assertEqual(model['semantic']['target']['namespace'], 'REM')
         self.assertEqual(model['checks']['g_tier'], 'pass')
-        mirror.mps.validate_html(model, mirror.mps.render_html(model))
+        rendered = mirror.mps.render_html(model)
+        self.assertIn('href="../../', rendered)
+        self.assertNotIn('href="../../../', rendered)
+        mirror.mps.validate_html(model, rendered)
 
     def test_missing_voice_is_blocked(self) -> None:
         request = self.request()
@@ -97,9 +100,17 @@ class MirrorTests(unittest.TestCase):
         with self.assertRaises(mirror.mps.SnapshotBlocked):
             mirror.mps.build_model(self.repo, request, sample=True)
 
+    def test_retired_shape_outputs_denied(self) -> None:
+        destination = self.repo / 'Repo/shape/TeamsPage'
+        with self.assertRaises(mirror.mps.SnapshotBlocked):
+            mirror.mps.generate(self.repo, self.request(), destination=destination)
+        with self.assertRaises(mirror.mps.SnapshotBlocked):
+            mirror.mps.write_index(self.repo, folder=destination)
+        self.assertFalse((self.repo / 'Repo/shape').exists())
+
     def test_rebuild_freshness_and_previous_delta(self) -> None:
         first = mirror.mps.generate(self.repo, self.request())
-        self.assertEqual(first.parent, self.repo / 'Repo/shape/TeamsPage')
+        self.assertEqual(first.parent, self.repo / 'Repo/TeamsPage')
         report = mirror.mps.validate_artifact(first, self.repo)
         self.assertEqual(report['projection'], 'pass')
         self.assertEqual(report['freshness'], 'matches_observed_files')
@@ -116,13 +127,14 @@ class MirrorTests(unittest.TestCase):
 
     def test_historical_allocator_checks_current_and_legacy_custody_paths(self) -> None:
         with patch.object(mirror.mps, 'git', side_effect=[
+            'MPS-260930S3003-rem-instance-rem.html\n',
             'MPS-260930S3002-rem-instance-rem.html\n',
             'MPS-260930S3001-rem-instance-rem.html\n',
         ]) as git_call:
             history = mirror.mps._historical_mps_page_ids(self.repo)
-        self.assertEqual({page_id for page_id, _path in history}, {'260930S3001', '260930S3002'})
+        self.assertEqual({page_id for page_id, _path in history}, {'260930S3001', '260930S3002', '260930S3003'})
         self.assertEqual([call.args[-1] for call in git_call.call_args_list], [
-            'Repo/shape/TeamsPage', 'Repo/shape/teamspage',
+            'Repo/TeamsPage', 'Repo/shape/TeamsPage', 'Repo/shape/teamspage',
         ])
 
     def test_source_hash_race_is_blocked(self) -> None:

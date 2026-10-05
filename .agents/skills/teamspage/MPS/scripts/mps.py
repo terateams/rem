@@ -247,7 +247,7 @@ def _build_failure_records(semantic: dict, checks: dict) -> list[dict]:
 
 def _historical_mps_page_ids(repo: Path) -> list[tuple[str, str]]:
     history = []
-    for custody_path in ("Repo/shape/TeamsPage", "Repo/shape/teamspage"):
+    for custody_path in ("Repo/TeamsPage", "Repo/shape/TeamsPage", "Repo/shape/teamspage"):
         output = git(repo, "log", "--all", "--diff-filter=A", "--format=", "--name-only",
                      "--", custody_path)
         history.extend(line.strip() for line in output.splitlines() if line.strip())
@@ -274,7 +274,7 @@ def _allocate_mp_id(repo: Path, generated_at: str) -> str:
     duplicates = [mp_id for mp_id, count in historical_counts.items() if count > 1]
     require(not duplicates, f"G-ID historical reuse detected: {', '.join(sorted(duplicates))}")
 
-    custody = repo / "Repo" / "shape" / "TeamsPage"
+    custody = repo / "Repo" / "TeamsPage"
     local_ids = {}
     if custody.is_dir():
         for path in custody.glob("MPS-*.html"):
@@ -307,7 +307,7 @@ def _validate_mp_id_date(mp_id: str, generated_at: str) -> None:
 def _validate_mp_id_history(repo: Path, mp_id: str, artifact: Path) -> None:
     historical_ids = [existing_id for existing_id, _relative in _historical_mps_page_ids(repo)]
     require(historical_ids.count(mp_id) <= 1, "G-ID identifier was reused in Git history")
-    custody = repo / "Repo" / "shape" / "TeamsPage"
+    custody = repo / "Repo" / "TeamsPage"
     if custody.is_dir():
         matches = [path.resolve() for path in custody.glob("MPS-*.html")
                    if (match := MP_FILENAME_PATTERN.fullmatch(path.name)) and match.group(1) == mp_id]
@@ -815,7 +815,7 @@ def render_html(model: dict) -> str:
         return f'<{tag}{class_attr} data-mp-key="{html.escape(key)}">{html.escape(values[key])}</{tag}>'
 
     def link(relative, label=None):
-        address = "../../../" + quote(relative, safe="/#")
+        address = "../../" + quote(relative, safe="/#")
         return f'<a class="source-link" href="{address}">{html.escape(label or relative)}</a>'
 
     labels = {"rem_id": "REM", "repo_locator": "Repository", "as_of": "as_of", "generated_at": "生成时间", "observed_at": "观察时间",
@@ -1044,9 +1044,11 @@ def render_html(model: dict) -> str:
 
 def write_index(repo: Path, folder: Path | None = None) -> Path:
     if folder is None:
-        folder = repo.resolve() / "Repo/shape/TeamsPage"
+        folder = repo.resolve() / "Repo/TeamsPage"
     else:
         folder = Path(folder).resolve()
+    require(not folder.is_relative_to(repo.resolve() / "Repo/shape"),
+            "Repo/shape is retired; use Repo/TeamsPage for the TeamPage index")
     require(folder.is_dir() and folder.resolve() == folder, "Missing or redirected TeamPage custody")
     snapshots = []
     groups = {}
@@ -1114,7 +1116,7 @@ def write_index(repo: Path, folder: Path | None = None) -> Path:
             text = text.rstrip() + "\n\n" + generated_block + "\n"
     else:
         newline = "\n"
-        text = ('# Repo/shape/TeamsPage - Mirror Page review output\n\n'
+        text = ('# Repo/TeamsPage - Mirror Page review output\n\n'
                 '> non-authority/no-writeback；当前实践索引，不是验收或长期 archive。\n\n'
             '[TeamPage runtime contract](../../../.agents/skills/teamspage/references/teamspage-runtime-contract.md) · [shape custody](../Motion/README.md)\n\n'
                 + generated_block + "\n")
@@ -1127,15 +1129,16 @@ def generate(repo: Path, request: dict, *, destination: Path | None = None, **op
     model = build_model(repo, request, **options)
     require(not model["mp:sample"], "MPS sample pages are built as eval baselines, not emitted as review artifacts")
     if destination is None:
-        destination = repo / "Repo" / "shape" / "TeamsPage"
+        destination = repo / "Repo" / "TeamsPage"
     else:
         destination = Path(destination).resolve()
     require(destination.is_relative_to(repo), "Destination escapes repo")
+    require(not destination.is_relative_to(repo / "Repo/shape"), "Repo/shape is retired; use Repo/TeamsPage for TeamPage custody")
     require(not (destination.is_relative_to(repo / "Repo/Dojo") and destination != (repo / "Repo/Dojo")),
-            "Illegal Dojo subdirectory; TeamPage outputs to Repo/shape/TeamsPage or flat Repo/Dojo")
+            "Illegal Dojo subdirectory; TeamPage outputs to Repo/TeamsPage or flat Repo/Dojo")
     destination.mkdir(parents=True, exist_ok=True)
     model["checks"]["projection"] = "pass"
-    if destination == (repo / "Repo/shape/TeamsPage"):
+    if destination == (repo / "Repo/TeamsPage"):
         for existing in destination.glob("MPS-*.html"):
             existing_model = read_artifact_model(existing)
             require(existing_model["snapshot_id"] != model["snapshot_id"],
@@ -1215,9 +1218,9 @@ def main() -> None:
         if args.export:
             source = args.from_teamspage
             if source is None:
-                teamspage_dir = repo / "Repo" / "shape" / "TeamsPage"
+                teamspage_dir = repo / "Repo" / "TeamsPage"
                 candidates = sorted(teamspage_dir.glob("*.html"), key=lambda p: p.stat().st_mtime, reverse=True)
-                require(bool(candidates), "No source TeamPage HTML found in Repo/shape/TeamsPage to export")
+                require(bool(candidates), "No source TeamPage HTML found in Repo/TeamsPage to export")
                 source = candidates[0]
             exported = export_delivery(source, args.export, repo)
             try:

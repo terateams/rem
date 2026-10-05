@@ -28,14 +28,14 @@
   "target_deltas": [
     {
       "path": ".agents/skills/teamspage/MPS/scripts/mps.py",
-      "sha256": "5121ed848bab02f6a48e14d797690b74e4a1b72da81c6ecae9b3b77b8d4a7cb7",
-      "reason": "Owner-directed Ego root and Repo/shape/TeamsPage custody paths; preserve Git history scans for the legacy lowercase path.",
-      "validation": "scripts/test_mirror.py: output-path and historical-path tests"
+      "sha256": "996b9e1bf6415a860258c5169160719a133b9baef3f798b287d7bff18e625699",
+      "reason": "Owner-directed Ego root and Repo/TeamsPage custody; preserve MPS IDs by scanning both retired Shape routes.",
+      "validation": "scripts/test_mirror.py: output path, source-link depth, retired-path guard, and historical-ID tests"
     },
     {
       "path": ".agents/skills/teamspage/references/teamspage-runtime-contract.md",
-      "sha256": "05e3e6236c97bb69a969d071b27746e55179ee72f4be2900415314f0d587af47",
-      "reason": "Document current Ego root and TeamsPage custody paths and legacy history scan."
+      "sha256": "239323b31aa3c85cc29a6b3986d386900182e0db6877db6845d1ed9eadb7bf01",
+      "reason": "Document current Ego/Repo/TeamsPage custody, source-link depth, and legacy history scans."
     },
     {
       "path": ".agents/skills/np0/scripts/runtime_snapshot.py",

@@ -51,9 +51,9 @@ MPS 页面 ID 为 `YYMMDD S W NNN`：`YYMMDD` 是 `generated_at` 的 UTC 日期�
 MPS-{YYMMDD}S{W}{NNN}-{target-key}.html
 ```
 
-Allocator 扫描 live `Repo/shape/TeamsPage/` 与 Git `--all --diff-filter=A` additions；为保持历史编号唯一，Git history 同时扫描旧路径 `Repo/shape/teamspage/`。已用序号不复用，日期/weekday 不一致、重复历史 ID、live 冲突或序号溢出均阻断生成。完整 `snapshot_id` 另存于 envelope；同一 snapshot ID 不得重复写入 live custody。`mp:id` 写入 `#mp-data`，不展示为正文叙事。
+Allocator 扫描 live `Repo/TeamsPage/` 与 Git `--all --diff-filter=A` additions；为保持历史编号唯一，Git history 同时扫描迁移前路径 `Repo/shape/TeamsPage/` 与旧小写路径 `Repo/shape/teamspage/`。已用序号不复用，日期/weekday 不一致、重复历史 ID、live 冲突或序号溢出均阻断生成。完整 `snapshot_id` 另存于 envelope；同一 snapshot ID 不得重复写入 live custody。`mp:id` 写入 `#mp-data`，不展示为正文叙事。
 
-生成只写单个 HTML。`mp:sample=true` 的 eval baseline 不分配编号、不写入 review custody，`g_id` 为 `not_applicable`；应由 `build_model()` + `render_html()` 构造到 `MPS/evals/baseline/golden_*/expected.html`，不得经生产 `generate()` 输出。`Repo/shape/TeamsPage/` 是阶段性 custody；删除与保留遵循 REM Concept / owning review 的收口规则，不由 renderer 扫描后自动删除已有 artifact。
+生成只写单个 HTML。`mp:sample=true` 的 eval baseline 不分配编号、不写入 review custody，`g_id` 为 `not_applicable`；应由 `build_model()` + `render_html()` 构造到 `MPS/evals/baseline/golden_*/expected.html`，不得经生产 `generate()` 输出。`Repo/TeamsPage/` 是阶段性 custody；删除与保留遵循 REM Concept / owning review 的收口规则，不由 renderer 扫描后自动删除已有 artifact。
 
 ## 5. Embedded Envelope And Validation
 
@@ -71,7 +71,7 @@ Check values use `pass` / `fail` / `not_run` / `not_applicable` / `unknown` wher
 python .agents/skills/teamspage/MPS/scripts/mps.py --repo <repo> --input <typed-request.json> --capture
 python .agents/skills/teamspage/MPS/scripts/mps.py --repo <repo> --artifact <artifact.html>
 python .agents/skills/teamspage/MPS/scripts/mps.py --repo <repo> --index
-python .agents/skills/rem-ready/scripts/today_mps_adapter.py --repo <repo> --target-dir Repo/shape/TeamsPage
+python .agents/skills/rem-ready/scripts/today_mps_adapter.py --repo <repo> --target-dir Repo/TeamsPage
 ```
 
 `--artifact` 只接受带当前 `#mp-data` envelope 的 MPS HTML；`.manifest.json` sidecar 与无 envelope 的旧 HTML 均不是 MPS input，不提供 legacy compatibility parser。新输出始终只有 HTML。`--export` 只接受合法 HTML 并写入 `Mission/` destination。MPS 不提供清理既有过程文件的 CLI。

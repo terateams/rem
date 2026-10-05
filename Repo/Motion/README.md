@@ -6,4 +6,4 @@
 
 `looper` owns approved path-drift and asset-placement migrations, including dated placement under `Repo/days/YYYY-MM-DD/`. `rem-ready` owns daily `today` snapshots. When a dated artifact's custody is unclear, route the decision to `motioner` first.
 
-The [TeamsPage custody](../shape/TeamsPage/README.md) is an internal review artifact surface only. Original sources, evidence, Human decisions, and writeback remain in their owning workflows.
+The [TeamsPage custody](../TeamsPage/README.md) is an internal review artifact surface only. Original sources, evidence, Human decisions, and writeback remain in their owning workflows.

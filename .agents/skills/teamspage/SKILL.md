@@ -8,8 +8,8 @@ metadata:
 
 # rem built-in Mirror Page
 
-实现identity保留小写 `teamspage`，不是额外用户产品；文件 custody 目录固定为 `Repo/shape/TeamsPage/`，与 `Motion/` 的目录名大小写对齐。`scripts/mirror.py`读取explicit target request构造 typed inputs，generic MPS freeze source bytes/hash/revision/dirty与sentence provenance。只允许reviewed/no-secret且获授权的来源；declaration不是grant。
+实现identity保留小写 `teamspage`，不是额外用户产品；文件 custody 目录固定为 `Repo/TeamsPage/`，与 `Repo/Motion/` 同级。`scripts/mirror.py`读取explicit target request构造 typed inputs，generic MPS freeze source bytes/hash/revision/dirty与sentence provenance。只允许reviewed/no-secret且获授权的来源；declaration不是grant。
 
 runtime与[contract](references/teamspage-runtime-contract.md)固定迁移；不部署CRAFTS adapter、MPV pilots或T189 Today默认值。CLI实际显示not_run gate不得转pass；deterministic rebuilt HTML、DOM、digest、G-ID/Voice/Distort与freshness分别验证。无companion manifest，#mp-data内嵌provenance，零外部runtime依赖。
 
-scope omissions/unknowns明确；生成不是Narrative/EVAL/adoption，原件变更旧页stale。Human回原件修订或进入authorized Tools，HTML不执行/写回。stage custody在 `Repo/shape/TeamsPage/`，actualreview独立record；只在owningcloseout后清理可再生物，保留唯一evidence。
+scope omissions/unknowns明确；生成不是Narrative/EVAL/adoption，原件变更旧页stale。Human回原件修订或进入authorized Tools，HTML不执行/写回。stage custody在 `Repo/TeamsPage/`，actualreview独立record；只在owningcloseout后清理可再生物，保留唯一evidence。
