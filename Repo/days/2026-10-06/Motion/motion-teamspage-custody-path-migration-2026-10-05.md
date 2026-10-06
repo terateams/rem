@@ -2,12 +2,14 @@
 
 > **Date**: 2026-10-05
 > **Owner**: yangjun / bitguts
-> **Status**: Executed
+> **Status**: Done
+> **Updated**: 2026-10-06
+> **Closeout**: Player accepted 2026-10-06; source retired to `Repo/days/2026-10-06/Motion/`
 > **Type**: repository structure / asset custody path migration
 > **Service Object**: rem Mirror Page custody
-> **Primary Route**: [Story-rem](../../Mission/Story-rem.md) -> [EVAL](../../Mission/EVAL/eval-rem-v1.md)
+> **Primary Route**: [Story-rem](../../../../Mission/Story-rem.md) -> [EVAL](../../../../Mission/EVAL/eval-rem-v1.md)
 > **Source Request**: Owner 当前对话：“TeamsPage提升到Repo下, 同时取消了Shape的子目录, 给出判断后, 全Repo对齐”
-> **Execution Audit**: [canonical Audit](../../Mission/Audit/2026-10-05-teamspage-custody-path-migration.md)
+> **Execution Audit**: [canonical Audit](../../../../Mission/Audit/2026-10-05-teamspage-custody-path-migration.md)
 > **Round**: R1
 
 ## 问题与拟议裁决
@@ -60,4 +62,4 @@ Owner 当前对话明确要求对 `Repo/TeamsPage/` 搬迁做判断并全仓对�
 - `bash scripts/ra-check.sh`: `RA仓规 0.6.1: OK`。
 - `git diff --check`: 无 whitespace errors；Git 对 `Repo/days/README.md` 提示 CRLF/LF 归一化。
 
-四个冻结 HTML 未编辑或重建；代表性 MPS validator 与新 renderer 不匹配，移动后其旧相对链接不再解析，已在 custody README 标明 stale。Owner acceptance pending；本次未刷新 daily handoff、未提交或推送。
+四个冻结 HTML 未编辑或重建；代表性 MPS validator 与新 renderer 不匹配，移动后其旧相对链接不再解析，已在 custody README 标明 stale。执行时 Owner acceptance pending；本次未刷新 daily handoff、未提交或推送。后续 closeout 见 header 与 canonical Audit。

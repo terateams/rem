@@ -10,7 +10,7 @@ metadata:
 
 ## Authority
 
-SI follows root `AGENTS.md`; `Ego/RAP.md` is the sole source of RA rules. This skill is an operational route, not another authority or permission grant. Do not treat retired RCI as a current rules source. Before changing Agent configuration, read RAP; after the change, run `uv run python scripts/ra-check.py`.
+`AGENTS.md` is the repository's single instruction file for SI; follow it. `Ego/RAP.md` is the sole source of RA rules. If this Skill or its Narrative Page conflicts with RAP, RAP controls. This Skill supplies the rem-ready operating route; it does not create a second RA rules source or grant permission. RCI is retired and is not a current rules source. Before changing Agent configuration, read RAP; after the change, run `uv run python scripts/ra-check.py`.
 
 ## Inspect-first
 

@@ -2,11 +2,15 @@
 
 > **Date**: 2026-10-05
 > **Player**: yangjun / bitguts
-> **Status**: Executed; Player acceptance pending
+> **Status**: Done; Player acceptance recorded
 > **Scope**: rem-ready AgentSkill authority alignment and its Narrative Page
-> **Source Motion**: [motion-rem-ready-rap-narrative-page](../../Repo/Motion/motion-rem-ready-rap-narrative-page-2026-10-05.md)
+> **Source Motion**: [motion-rem-ready-rap-narrative-page](../../Repo/days/2026-10-06/Motion/motion-rem-ready-rap-narrative-page-2026-10-05.md)
 > **Primary Route**: [Story-rem](../Story-rem.md) -> [EVAL](../EVAL/eval-rem-v1.md)
 > **Runtime Approval**: Player 当前对话：“启动Motion, 更新rem-ready: 1. 对齐当前REM (RCI被取消了, 有了RAP) 2. 影页(动词) rem-ready skill”
+> **Continuation Request**: Player 当前对话：“rem-ready RAP 对齐: 需要完善, Rap是标准的文字, 继续”
+> **Player Acceptance**: Current conversation: “approved”
+> **Source Retirement**: `Repo/Motion/motion-rem-ready-rap-narrative-page-2026-10-05.md` -> `Repo/days/2026-10-06/Motion/motion-rem-ready-rap-narrative-page-2026-10-05.md`
+> **History Triage Result**: Audit First; no Concept / authority admission; source retired after Player acceptance
 > **Source Status at Execution Start**: Draft; not changed to Approved
 > **Source Revision**: `a789753ee7be22e411c7bcf5e47d34934482efc5` (local HEAD at page generation; source files include the recorded uncommitted Skill change)
 
@@ -35,3 +39,19 @@ No changes were made to `AGENTS.md`, `Ego/RAP.md`, EGO / Mission / EVAL / INTENT
 The page is discoverable from `Repo/TeamsPage/README.md`; all page source links are local. The page is non-authority / no-writeback and does not use the MPS `#mp-data` format or `mps.py`. Its base commit and source hashes are visible; the generation context did not expose a model/runtime ID, which the page marks unknown.
 
 History triage is `Audit First`; no authority or Concept admission is requested or inferred. Keep the Motion active until Player reviews and accepts or requests changes. No source retirement has occurred. Human acceptance, profile / Settings Sync, entitlement / picker, and real model workloads remain unverified or `not_run`.
+
+## Continuation Update - 2026-10-06
+
+Player clarified that RAP is the standard text and requested continuation. No change was made to `Ego/RAP.md`; its 0.6.6 text remains the sole RA rules source. The rem-ready Skill now explicitly says that RAP controls if the workflow or its Narrative Page conflicts with it. The Narrative Page intro was narrowed to describe the Skill and its listed sources, state RAP precedence, and avoid assigning generic rule priority to arbitrary source files or Player decisions.
+
+The Narrative Page provenance now names base commit `b6b5a0bc670f7c5efc26234e9504c53a0c569c14`, date `2026-10-06`, RAP 0.6.6, and current SHA-256 values for all five listed source files. Model/runtime ID remains unverified. Validation for this continuation:
+
+- `uv run --offline python scripts/ra-check.py`: `RA仓规 0.6.6: OK`.
+- Standard-library HTML parser: 8 local links resolve; no script tags; all five declared source hashes match.
+- `uv run --offline python scripts/verify.py`: `structure=pass`, `failures=[]`; Human review, runtime models, and role alignment remain `not_run`.
+
+At the end of the continuation, Player acceptance was still pending. The later approval and source retirement are recorded below; this does not infer product EVAL completion or authority admission.
+
+## Closeout Update - 2026-10-06
+
+Player approved the completed rem-ready RAP alignment in the current conversation (“approved”). After reviewing the continuation changes and recorded validations, the Motion was marked `Done` and retired to `Repo/days/2026-10-06/Motion/motion-rem-ready-rap-narrative-page-2026-10-05.md`. History Triage remains `Audit First`; no Concept or authority admission is made. Product EVAL, Human review, runtime models, and role alignment are not inferred complete. The daily `today.md` / `now.md` handoff was not refreshed because the previous-day canonical snapshot path is already occupied and no alternative path was selected.

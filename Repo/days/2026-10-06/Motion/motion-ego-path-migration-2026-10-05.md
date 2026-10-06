@@ -2,12 +2,13 @@
 
 > **Date**: 2026-10-05
 > **Owner**: yangjun / bitguts
-> **Status**: Executed
-> **Updated**: 2026-10-05
-> **Execution Audit**: [canonical Audit](../../Mission/Audit/2026-10-05-ego-path-migration.md)
+> **Status**: Done
+> **Updated**: 2026-10-06
+> **Execution Audit**: [canonical Audit](../../../../Mission/Audit/2026-10-05-ego-path-migration.md)
+> **Closeout**: Player accepted 2026-10-06; source retired to `Repo/days/2026-10-06/Motion/`
 > **Type**: repository naming / path migration
 > **Service Object**: rem canonical Ego path
-> **Primary Route**: [Story-rem](../../Mission/Story-rem.md) -> EVAL
+> **Primary Route**: [Story-rem](../../../../Mission/Story-rem.md) -> EVAL
 > **Source Request**: Owner 当前对话：“要发布 Ego，还需先把大小写改名和相关路径迁移正式登记到 Git，再验证并推送”
 > **Round**: R1
 
@@ -52,4 +53,4 @@ canonical 路径为 `Ego/`；历史事实文字与上游标识不因目录改名
 
 ## Execution Result - 2026-10-05
 
-实现、验证与首次 push 结果见 [canonical Audit](../../Mission/Audit/2026-10-05-ego-path-migration.md)。Commit `c3158d3` 已普通推送到 `main`；Owner acceptance pending，因此 Motion 保持在 working surface，不退休为历史源。
+实现、验证与首次 push 结果见 [canonical Audit](../../../../Mission/Audit/2026-10-05-ego-path-migration.md)。Commit `c3158d3` 已普通推送到 `main`；执行时 Owner acceptance pending，后续 closeout 见上方记录。

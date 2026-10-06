@@ -1,6 +1,6 @@
 # today - 2026-10-05
 
-本段 supersedes pre-revision 2026-10-05 handoff；完整快照见 [today archive](days/2026-10-05/today.md)。RWB/RA 本地修订与验证见 [canonical Audit](../Mission/Audit/2026-10-05-rwb-ra-compatibility.md) 和 [Motion](Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md)。
+本段 supersedes pre-revision 2026-10-05 handoff；完整快照见 [today archive](days/2026-10-05/today.md)。RWB/RA 本地修订与验证见 [canonical Audit](../Mission/Audit/2026-10-05-rwb-ra-compatibility.md) 和 [Motion](days/2026-10-06/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md)。
 
 ## Current Focus
 

@@ -2,11 +2,17 @@
 
 > **Date**: 2026-10-05
 > **Owner**: yangjun / bitguts
-> **Status**: Executed; Owner acceptance pending
+> **Status**: Done; Player acceptance recorded
 > **Scope**: Repo/TeamsPage canonical custody, MPS routes, registry, tests and navigation
-> **Source Motion**: [motion-teamspage-custody-path-migration](../../Repo/Motion/motion-teamspage-custody-path-migration-2026-10-05.md)
+> **Source Motion**: [motion-teamspage-custody-path-migration](../../Repo/days/2026-10-06/Motion/motion-teamspage-custody-path-migration-2026-10-05.md)
 > **Runtime Approval**: Owner 当前对话：“TeamsPage提升到Repo下, 同时取消了Shape的子目录, 给出判断后, 全Repo对齐”
-> **History Triage Result**: Audit First; no Concept / authority admission; Owner acceptance pending
+> **Player Acceptance**: Current conversation: “Ego 路径迁移 与 TeamPage custody 迁移: accepted”
+> **Source Retirement**: `Repo/Motion/motion-teamspage-custody-path-migration-2026-10-05.md` -> `Repo/days/2026-10-06/Motion/motion-teamspage-custody-path-migration-2026-10-05.md`
+> **History Triage Result**: Audit First; no Concept / authority admission; source retired after Player acceptance
+
+## Closeout Update - 2026-10-06
+
+Player accepted the TeamPage custody migration in the current conversation. Existing validation and canonical landing were reviewed; the Motion source was retired to the dated path above. Product Mission acceptance is not inferred.
 
 ## Baseline and Judgment
 
@@ -30,6 +36,6 @@ The canonical active path is `Repo/TeamsPage/`; no active `Repo/shape/` director
 
 ## Consumer Audit and History Triage
 
-The MPS runtime, current README navigation, registry, verifier, and tests now use `Repo/TeamsPage/`. The four stale HTML snapshots are retained only as frozen historical artifacts and are not presented as active review. No authority or Concept admission is inferred; Owner acceptance remains pending.
+The MPS runtime, current README navigation, registry, verifier, and tests now use `Repo/TeamsPage/`. The four stale HTML snapshots are retained only as frozen historical artifacts and are not presented as active review. No authority or Concept admission is inferred. At initial execution closeout on 2026-10-05, acceptance was pending; current acceptance and retirement are recorded in the closeout update above.
 
 No external tools, paid resources, model workloads, or page regeneration occurred. `Ego/Rap.md` was not modified. No commit or push was performed, and `Repo/today.md` / `Repo/now.md` were not refreshed.

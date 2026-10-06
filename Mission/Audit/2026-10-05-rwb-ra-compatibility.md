@@ -2,11 +2,14 @@
 
 > **Date**: 2026-10-05
 > **Player**: yangjun / bitguts
-> **Status**: Executed; Player acceptance pending
+> **Status**: Done; Player acceptance recorded
 > **Scope**: RWB integration, RA 0.6.6, Python checker, active terminology, RAP Narrative Page
-> **Source Motion**: [motion-rem-rwb-ra-compatibility](../../Repo/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md)
+> **Source Motion**: [motion-rem-rwb-ra-compatibility](../../Repo/days/2026-10-06/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md)
 > **Primary Route**: [Story-rem](../Story-rem.md) -> [EVAL](../EVAL/eval-rem-v1.md)
 > **Runtime Approval**: Player 当前对话：“理解REM修订方案后, 比照当前的实际情况, 予以执行”
+> **Player Acceptance**: Current conversation: “批准 motion of rem rwb”
+> **Source Retirement**: `Repo/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md` -> `Repo/days/2026-10-06/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md`
+> **History Triage Result**: Audit First; no Concept / authority admission; source retired after Player acceptance
 > **Source Status at Execution Start**: Draft; retained as Draft, not represented as durably Approved
 > **Baseline**: `f192d175879321a745b1095f5279f7f85f2883ef`; the Player-authored `Ego/Rwb.md` existed untracked and was preserved
 
@@ -45,6 +48,12 @@ D3 was resolved by the Player as `uv run python`. This repository now has `.pyth
 
 ## Held Gates and History Triage
 
-D4 (PDF CLI / engine), RAP Rule 5 hook and credential scanning, Player-only LANTERN acceptance, GitHub Actions result, Template repository setting, and all external or paid actions remain out of scope or unverified. No authority, EVAL, release, or Mission acceptance is inferred.
+D4 (PDF CLI / engine), RAP Rule 5 hook and credential scanning, Player-only LANTERN acceptance, GitHub Actions result, Template repository setting, and all external or paid actions remain out of scope or unverified. No authority, product EVAL, release, or broader Mission acceptance is inferred.
 
-History Triage is `Audit First`; no Concept or authority admission is requested. The Motion remains active pending Player review/acceptance; no source retirement occurred. No commit or push was performed.
+History Triage is `Audit First`; no Concept or authority admission is requested. At initial execution closeout, Player acceptance was pending and no source retirement had occurred. The later approval and retirement are recorded below. No commit or push was performed.
+
+## Closeout Update - 2026-10-06
+
+Player approved the RWB/RA Motion in the current conversation (“批准 motion of rem rwb”). The Motion is `Done` and its source was retired to `Repo/days/2026-10-06/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md`. This is acceptance of the completed Motion closeout only; `Ego/Rwb.md` remains a Player-facing draft and is not accepted by this approval.
+
+History Triage remains `Audit First`; no Concept or authority admission is made. D4 PDF CLI/engine, RAP Rule 5 hooks/secrets, LANTERN acceptance, CI Actions status, Template repository setting, and the first real runtime-validation task remain open or unverified. Product EVAL, Human review, runtime models, and role alignment are not inferred complete. No commit or push occurred. The `Repo/today.md` / `Repo/now.md` content was not date-refreshed; its archive-path conflict remains unresolved.

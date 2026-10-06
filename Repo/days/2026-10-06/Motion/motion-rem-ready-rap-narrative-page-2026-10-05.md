@@ -2,12 +2,17 @@
 
 > **Date**: 2026-10-05
 > **Player**: yangjun / bitguts
-> **Status**: Executed; Player acceptance pending
+> **Status**: Done
+> **Updated**: 2026-10-06
 > **Type**: AgentSkill alignment / Narrative Page
 > **Service Object**: rem-ready startup and handoff route
-> **Primary Route**: [Story-rem](../../Mission/Story-rem.md) -> [EVAL](../../Mission/EVAL/eval-rem-v1.md)
+> **Primary Route**: [Story-rem](../../../../Mission/Story-rem.md) -> [EVAL](../../../../Mission/EVAL/eval-rem-v1.md)
 > **Source Request**: Player 当前对话：“启动Motion, 更新rem-ready: 1. 对齐当前REM (RCI被取消了, 有了RAP) 2. 影页(动词) rem-ready skill”
-> **Execution Audit**: [canonical Audit](../../Mission/Audit/2026-10-05-rem-ready-rap-narrative-page.md)
+> **Continuation Request**: Player 当前对话：“rem-ready RAP 对齐: 需要完善, Rap是标准的文字, 继续”
+> **Execution Audit**: [canonical Audit](../../../../Mission/Audit/2026-10-05-rem-ready-rap-narrative-page.md)
+> **Player Acceptance**: Current conversation: “approved”
+> **Source Retirement**: `Repo/Motion/motion-rem-ready-rap-narrative-page-2026-10-05.md` -> `Repo/days/2026-10-06/Motion/motion-rem-ready-rap-narrative-page-2026-10-05.md`
+> **History Triage Result**: Audit First; no Concept / authority admission; source retired after Player acceptance
 > **Round**: R1
 
 ## 问题与拟议裁决
@@ -23,7 +28,7 @@
 - 更新 `.agents/skills/rem-ready/SKILL.md` 的 description 与 authority / Narrative Page 边界；保留既有 startup、日期、Git、Dojo、cursor、模型 / 权限和离开前收口要求。
 - 新建 `Repo/TeamsPage/rem-ready-teamspage.html`，只读本 Motion 指定的 rem-ready / RA authority 来源；页面 offline、non-authority / no-writeback。
 - 更新 `Repo/TeamsPage/README.md` 导航，链接该页。
-- 运行 `sh scripts/ra-check.sh`、`python scripts/verify.py` 与针对新增页面的本地链接 / HTML 检查。
+- 运行 `uv run python scripts/ra-check.py`、`uv run python scripts/verify.py` 与针对新增页面的本地链接 / HTML 检查。
 
 **不纳入：**
 
@@ -40,11 +45,11 @@ Player 当前请求明确要求更新 rem-ready 并为其制作 Narrative Page�
 
 | Gate | 判据 | 必需证据 |
 | --- | --- | --- |
-| D1 | Skill 明确 `AGENTS.md` 执行路由、`Ego/RAP.md` 唯一规则源、Skill 非 authority；不将 RCI 当现行 authority | Skill diff；`sh scripts/ra-check.sh` pass |
+| D1 | Skill 明确 `AGENTS.md` 执行路由、`Ego/RAP.md` 唯一规则源、RAP 冲突优先级；不将 RCI 当现行 authority | Skill diff；`uv run python scripts/ra-check.py` pass |
 | D2 | Narrative Page 准确叙述 rem-ready 边界，标注 source files / hashes / base commit / generator / version / date / unknowns，且 non-authority / no-writeback | HTML source / metadata review；HTML parser 与 local-link check |
-| D3 | `Repo/TeamsPage/README.md` 可导航到新页；结构与 Markdown links 通过 | `python scripts/verify.py` pass |
+| D3 | `Repo/TeamsPage/README.md` 可导航到新页；结构与 Markdown links 通过 | `uv run python scripts/verify.py` pass |
 | D4 | 范围外来源、MPS pins、现有页面和用户改动未被改写 | `git status --short`、`git diff --check`、source-path review |
-| D5 | 不冒称 Player acceptance 或产品 EVAL 完成 | Motion / Audit 明确保留 acceptance pending 与其它 not_run gates |
+| D5 | 记录 Player acceptance，且不推导产品 EVAL 完成 | Motion / Audit 分别记录 acceptance 与其它 not_run gates |
 
 ## Landing / Rollback
 
@@ -58,4 +63,8 @@ The local scope was executed under the current Player request while the source s
 - D2: The offline Narrative Page records its source paths, SHA-256 values, base commit, generator, tool version, date, and unknown model/runtime ID. It is marked non-authority / no-writeback. A standard-library parser confirmed valid HTML, 8 resolving local links, and no scripts.
 - D3: The canonical TeamsPage README links the new page. `python scripts/verify.py` returned `structure=pass`, `failures=[]`.
 - D4: Scope stayed within the Motion; `git diff --check` passed, and the new Motion, Audit, and HTML files have no trailing whitespace and exactly one final newline. The final worktree state is recorded in the Audit.
-- D5: Player acceptance pending. Human review, runtime models, and role alignment remain `not_run`; no product EVAL completion is inferred.
+- D5: Player acceptance was pending at initial execution closeout. Human review, runtime models, and role alignment remain `not_run`; no product EVAL completion is inferred.
+
+## Continuation - 2026-10-06
+
+Player requested further alignment and clarified that RAP is the standard text. The Skill now explicitly states that RAP controls if the workflow or its Narrative Page conflicts with it. The Narrative Page now gives that same precedence without claiming to replace RAP, and its provenance is refreshed to RAP 0.6.6, the current base commit, date, and source hashes. The canonical Audit records the continuation checks. Player acceptance remains pending; no authority or product EVAL completion is inferred.

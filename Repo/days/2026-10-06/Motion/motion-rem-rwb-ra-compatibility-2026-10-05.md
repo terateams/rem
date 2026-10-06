@@ -2,11 +2,15 @@
 
 > **Date**: 2026-10-05
 > **Player**: yangjun / bitguts
-> **Status**: Executed; Player acceptance pending
+> **Status**: Done
+> **Updated**: 2026-10-06
 > **Type**: Rem Workbench / RA rules / cross-platform maintenance
 > **Service Object**: rem RWB baseline, RA configuration, and linked Narrative Page
-> **Primary Route**: [Story-rem](../../Mission/Story-rem.md) -> [EVAL](../../Mission/EVAL/eval-rem-v1.md)
-> **Execution Audit**: [canonical Audit](../../Mission/Audit/2026-10-05-rwb-ra-compatibility.md)
+> **Primary Route**: [Story-rem](../../../../Mission/Story-rem.md) -> [EVAL](../../../../Mission/EVAL/eval-rem-v1.md)
+> **Execution Audit**: [canonical Audit](../../../../Mission/Audit/2026-10-05-rwb-ra-compatibility.md)
+> **Player Acceptance**: Current conversation: “批准 motion of rem rwb”
+> **Source Retirement**: `Repo/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md` -> `Repo/days/2026-10-06/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md`
+> **History Triage Result**: Audit First; no Concept / authority admission; source retired after Player acceptance
 > **Source Request**: Player 当前对话：“理解REM修订方案后, 比照当前的实际情况, 予以执行”；本机方案文件：`/Users/bitguts/Downloads/REM修订方案.md`（不随仓库共享）
 > **Baseline**: `f192d175879321a745b1095f5279f7f85f2883ef`; current user-authored `Ego/Rwb.md` is untracked and retained
 > **Round**: R1
@@ -64,3 +68,7 @@ The current conversation explicitly authorized local execution while this Motion
 - D6: executed. The complete pre-refresh `Repo/today.md` was preserved at `Repo/days/2026-10-05/today.md`; its body matches after relative-link rebasing. `Repo/today.md`, `Repo/now.md`, and `Repo/INTENT.md` now reflect this revision. The existing `Repo/days/2026-10-04/today.md` was not overwritten.
 - D7: required RA checker, repository verifier, 10 NP0 snapshot tests, RAP HTML parser, and source hashes pass. The additional MPS suite is 13/16; all three failures reproduce on clean baseline `f192d17` and are recorded in the canonical Audit. `git diff --check` passes and final worktree status is recorded in the Audit.
 - D4 PDF CLI, Rule 5 hooks/secrets, LANTERN, CI Actions status, Template repository setting, and Player acceptance remain open or unverified.
+
+## Closeout - 2026-10-06
+
+Player approved the RWB/RA Motion in the current conversation (“批准 motion of rem rwb”). This records acceptance of the completed Motion closeout only. `Ego/Rwb.md` remains a Player-facing draft and is not accepted by this Motion approval. D4 PDF CLI/engine, RAP Rule 5 hooks/secrets, LANTERN acceptance, CI Actions status, Template repository setting, and the first real runtime-validation task remain open or unverified. The Motion is `Done` and its source is retired to `Repo/days/2026-10-06/Motion/`. History Triage remains `Audit First`; no Concept, authority, or product EVAL completion is inferred. Daily handoff refresh remains separate and is not performed here.

@@ -22,3 +22,9 @@ Player requested execution of the local REM revision plan. Actual baseline was `
 ## Next Entry
 
 Await Player review/acceptance of the Motion and the RWB draft. D4 PDF CLI/engine, RAP Rule 5 hooks/secrets, LANTERN acceptance, CI Actions result, Template repository setting, and the first real runtime-validation task remain pending or unknown. Do not select models or start external/paid work without its bounded task, permission, cost, and stop rule.
+
+## Closeout Update - 2026-10-06
+
+Player approved the completed RWB/RA Motion; it is `Done` and retired to [the 2026-10-06 Motion archive](days/2026-10-06/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md). This accepts the Motion closeout only; `Ego/Rwb.md` remains a draft, and the held PDF CLI, Rule 5 hooks/secrets, LANTERN, CI Actions, and Template repository gates remain open or unverified. No new runtime task was started.
+
+This is a closeout delta, not a daily baseline refresh. `Repo/today.md` remains dated 2026-10-05; its non-colliding prior-day archive path has not been selected, and no existing snapshot was overwritten.

@@ -2,12 +2,18 @@
 
 > **Date**: 2026-10-05
 > **Owner**: yangjun / bitguts
-> **Status**: Executed; Owner acceptance pending
+> **Status**: Done; Player acceptance recorded
 > **Scope**: Git-tracked root and entry-path casing migration, target path adapters, references, validation, and push
-> **Source Motion**: [motion-ego-path-migration](../../Repo/Motion/motion-ego-path-migration-2026-10-05.md)
+> **Source Motion**: [motion-ego-path-migration](../../Repo/days/2026-10-06/Motion/motion-ego-path-migration-2026-10-05.md)
 > **Runtime Approval**: Owner current conversation: “要发布 Ego，还需先把大小写改名和相关路径迁移正式登记到 Git，再验证并推送”
 > **Implementation Commit**: `c3158d3` (`Adopt canonical Ego path casing`)
-> **History Triage Result**: Audit First; source retirement pending Owner acceptance
+> **Player Acceptance**: Current conversation: “Ego 路径迁移 与 TeamPage custody 迁移: accepted”
+> **Source Retirement**: `Repo/Motion/motion-ego-path-migration-2026-10-05.md` -> `Repo/days/2026-10-06/Motion/motion-ego-path-migration-2026-10-05.md`
+> **History Triage Result**: Audit First; no Concept / authority admission; source retired after Player acceptance
+
+## Closeout Update - 2026-10-06
+
+Player accepted the Ego path migration in the current conversation. Existing validation and canonical landing were reviewed; the Motion source was retired to the dated path above. Product Mission acceptance is not inferred.
 
 ## Baseline and Action
 
@@ -27,4 +33,4 @@ The NP0 runtime snapshot and its tests are registered as target deltas for `Ego/
 - `git diff --cached --check`: pass.
 - Commit `c3158d3` was pushed with ordinary `git push`; remote advanced `596ce1a..c3158d3` on `main`.
 
-No Cloudflare, DNS, model, credential, paid, or deployment action occurred. Machine checks do not establish Human acceptance or product Mission completion. Owner acceptance remains pending; the Motion stays on the working surface and is not retired.
+No Cloudflare, DNS, model, credential, paid, or deployment action occurred. Machine checks do not establish product Mission completion. At initial execution closeout on 2026-10-05, acceptance was pending; current acceptance and retirement are recorded in the closeout update above.

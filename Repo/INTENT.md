@@ -1,8 +1,8 @@
 # rem INTENT
 
-Current Focus: 执行 Player 指定的 2026-10-05 REM 修订方案：RWB / RA 跨平台本地修订已执行；RWB 仍为 draft，Motion 等待 Player review / acceptance。产品 EVAL A1-A13 保持原判据。
+Current Focus: Player 指定的 2026-10-05 REM 修订方案已执行，RWB/RA Motion 于 2026-10-06 获 Player approval 并退休；`Ego/Rwb.md` 仍为 draft，未由 Motion acceptance 代替其 Human acceptance。产品 EVAL A1-A13 保持原判据。
 
-WIP: one bounded rem RWB / RA maintenance revision; see [Motion](Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md) / [Audit](../Mission/Audit/2026-10-05-rwb-ra-compatibility.md)。不并发部署新领域方法。software build 不代替 consumer Mission acceptance。后续真实任务必须绑定 Goal、责任位、scope、expected evidence、EVAL、permission / cost 与 stop rule；未经准入材料落 Dojo，不直写 authority。
+WIP: no active bounded task assigned. The completed RWB/RA maintenance is recorded in the retired [Motion](days/2026-10-06/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md) / [Audit](../Mission/Audit/2026-10-05-rwb-ra-compatibility.md); held gates remain open as recorded there. 不并发部署新领域方法。software build 不代替 consumer Mission acceptance。后续真实任务必须绑定 Goal、责任位、scope、expected evidence、EVAL、permission / cost 与 stop rule；未经准入材料落 Dojo，不直写 authority。
 
 当前部署 baseline 可安全本地验证；真实 Human/role/model gates 按 EVAL 明确等待，不填造事件。
 
