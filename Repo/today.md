@@ -10,11 +10,11 @@ Player 已接受 `RWS = rem Work System` 与 `Ego/Rws.md` 为 active canonical W
 
 ## rem-ready Startup
 
-- Host date/time `2026-10-06 10:15 +08:00`; Windows workspace / terminal cwd `D:\Github\rem`。
+- Startup Host date/time `2026-10-06 10:15 +08:00`; Windows workspace / terminal cwd `D:\Github\rem`。
 - VS Code CLI `1.140.0`; Python `3.14.0`; uv `0.12.20`。
-- `main` HEAD `af5fd54` 对本地 `origin/main` ref 为 `0/0`；本次未 fetch，远端最新状态 `unknown`。Refresh 前 worktree 有未跟踪的 Work-OS Motion；活动编辑器缓冲 dirty 状态未独立核验。
+- Startup 时 `main` HEAD `af5fd54` 对当时本地 `origin/main` ref 为 `0/0`。12:18 +08:00 按 Player 请求 fetch、提交并 push；migration commit `cdb87d8` 推送后 `main == origin/main (0/0)`。完整 action 结果见 [evidence](../Mission/evidence/tool-rws-git-sync-20261006.json)。活动编辑器缓冲 dirty 状态未独立核验。
 - `Repo/Dojo/README.md` 存在且 Dojo 路径无 worktree changes。
 - `uv run --offline python scripts/verify.py`：`structure=pass`、`failures=[]`；Human review、runtime models、role alignment 为 `not_run`。
 - Active VSC Profile、Settings Sync、Copilot entitlement、picker/model/backend 与本次 SI runtime identity 未独立核验；不从 CLI profile 或当前聊天推断实际模型运行。
 
-本次 daily refresh 与 RWS migration 均限于获批的本地文档/consumer 工作；未 fetch、未安装 CLI、未调用外部/付费 Tools、未部署、未 commit 或 push。Profile、Sync、实际 entitlement/runtime 与 editor-buffer dirty 状态仍为 unknown。
+本次 daily refresh 与 RWS migration 限于获批的本地文档/consumer 工作，并按 Player 请求完成 Git fetch/commit/push；Audit 与 action evidence 已随 follow-up closeout commit 同步。未安装 CLI、未调用付费业务 Tool、未部署。Profile、Sync、实际 entitlement/runtime 与 editor-buffer dirty 状态仍为 unknown。

@@ -17,11 +17,11 @@ Player accepted `Ego/Rws.md` as the active canonical Work-System source. The ori
 
 ## Environment and Repository State
 
-- Host date/time `2026-10-06 10:15 +08:00`; Windows workspace and terminal cwd `D:\Github\rem`; VS Code CLI `1.140.0`; Python `3.14.0`; uv `0.12.20`.
-- `main` HEAD `af5fd54` matched the existing local `origin/main` ref (`0/0`); no fetch was performed, so remote freshness is `unknown`.
+- Startup observation at `2026-10-06 10:15 +08:00`: Windows workspace/cwd `D:\Github\rem`; VS Code CLI `1.140.0`; Python `3.14.0`; uv `0.12.20`; `main` and the then-existing `origin/main` ref were `0/0` before fetch.
+- End-of-day sync at `2026-10-06 12:18 +08:00`: authorized `git fetch origin`, commit `cdb87d8fc87268e958c7f19ee57bde59c428fc83`, and `git push origin main` succeeded; immediate post-push `main == origin/main (0/0)` and worktree clean. Evidence: [Git sync action](../Mission/evidence/tool-rws-git-sync-20261006.json).
 - Dojo exists and has no worktree changes. The active editor dirty state, VSC Profile, Settings Sync, actual extension profile, Copilot entitlement, picker/model selection, and backend/runtime identity are `unknown`.
-- No model workload, CLI installation, external/paid Tool, deployment, commit, or push occurred during this refresh.
+- No model workload, CLI installation, paid business Tool, or deployment occurred. The follow-up closeout commit carries the Audit, sync evidence, and this updated handoff.
 
 ## Next Entry
 
-Reference triage and full-text comparison are complete. The source carries the selected platform / runtime targets and the legacy CLI acquisition suggestion strictly as a non-adopted proposal. The RAP Narrative Page was not regenerated; its obsolete Tools href now targets the dated archive, while its source hashes remain stale. Structure, NP0, and MPS checks pass; Player accepted the RWS source and physical removal of the Tools/Working paths. Product EVAL A1-A13, runtime models, and role alignment remain unchanged / `not_run`. No commit or push was made.
+Reference triage and full-text comparison are complete. The source carries the selected platform / runtime targets and the legacy CLI acquisition suggestion strictly as a non-adopted proposal. The RAP Narrative Page was not regenerated; its obsolete Tools href now targets the dated archive, while its source hashes remain stale. Structure, NP0, and MPS checks pass; Player accepted the RWS source and physical removal of the Tools/Working paths. Product EVAL A1-A13, runtime models, and role alignment remain unchanged / `not_run`. The migration sync and closeout records are pushed to `origin/main`.
