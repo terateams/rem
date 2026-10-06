@@ -1,30 +1,27 @@
 # now
 
-## Latest Handoff - 2026-10-05
+## Latest Handoff - 2026-10-06
 
-Player requested execution of the local REM revision plan. Actual baseline was `f192d17`, not the plan's `a789753`. The pre-revision `Repo/today.md` was preserved at [the 2026-10-05 snapshot](days/2026-10-05/today.md), per Player-selected path; the existing 2026-10-04 snapshot remains untouched. `Repo/today.md`, this handoff, and `Repo/INTENT.md` are refreshed through rem-ready.
+Player selected the non-colliding `Repo/days/2026-10-05/today-post-revision.md` path. The complete pre-refresh handoff was preserved there; the pre-existing `Repo/days/2026-10-05/today.md` was not overwritten. `Repo/today.md` and this handoff now use the 2026-10-06 date baseline. `Repo/INTENT.md` was not rewritten as routine daily maintenance.
+
+Player accepted `Ego/Rws.md` as the active canonical Work-System source. The original Tools and Working texts are archived under `Repo/days/2026-10-06/Ego/`; `Ego/Tools.md` and `Ego/Working.md` no longer exist. The former RWB path remains a non-authority notice. The RWS Motion is `Done` and archived under `Repo/days/2026-10-06/Motion/`; the canonical [Audit](../Mission/Audit/2026-10-06-rws-work-system-migration.md) records acceptance, checks, and retirement. RAP remains independent.
 
 ## Mission Binding
 
 - Exactly one Primary=`Story-rem`; EVAL=`eval-rem-v1`; Secondary=0; `selected_method=null`.
-- `uv run python scripts/ra-check.py`: `RA仓规 0.6.6: OK`.
-- `uv run python scripts/verify.py`: `structure=pass`, `failures=[]`; Human review, runtime models, and role alignment remain `not_run`.
-- The RWB/RA maintenance Motion is `Executed; Player acceptance pending`; canonical Audit is [2026-10-05 RWB/RA Audit](../Mission/Audit/2026-10-05-rwb-ra-compatibility.md). `Ego/Rwb.md` remains a Player-facing draft.
+- Player Human review accepted the RWS canonical source and source retirement. Product EVAL A1-A13 is unchanged; runtime models and role alignment remain `not_run`.
+- `uv run --offline python scripts/ra-check.py`: `RA仓规 0.6.6: OK`.
+- `uv run --offline python scripts/verify.py`: `structure=pass`, `failures=[]` after source retirement and link-preserving notices.
+- `uv run --offline python .agents/skills/np0/scripts/test_runtime_snapshot.py`: 10/10 pass after changing the snapshot quartet entry to Rws.
+- `uv run --offline python -m unittest discover -s scripts -p 'test_mirror.py'`: 16/16 pass after the fixture explicitly copies the two Markdown-referenced Narrative Pages while continuing to exclude generated MPS HTML.
 
 ## Environment and Repository State
 
-- macOS `27.0.1 arm64`; terminal/workspace cwd `/Users/bitguts/Github/rem`; VS Code `1.140.0`; Codex extension `26.930.51102` and CLI `0.144.5`.
-- `.python-version` pins Python `3.14`; `uv run python --version` returns `3.14.4`. Installed uv is `0.12.14`, below the RWB draft's `0.12.23` target. No install or upgrade occurred.
-- The local MPS suite reports 13/16; all three failures reproduce on a temporary clean `f192d17` baseline and remain outside this Motion. NP0 snapshot tests pass 10/10.
-- Current changes are uncommitted on `main`; baseline was aligned with the local `origin/main` ref. No fetch was performed, so remote freshness is unknown. No commit or push occurred.
-- Active VSC Profile, Settings Sync, Copilot entitlement, picker/model selection, and backend runtime remain unverified. No Sol/Luna workload, external Tool, paid action, or deployment was performed.
+- Host date/time `2026-10-06 10:15 +08:00`; Windows workspace and terminal cwd `D:\Github\rem`; VS Code CLI `1.140.0`; Python `3.14.0`; uv `0.12.20`.
+- `main` HEAD `af5fd54` matched the existing local `origin/main` ref (`0/0`); no fetch was performed, so remote freshness is `unknown`.
+- Dojo exists and has no worktree changes. The active editor dirty state, VSC Profile, Settings Sync, actual extension profile, Copilot entitlement, picker/model selection, and backend/runtime identity are `unknown`.
+- No model workload, CLI installation, external/paid Tool, deployment, commit, or push occurred during this refresh.
 
 ## Next Entry
 
-Await Player review/acceptance of the Motion and the RWB draft. D4 PDF CLI/engine, RAP Rule 5 hooks/secrets, LANTERN acceptance, CI Actions result, Template repository setting, and the first real runtime-validation task remain pending or unknown. Do not select models or start external/paid work without its bounded task, permission, cost, and stop rule.
-
-## Closeout Update - 2026-10-06
-
-Player approved the completed RWB/RA Motion; it is `Done` and retired to [the 2026-10-06 Motion archive](days/2026-10-06/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md). This accepts the Motion closeout only; `Ego/Rwb.md` remains a draft, and the held PDF CLI, Rule 5 hooks/secrets, LANTERN, CI Actions, and Template repository gates remain open or unverified. No new runtime task was started.
-
-This is a closeout delta, not a daily baseline refresh. `Repo/today.md` remains dated 2026-10-05; its non-colliding prior-day archive path has not been selected, and no existing snapshot was overwritten.
+Reference triage and full-text comparison are complete. The source carries the selected platform / runtime targets and the legacy CLI acquisition suggestion strictly as a non-adopted proposal. The RAP Narrative Page was not regenerated; its obsolete Tools href now targets the dated archive, while its source hashes remain stale. Structure, NP0, and MPS checks pass; Player accepted the RWS source and physical removal of the Tools/Working paths. Product EVAL A1-A13, runtime models, and role alignment remain unchanged / `not_run`. No commit or push was made.

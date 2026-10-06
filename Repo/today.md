@@ -1,23 +1,20 @@
-# today - 2026-10-05
+# today - 2026-10-06
 
-本段 supersedes pre-revision 2026-10-05 handoff；完整快照见 [today archive](days/2026-10-05/today.md)。RWB/RA 本地修订与验证见 [canonical Audit](../Mission/Audit/2026-10-05-rwb-ra-compatibility.md) 和 [Motion](days/2026-10-06/Motion/motion-rem-rwb-ra-compatibility-2026-10-05.md)。
+本段 supersedes 2026-10-05 活动 handoff；刷新前完整快照见 [today-post-revision](days/2026-10-05/today-post-revision.md)。既有标准路径 [2026-10-05/today.md](days/2026-10-05/today.md) 保持原样，未覆盖。
 
 ## Current Focus
 
-Player 要求理解并执行《REM修订方案》；实际基线为 `f192d17`，并非方案所读 `a789753`。执行了已裁决的 RWB/RA 本地修订：保留并接入 Player 原有 `Ego/Rwb.md` draft，落地 `.python-version=3.14`、RAP 0.6.6、Python RA checker 与 `uv run python` 路线、M2 CLI 登记、活动术语对齐和 RAP Narrative Page 更新。
+Player 已接受 `RWS = rem Work System` 与 `Ego/Rws.md` 为 active canonical Work-System source。Tools 与 Working 原文已归档至 `Repo/days/2026-10-06/Ego/`，`Ego/Tools.md` 与 `Ego/Working.md` 路径已删除；RWB 路径保留非权威 notice。`Ego/RAP.md` 的 RA rules 保持独立。执行与验收记录见 [Audit](../Mission/Audit/2026-10-06-rws-work-system-migration.md)。
 
-Player 选择 D3 为 `uv run python`。本机 `uv 0.12.14` 低于 RWB 草稿所列 `0.12.23`；该机运行 `uv run python --version` 为 Python 3.14.4。未安装或升级 CLI。RWB 仍为 draft，未推导为 Player acceptance。
-
-daily refresh 前完整 handoff 已按 Player 指定保存至同日 [快照](days/2026-10-05/today.md)；原 10/04 快照保留。RAP/RA 修订 Motion 已 `Executed`，Player acceptance pending；产品唯一 Primary=`Story-rem`，EVAL=`eval-rem-v1`，Secondary=0，`selected_method=null`。
+阶段进度：`scripts/verify.py` required paths、`scripts/mirror.py` source group、NP0 snapshot adapter/tests 与主要导航均使用 RWS；旧正文与 RWS 已逐项对照，选定基线、CLI install/remove、Working loop、Sol/Luna 边界均已保留，未采纳的 CLI acquisition 建议标为待确认。Tools 与 Working 旧文已存 dated archive，两个 Ego 路径已物理删除；RWB notice 保留。NP0 tests 10/10、`verify.py` 结构与 pins、MPS suite 16/16 均通过。stale RAP Narrative Page 未重生成，仅将 Tools href 改指归档，页面 source hashes 仍 stale。Player 已接受 RWS source，Motion 已完成 closeout。RAP rules 独立；产品 Primary=`Story-rem`、EVAL=`eval-rem-v1`、Secondary=0、`selected_method=null`，产品验收与 runtime/role gates 不因本次 software migration 通过。
 
 ## rem-ready Startup
 
-- Host date/time 为 `2026-10-05 21:35 CST (+08:00)`；系统为 macOS `27.0.1 arm64`；workspace / terminal cwd 为 `/Users/bitguts/Github/rem`。
-- VS Code `1.140.0 arm64`；Codex 扩展 `26.930.51102`；Python `3.14.4`；本机 uv `0.12.14`，未自动更新。
-- 基线 `main` 对本地 `origin/main` ref 为 `0/0`；未 fetch，远端新鲜度 unknown。修订为本地未提交工作区变更。
-- `uv run python scripts/ra-check.py`：`RA仓规 0.6.6: OK`；`uv run python scripts/verify.py`：`structure=pass`、`failures=[]`。
-- `uv run python .agents/skills/np0/scripts/test_runtime_snapshot.py`：10/10 pass。
-- MPS suite：13/16 pass；3 个失败已在干净 `f192d17` 临时归档复现，分别是 g-tier fixture、macOS `/private` 路径比较与 fixture 忽略 HTML 后的既有 Audit 链接。未改 MPS code/tests/pins。
-- Active Profile、Settings Sync、Copilot entitlement、picker/model/backend 与 Player LANTERN acceptance 未核验/未运行；Human review、role alignment、runtime models 均为 `not_run`。
+- Host date/time `2026-10-06 10:15 +08:00`; Windows workspace / terminal cwd `D:\Github\rem`。
+- VS Code CLI `1.140.0`; Python `3.14.0`; uv `0.12.20`。
+- `main` HEAD `af5fd54` 对本地 `origin/main` ref 为 `0/0`；本次未 fetch，远端最新状态 `unknown`。Refresh 前 worktree 有未跟踪的 Work-OS Motion；活动编辑器缓冲 dirty 状态未独立核验。
+- `Repo/Dojo/README.md` 存在且 Dojo 路径无 worktree changes。
+- `uv run --offline python scripts/verify.py`：`structure=pass`、`failures=[]`；Human review、runtime models、role alignment 为 `not_run`。
+- Active VSC Profile、Settings Sync、Copilot entitlement、picker/model/backend 与本次 SI runtime identity 未独立核验；不从 CLI profile 或当前聊天推断实际模型运行。
 
-未执行模型 workload、CLI 安装、外部/付费动作、部署、commit 或 push。D4 PDF CLI、RAP Rule 5 hooks/secrets、CI Actions 与 Template repository settings 仍为 pending/unknown；MPS 基线失败未扩大修复。
+本次 daily refresh 与 RWS migration 均限于获批的本地文档/consumer 工作；未 fetch、未安装 CLI、未调用外部/付费 Tools、未部署、未 commit 或 push。Profile、Sync、实际 entitlement/runtime 与 editor-buffer dirty 状态仍为 unknown。

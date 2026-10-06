@@ -21,6 +21,8 @@ class MirrorTests(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.repo = Path(self.temporary.name) / 'rem'
         shutil.copytree(mirror.ROOT, self.repo, ignore=shutil.ignore_patterns('.git', '__pycache__', '*.html'))
+        for page in ('rap-teamspage.html', 'rem-ready-teamspage.html'):
+            shutil.copy2(mirror.ROOT / 'Repo/TeamsPage' / page, self.repo / 'Repo/TeamsPage' / page)
         template = self.repo / '.agents/skills/teamspage/MPS/assets/mps.html'
         template.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(mirror.ROOT / '.agents/skills/teamspage/MPS/assets/mps.html', template)

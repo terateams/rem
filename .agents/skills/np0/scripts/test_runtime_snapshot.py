@@ -18,7 +18,7 @@ class RuntimeSnapshotTests(unittest.TestCase):
             "Ego/Ego-fixture.md": "# Synthetic Ego\n",
             "Ego/EdgeTeam.md": "# Synthetic team\n",
             "Ego/Naming.md": "# Synthetic naming\n",
-            "Ego/Working.md": "# Synthetic mode\n",
+            "Ego/Rws.md": "# Synthetic work system\n",
             "Mission/Story-fixture.md": "# Synthetic commitment\n",
             "Mission/EVAL/fixture.md": "# Synthetic acceptance\n",
             "AGENTS.md": "# Synthetic authority\n",
@@ -48,7 +48,7 @@ class RuntimeSnapshotTests(unittest.TestCase):
             "permission": {"snapshot_write": True, "approved_by": "fixture-owner", "approval_evidence": "synthetic test grant", "allowed_sources": list(files), "content_reviewed_no_secrets": True},
             "observations": {
                 name: {"source_claims": ["Fixture source statement"], "Fact": [], "Claim": [], "Credence": "unknown", "unknowns": ["No independent observation"], "delta": []}
-                for name in ("Ego-fixture.md", "EdgeTeam.md", "Naming.md", "Working.md")
+                for name in ("Ego-fixture.md", "EdgeTeam.md", "Naming.md", "Rws.md")
             },
         }
 
@@ -84,7 +84,7 @@ class RuntimeSnapshotTests(unittest.TestCase):
                     prepare(self.repo, payload)
 
     def test_missing_ego_blocks(self):
-        (self.repo / "Ego/Working.md").unlink()
+        (self.repo / "Ego/Rws.md").unlink()
         with self.assertRaises(SnapshotBlocked):
             generate(self.repo, self.payload)
         self.assertEqual([], list((self.repo / "Repo/Dojo").iterdir()))
@@ -102,15 +102,15 @@ class RuntimeSnapshotTests(unittest.TestCase):
         payload["observed_at"] = "2026-09-08T10:00:00+08:00"
         with self.assertRaises(SnapshotBlocked):
             prepare(self.repo, payload)
-        (self.repo / "Ego/Working.md").write_text("changed", encoding="utf-8")
+        (self.repo / "Ego/Rws.md").write_text("changed", encoding="utf-8")
         with self.assertRaises(SnapshotBlocked):
             prepare(self.repo, self.payload)
 
     def test_dirty_source_is_visible_when_hash_matches(self):
-        relative = "Ego/Working.md"
+        relative = "Ego/Rws.md"
         (self.repo / relative).write_text("# changed\n", encoding="utf-8")
         self.payload["source_sha256"][relative] = self.digest(relative)
-        text = prepare(self.repo, self.payload)[1]["Working.md"]
+        text = prepare(self.repo, self.payload)[1]["Rws.md"]
         envelope = json.loads(text.split("```json\n")[1].split("\n```")[0])
         self.assertTrue(envelope["source_revision"]["dirty"])
 
@@ -134,10 +134,10 @@ class RuntimeSnapshotTests(unittest.TestCase):
             prepare(self.repo, self.payload)
 
     def test_source_claim_and_conflicting_observation_remain_separate(self):
-        record = self.payload["observations"]["Working.md"]
+        record = self.payload["observations"]["Rws.md"]
         record["Fact"] = [{"statement": "Observed state differs", "evidence": "synthetic observation fixture", "observed_at": self.payload["observed_at"]}]
         record["delta"] = ["Owner review required"]
-        text = prepare(self.repo, self.payload)[1]["Working.md"]
+        text = prepare(self.repo, self.payload)[1]["Rws.md"]
         self.assertIn("Fixture source statement", text)
         self.assertIn("Observed state differs", text)
         self.assertIn("non-authority/no-writeback", text)

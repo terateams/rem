@@ -6,17 +6,17 @@
 ## 工作入口
 
 - [Ego](Ego/Ego-rem.md)：责任主体、工作方式与通用能力。
-- [RWB](Ego/Rwb.md)：操作系统、VS Code、CLI 与运行时底座（当前为 draft）。
+- [RWS](Ego/Rws.md)：rem Work System，已接受的 canonical Work-System source，整合工作台底座、Tools 与工作闭环。
 - [Mission](Mission/Story-rem.md) -> [EVAL](Mission/EVAL/eval-rem-v1.md)：产品承诺与验收。
 - [INTENT](Repo/INTENT.md) -> [today](Repo/today.md) / [now](Repo/now.md) -> [DONE](Repo/DONE.md)：当前执行与交接。
 - [岗位责任](Mission/roles.md)、[Agent 输出](Mission/outputs.md)、[行动证据](Mission/evidence/README.md)。
-- [技能登记](Ego/TeamSkill/TeamSkill.md)、[工具](Ego/Tools.md)、[来源与适配](Ego/TeamSkill/deployment.md)。
+- [技能登记](Ego/TeamSkill/TeamSkill.md)、[RWS Tools 与 CLI 登记](Ego/Rws.md)、[来源与适配](Ego/TeamSkill/deployment.md)。
 
 ## 内生影页与 MPS
 
 影页（Narrative Page）：以 HTML 承载的 Mission 工作评审视图，呈现目标、输出、证据与岗位责任关系，支持 EVAL 和工作对齐；不替代原件与 Human 裁决。确定性 MPS artifact 由 `scripts/mirror.py` 生成，与影页 authoring / review 分开。
 
-按 [RWB](Ego/Rwb.md) 的 Python 3.14 / uv 基线、Git 与获准的 source custody review 后，在目标目录运行：
+按 [RWS](Ego/Rws.md) 的 Python 3.14 / uv 基线、Git 与获准的 source custody review 后，在目标目录运行：
 
 ```
 uv run python scripts/verify.py

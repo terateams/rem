@@ -17,7 +17,7 @@ RA仓规的 HTML 页是本文件的影页（Narrative Page）：叙事不是事�
 - REM 是方法与模板，当前仍在完善中；RA仓规领先 REM。两者有差异时，REM 按 Player 决定修订。RAP 是规则源，影页跟随 RAP。
 - 工作台是 VS Code、Copilot 与 Codex。Claude Code、Visual Studio、JetBrains、Xcode、Eclipse 与其它工具不在当前范围内。
 - 范围内包括 VS Code 中的 Copilot、GitHub Copilot Enterprise 与 Codex。RA仓规服务商务人士，不覆盖程序员工作场景，例如代码审查、Copilot CLI 或构建工具。
-- 操作系统与 terminal 基线见 [RWB](Rwb.md)。RWB 是工作台说明，不是 REM 第四组成部分、指令文件或权限来源。
+- 操作系统、terminal、Tools 与 Working loop 的 work-system 基线见 [RWS](Rws.md)。RWS 是工作体系说明，不是 REM 第四组成部分、指令文件或权限来源；本文件继续作为 RA rules 唯一来源。
 
 ## 规则（Rules）
 

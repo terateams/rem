@@ -79,8 +79,8 @@ def prepare(repo: Path, payload: dict) -> tuple[str, dict[str, str]]:
     if method is not None:
         require(isinstance(method, dict) and isinstance(method.get("name"), str) and bool(method["name"]), "Invalid selected method")
         require(isinstance(method.get("source"), str) and method["source"].startswith("Ego/"), "Missing selected-method source")
-    working_name = "Working.md" if (repo / "Ego" / "Working.md").is_file() else "ATM.md"
-    filenames = [f"Ego-{slug}.md", "EdgeTeam.md", "Naming.md", working_name]
+    rws_name = "Rws.md" if (repo / "Ego" / "Rws.md").is_file() else "ATM.md"
+    filenames = [f"Ego-{slug}.md", "EdgeTeam.md", "Naming.md", rws_name]
     paths = [f"Ego/{name}" for name in filenames]
     paths += [binding["mission"], binding["eval"], binding["authority"], "Repo/today.md", "Repo/now.md"]
     if method is not None:

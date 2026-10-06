@@ -39,14 +39,14 @@
     },
     {
       "path": ".agents/skills/np0/scripts/runtime_snapshot.py",
-      "sha256": "7bdf51a24b7b134c140f127ad583efcc18b81636f9dbf3ebb9fdc606bf412f36",
-      "reason": "Target adapter uses the sole AGENTS.md authority binding and canonical Ego/ source paths; canonical NP0 capsule remains unchanged.",
+      "sha256": "752954eb397bc091e613b6b5628a23643ef61895138bb26125fc73a3bcf01ed7",
+      "reason": "Target adapter uses the sole AGENTS.md authority binding and canonical Ego/Rws.md Work-System source in the EGO quartet; canonical NP0 capsule remains unchanged.",
       "validation": "python .agents/skills/np0/scripts/test_runtime_snapshot.py; uv run python scripts/verify.py"
     },
     {
       "path": ".agents/skills/np0/scripts/test_runtime_snapshot.py",
-      "sha256": "6ecc7bdd1045c266ebdb2ca8b6a42765ca3a740a92d16be7320805f6cf98b6eb",
-      "reason": "Target runtime snapshot fixtures for the sole AGENTS.md authority and canonical Ego/ path.",
+      "sha256": "8b18ae945b260fd54192d1e0a62496832a8d5a69ff57eb9c5a5b08161b676a7d",
+      "reason": "Target runtime snapshot fixtures for the sole AGENTS.md authority and Rws.md Work-System quartet entry.",
       "validation": "python .agents/skills/np0/scripts/test_runtime_snapshot.py; uv run python scripts/verify.py"
     }
   ]

@@ -17,7 +17,7 @@ rem = T本智能软件V1.0：完整 REM（Repo × EGO × Mission）协同软件�
 
 ## 开始前（Start）
 
-1. 读取 [today](Repo/today.md)、[now](Repo/now.md)、[INTENT](Repo/INTENT.md) 与 Ego 四件套：[Ego-rem](Ego/Ego-rem.md)、[EdgeTeam](Ego/EdgeTeam.md)、[Naming](Ego/Naming.md)、[Working](Ego/Working.md)。缺少任何一个时 blocked，不猜测降级。
+1. 读取 [today](Repo/today.md)、[now](Repo/now.md)、[INTENT](Repo/INTENT.md) 与 Ego 四件套：[Ego-rem](Ego/Ego-rem.md)、[EdgeTeam](Ego/EdgeTeam.md)、[Naming](Ego/Naming.md)、[RWS](Ego/Rws.md)。缺少任何一个时 blocked，不猜测降级。
 2. 绑定：exactly one Primary=[Story-rem](Mission/Story-rem.md)，EVAL=[eval-rem-v1](Mission/EVAL/eval-rem-v1.md)，Secondary=0，selected_method=null。
 3. 相对时间绑定 today 的日期 / 时区。
 4. 开工与收工用 `rem-ready`。
@@ -44,4 +44,4 @@ rem = T本智能软件V1.0：完整 REM（Repo × EGO × Mission）协同软件�
 
 VS Code + GitHub Copilot + Codex（版本 26.930.31730 或更高）。Copilot：Sol 为 Mission 推演 / 执行目标，Luna 为 rem 软件维护目标。Codex：模型目标尚未定义。模型与 picker 由 Human 选择并核验；不声称已自动切换或已启用。订阅 / 席位不可用时 blocked，替代方案须 Player approval。
 
-RWB（详见 [Rwb](Ego/Rwb.md)）：以操作系统为基础，VS Code 加按需安装的 CLI。接入顺序为 CLI、MCP、computer use（兜底）。Mac、Linux、WSL2 用 bash 一系，Windows 原生用 PowerShell 7；shell 只写调用，有逻辑的部分用 Node 或 Python。CLI 按需安装、用后移除；任何安装前须 Player 批准（包括 npx、uvx），运行器调用须钉版本，不用 latest；保留 CLI 登记见 [Tools](Ego/Tools.md)。安装与移除按 Method 4 留证。仓库自有 Python 脚本统一用 `uv run python`，Python 3.14 由根目录 `.python-version` 固定；缺少 CLI 或 Python 时不自动安装。
+RWS（详见 [Rws](Ego/Rws.md)）：本仓库的 work system，整合操作系统 / VS Code / 按需 CLI 底座、受控 Tools 与 Working loop。接入顺序为 CLI、MCP、computer use（兜底）。Mac、Linux、WSL2 用 bash 一系，Windows 原生用 PowerShell 7；shell 只写调用，有逻辑的部分用 Node 或 Python。CLI 按需安装、用后移除；任何安装前须 Player 批准（包括 npx、uvx），运行器调用须钉版本，不用 latest；保留 CLI 登记见 RWS。安装与移除按 Method 4 留证。仓库自有 Python 脚本统一用 `uv run python`，Python 3.14 由根目录 `.python-version` 固定；缺少 CLI 或 Python 时不自动安装。RWS 不替代 RAP、Mission / EVAL，也不赋权。

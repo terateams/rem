@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
     'README.md', 'AGENTS.md',
-    'Ego/Ego-rem.md', 'Ego/EdgeTeam.md', 'Ego/Naming.md', 'Ego/Rwb.md', 'Ego/Working.md',
+    'Ego/Ego-rem.md', 'Ego/EdgeTeam.md', 'Ego/Naming.md', 'Ego/Rws.md',
     'Mission/Story-rem.md', 'Mission/EVAL/eval-rem-v1.md',
     'Repo/INTENT.md', 'Repo/today.md', 'Repo/now.md', 'Repo/DONE.md',
     'Repo/Motion/README.md', 'Repo/TeamsPage/README.md', 'Repo/Dojo/README.md',
