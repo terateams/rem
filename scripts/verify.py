@@ -20,7 +20,7 @@ REQUIRED = [
 def inspect(repo: Path) -> dict:
     repo = repo.resolve()
     failures = [f'missing:{relative}' for relative in REQUIRED if not (repo / relative).is_file()]
-    for name in ('np0', 'rem-ready', 'motioner', 'looper', 'teamspage'):
+    for name in ('np0', 'rem-ready', 'motioner', 'shaping', 'teamspage'):
         if not (repo / f'.agents/skills/{name}/SKILL.md').is_file():
             failures.append(f'missing-skill:{name}')
     for source in repo.rglob('*.md'):

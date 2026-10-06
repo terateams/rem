@@ -8,6 +8,10 @@ Player 已接受 `RWS = rem Work System` 与 `Ego/Rws.md` 为 active canonical W
 
 阶段进度：`scripts/verify.py` required paths、`scripts/mirror.py` source group、NP0 snapshot adapter/tests 与主要导航均使用 RWS；旧正文与 RWS 已逐项对照，选定基线、CLI install/remove、Working loop、Sol/Luna 边界均已保留，未采纳的 CLI acquisition 建议标为待确认。Tools、Working 与 RWB notice 已存 dated archive，三个 active Ego 路径均已退休。NP0 tests 10/10、`verify.py` 结构与 pins、MPS suite 16/16 均通过。stale RAP Narrative Page 未重生成，RWB local links 已改指 RWS，页面 source hashes 仍 stale。Player 已接受 RWS source，RWS Motion 已完成 closeout；本次 RWB notice retirement follow-up 另行记录。RAP rules 独立；产品 Primary=`Story-rem`、EVAL=`eval-rem-v1`、Secondary=0、`selected_method=null`，产品验收与 runtime/role gates 不因本次 software migration 通过。
 
+### Active Motion: Looper-to-Shaping Skill Upgrade
+
+Player 已批准本地执行并接受当前实现及已披露限制。8 个 shaping behavior prompts 已在当前 SI session 逐项手动运行并自评 8/8 pass；这不是独立行为 benchmark。Motion 状态为 `Done`，source 已退休至 `Repo/days/2026-10-06/Motion/`。`.agents/skills/shaping/` 已替代 `.agents/skills/looper/`，活动 registry、route docs 与 verifier 已切换；历史 looper 记录保留为 provenance。canonical [Audit](../Mission/Audit/2026-10-06-shaping-skill-upgrade.md) 记录 Player acceptance、D5 结果、source boundary、consumer audit 与限制。RA checker 与结构 verifier 通过，NP0 snapshot 10/10；MPS suite 在 canonical macOS `TMPDIR` 下 16/16。产品 EVAL、runtime/model 与 role alignment 仍为 `not_run`。Player 随后单独授权 commit/push；`git fetch origin` 于 20:31 +08:00 成功，fetch 后 `main == origin/main` (`08028b3`, 0/0)。本次 commit/push 尚待执行；EGO-T189 未修改，未做外部/付费动作。
+
 ## rem-ready Startup
 
 - Startup Host date/time `2026-10-06 10:15 +08:00`; Windows workspace / terminal cwd `D:\Github\rem`。

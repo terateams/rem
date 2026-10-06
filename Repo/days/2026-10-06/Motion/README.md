@@ -7,6 +7,7 @@ Closed on 2026-10-06 after Player acceptance and review of the canonical Audits.
 - [rem-ready RAP alignment and Narrative Page](motion-rem-ready-rap-narrative-page-2026-10-05.md)
 - [TeamPage custody path migration](motion-teamspage-custody-path-migration-2026-10-05.md)
 - [RWS Work-System migration](motion-work-os-concept-2026-10-06.md)
+- [Looper-to-Shaping Skill upgrade](motion-looper-to-shaping-skill-upgrade-2026-10-06.md)
 
 Canonical records:
 
@@ -15,3 +16,4 @@ Canonical records:
 - [rem-ready RAP alignment Audit](../../../../Mission/Audit/2026-10-05-rem-ready-rap-narrative-page.md)
 - [TeamPage custody Audit](../../../../Mission/Audit/2026-10-05-teamspage-custody-path-migration.md)
 - [RWS Work-System migration Audit](../../../../Mission/Audit/2026-10-06-rws-work-system-migration.md)
+- [Looper-to-Shaping Skill upgrade Audit](../../../../Mission/Audit/2026-10-06-shaping-skill-upgrade.md)
