@@ -16,7 +16,7 @@
 
 RWS supports work organized through REM; it is not a fourth REM component and does not replace `Repo × EGO × Mission`, Mission / EVAL, or Human decision rights. RWS is not a literal operating system, a claim that the Repo thinks, or a Microsoft Copilot product. Any “work OS” wording is explanatory analogy only.
 
-Player accepted this file as rem's canonical Work-System source on 2026-10-06. The former Tools and Working source bodies are retained as historical archives at [Tools](../Repo/days/2026-10-06/Ego/Tools.md) and [Working](../Repo/days/2026-10-06/Ego/Working.md); their active `Ego/` paths have been removed. The former RWB path remains a non-authority notice.
+Player accepted this file as rem's canonical Work-System source on 2026-10-06. The former Tools and Working source bodies are retained as historical archives at [Tools](../Repo/days/2026-10-06/Ego/Tools.md) and [Working](../Repo/days/2026-10-06/Ego/Working.md); their active `Ego/` paths have been removed. The former RWB notice is archived at [RWB notice](../Repo/days/2026-10-06/Ego/Rwb.md); the active `Ego/Rwb.md` path is retired.
 
 ## Work Object and Participants
 

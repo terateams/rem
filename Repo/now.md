@@ -4,7 +4,7 @@
 
 Player selected the non-colliding `Repo/days/2026-10-05/today-post-revision.md` path. The complete pre-refresh handoff was preserved there; the pre-existing `Repo/days/2026-10-05/today.md` was not overwritten. `Repo/today.md` and this handoff now use the 2026-10-06 date baseline. `Repo/INTENT.md` was not rewritten as routine daily maintenance.
 
-Player accepted `Ego/Rws.md` as the active canonical Work-System source. The original Tools and Working texts are archived under `Repo/days/2026-10-06/Ego/`; `Ego/Tools.md` and `Ego/Working.md` no longer exist. The former RWB path remains a non-authority notice. The RWS Motion is `Done` and archived under `Repo/days/2026-10-06/Motion/`; the canonical [Audit](../Mission/Audit/2026-10-06-rws-work-system-migration.md) records acceptance, checks, and retirement. RAP remains independent.
+Player accepted `Ego/Rws.md` as the active canonical Work-System source. The original Tools and Working texts are archived under `Repo/days/2026-10-06/Ego/`; `Ego/Tools.md` and `Ego/Working.md` no longer exist. The retired RWB notice is archived at `Repo/days/2026-10-06/Ego/Rwb.md`; the active `Ego/Rwb.md` path is removed. The RWS Motion is `Done` and archived under `Repo/days/2026-10-06/Motion/`; the canonical [Audit](../Mission/Audit/2026-10-06-rws-work-system-migration.md) records acceptance, checks, and retirement. RAP remains independent.
 
 ## Mission Binding
 
