@@ -10,7 +10,7 @@ Player 已接受 `RWS = rem Work System` 与 `Ego/Rws.md` 为 active canonical W
 
 ### Active Motion: Looper-to-Shaping Skill Upgrade
 
-Player 已批准本地执行并接受当前实现及已披露限制。8 个 shaping behavior prompts 已在当前 SI session 逐项手动运行并自评 8/8 pass；这不是独立行为 benchmark。Motion 状态为 `Done`，source 已退休至 `Repo/days/2026-10-06/Motion/`。`.agents/skills/shaping/` 已替代 `.agents/skills/looper/`，活动 registry、route docs 与 verifier 已切换；历史 looper 记录保留为 provenance。canonical [Audit](../Mission/Audit/2026-10-06-shaping-skill-upgrade.md) 记录 Player acceptance、D5 结果、source boundary、consumer audit 与限制。RA checker 与结构 verifier 通过，NP0 snapshot 10/10；MPS suite 在 canonical macOS `TMPDIR` 下 16/16。产品 EVAL、runtime/model 与 role alignment 仍为 `not_run`。Player 随后单独授权 commit/push；`git fetch origin` 于 20:31 +08:00 成功，fetch 后 `main == origin/main` (`08028b3`, 0/0)。本次 commit/push 尚待执行；EGO-T189 未修改，未做外部/付费动作。
+Player 已批准本地执行并接受当前实现及已披露限制。8 个 shaping behavior prompts 已在当前 SI session 逐项手动运行并自评 8/8 pass；这不是独立行为 benchmark。Motion 状态为 `Done`，source 已退休至 `Repo/days/2026-10-06/Motion/`。`.agents/skills/shaping/` 已替代 `.agents/skills/looper/`，活动 registry、route docs 与 verifier 已切换；历史 looper 记录保留为 provenance。canonical [Audit](../Mission/Audit/2026-10-06-shaping-skill-upgrade.md) 记录 Player acceptance、D5 结果、source boundary、consumer audit 与限制。RA checker 与结构 verifier 通过，NP0 snapshot 10/10；MPS suite 在 canonical macOS `TMPDIR` 下 16/16。产品 EVAL、runtime/model 与 role alignment 仍为 `not_run`。Player 随后单独授权 commit/push；fetch 确认无 remote advance，主提交 `01d3bab` 已成功推送且 post-push `main == origin/main`、0/0、worktree clean；Git action evidence 已创建并随独立 closeout commit 保存。EGO-T189 未修改，未做外部/付费动作。
 
 ## rem-ready Startup
 

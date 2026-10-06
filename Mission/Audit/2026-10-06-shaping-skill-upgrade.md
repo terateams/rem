@@ -62,7 +62,9 @@ The original Motion scope excluded commit/push. The Player subsequently gave a s
 
 ## Git Synchronization
 
-Player authorization is recorded above. Fetch, commit, and push results, commit IDs, and final branch/worktree state will be added after the authorized synchronization is actually performed. Until then, no sync result is claimed.
+Player authorization is recorded above. At 20:31 +08:00, `git fetch origin` succeeded and confirmed the original `HEAD` still matched `origin/main` at `08028b361b3822ca910788713cb0a00234256255` (0/0). After the staged-tree checks passed, commit `01d3bab434e6671b25b8ec88f0271f8d737b29ae` (`feat: migrate rem maintenance to shaping`) was pushed successfully; `origin/main` advanced `08028b3..01d3bab`. The local author/committer match recent repository history. Post-push, `HEAD == origin/main`, ahead/behind was 0/0, and the worktree was clean. Full action evidence: [Git synchronization evidence](../evidence/tool-shaping-git-sync-20261006.json).
+
+This action evidence and the final handoff updates are carried in a separate closeout commit following the shaping commit. This record's push result above refers to the primary shaping commit.
 
 ## Execution Log
 
@@ -75,6 +77,7 @@ Player authorization is recorded above. Fetch, commit, and push results, commit 
 - 2026-10-06: Closed the Motion as `Done` after acceptance and D5 review; retired its source to `Repo/days/2026-10-06/Motion/` after updating the archive index and source links.
 - Before the separate Git approval: no commit, push, or fetch had occurred; EGO-T189 was not edited; no CLI install, paid action, model switch, or external business Tool was used.
 - 2026-10-06: Player separately authorized “审计, commit and push” after acceptance and D5 closeout; Git action results are tracked separately from the implementation/test evidence.
+- 2026-10-06: Fetched `origin` and confirmed no remote advance; committed the 14-file shaping migration as `01d3bab434e6671b25b8ec88f0271f8d737b29ae` and pushed successfully. Post-push branch alignment was 0/0 with a clean worktree. The initial local commit was amended before push to match repository author attribution.
 
 ## Validation
 

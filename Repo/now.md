@@ -1,16 +1,16 @@
 # now
 
-## Latest Handoff - 2026-10-06 20:31 +08:00
+## Latest Handoff - 2026-10-06 20:48 +08:00
 
 下班交接：当前日期基线仍为 `2026-10-06`，无须轮换或覆盖 `Repo/today.md`。rem shaping 升级已完成并由 Player 接受；8 个 D5 prompts 手动自评 8/8 pass，非独立 benchmark。Motion 已标 `Done` 并归档至 `Repo/days/2026-10-06/Motion/`，详见 [Audit](../Mission/Audit/2026-10-06-shaping-skill-upgrade.md)。产品 EVAL、runtime/model、role alignment 仍 `not_run`。
 
 - Host `macOS 27.0.1 arm64`; terminal cwd `/Users/bitguts/Github/rem` 与 workspace 一致。
-- Player 已另行授权“审计, commit and push”。`git fetch origin` 于 20:31 +08:00 成功；fetch 后 `HEAD == origin/main == 08028b361b3822ca910788713cb0a00234256255`，ahead/behind `0/0`。本次 shaping worktree 仍未提交、未暂存；commit/push 尚待执行，不得称 `synced`。
+- Player 已另行授权“审计, commit and push”。`git fetch origin` 于 20:31 +08:00 成功，确认无 remote advance；shaping 主提交 `01d3bab434e6671b25b8ec88f0271f8d737b29ae` 已推送，`origin/main` 从 `08028b3` 前进至 `01d3bab`。post-push `HEAD == origin/main`、ahead/behind `0/0`、worktree clean。action evidence 见 [Git sync evidence](../Mission/evidence/tool-shaping-git-sync-20261006.json)。Git evidence 与最终 handoff 放在独立 follow-up closeout commit；后续 Git 操作前重新检查 branch/worktree state。
 - `Repo/Dojo` 无 worktree changes；`Repo/days/2026-10-05/today.md` 与 `today-post-revision.md` 均存在。当前 `Repo/today.md` 日期匹配，无 Andon。
 - `uv run --offline python scripts/verify.py`: `structure=pass`, `failures=[]`; `ra-check.py` 与 `git diff --check` 通过。NP0 snapshot 10/10；MPS 16/16 需 canonical macOS `TMPDIR`，默认调用仍有 `/var`/`/private/var` path assertion mismatch。
 - Editor-buffer dirty state、VSC Profile/Sync、实际 entitlement/runtime/model identity 未独立核验，保持 `unknown`。
 
-**Return Entry**：若跨会话恢复，先重读本段并检查完整 Git status。当前 Player 授权仅覆盖本次已审计 shaping 变更的 commit/push；提交前再核对 staged diff，提交后记录 commit/push 结果与 evidence。不要夹带其他 worktree 内容。runtime/model、role alignment 与产品 EVAL 仍是独立未运行 gates。
+**Return Entry**：若跨会话恢复，先重读本段并检查完整 Git status。只完成 Git action evidence 与 handoff 的 follow-up closeout commit/push；确认最终 `HEAD == origin/main` 且 worktree clean 后收工。不要夹带其他 worktree 内容。runtime/model、role alignment 与产品 EVAL 仍是独立未运行 gates。
 
 ## Previous Same-Day Handoff - Shaping Motion Closeout
 
