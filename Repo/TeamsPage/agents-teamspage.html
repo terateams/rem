@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AGENTS.md | rem instruction boundary</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f3f5f2;
+      --ink: #1c302d;
+      --muted: #5b6b67;
+      --line: #cbd5d0;
+      --green: #28634d;
+      --green-wash: #e5efe8;
+      --blue: #355d68;
+      --blue-wash: #e7eff0;
+      --amber: #8a531c;
+      --amber-wash: #f5eadb;
+      --code: #e8ece9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    main { max-width: 1040px; margin: 0 auto; padding: 36px 24px 64px; }
+    header { padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+    .eyebrow { margin: 0 0 8px; color: var(--green); font-size: 0.8rem; font-weight: 700; }
+    h1 { margin: 0; font-size: 2.2rem; line-height: 1.15; font-weight: 700; overflow-wrap: anywhere; }
+    h2 { margin: 0 0 14px; font-size: 1.25rem; line-height: 1.3; }
+    h3 { margin: 0 0 6px; font-size: 1rem; }
+    p { margin: 0 0 10px; }
+    p:last-child { margin-bottom: 0; }
+    .subtitle { margin: 8px 0 0; color: var(--muted); font-size: 1.08rem; }
+    .authority-label { display: inline-block; margin-top: 16px; padding: 5px 9px; color: #71331c; background: var(--amber-wash); border-left: 3px solid var(--amber); font-size: 0.78rem; font-weight: 700; }
+    .intro { max-width: 74ch; margin-top: 18px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 3px; font-size: 0.78rem; font-weight: 700; }
+    .badge.fact { color: var(--green); background: var(--green-wash); }
+    .badge.unknown { color: var(--amber); background: var(--amber-wash); }
+    section { padding: 26px 0; border-bottom: 1px solid var(--line); }
+    .lede { max-width: 75ch; color: var(--muted); }
+    .roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 18px; }
+    .role { min-width: 0; padding-top: 10px; border-top: 3px solid var(--green); }
+    .role:nth-child(2) { border-color: var(--blue); }
+    .role:nth-child(3) { border-color: var(--amber); }
+    .role p { color: var(--muted); font-size: 0.92rem; }
+    .timeline { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 16px; }
+    .timeline article { min-width: 0; padding-top: 10px; border-top: 1px solid var(--line); }
+    .time { display: block; margin-bottom: 7px; color: var(--muted); font-size: 0.84rem; font-weight: 700; }
+    .reading { display: grid; grid-template-columns: minmax(150px, 0.8fr) minmax(0, 2fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
+    .reading strong { color: var(--blue); }
+    .reading p { margin: 0; }
+    .trace { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .trace-step { min-width: 0; padding: 14px 16px 14px 0; }
+    .trace-step + .trace-step { padding-left: 16px; border-left: 1px solid var(--line); }
+    .trace-step b { display: block; color: var(--green); font-size: 0.8rem; }
+    .trace-step span { display: block; margin-top: 4px; font-weight: 600; }
+    .trace-step small { display: block; margin-top: 5px; color: var(--muted); }
+    ol, ul { margin: 0; padding-left: 1.25rem; }
+    li { margin-bottom: 8px; }
+    li:last-child { margin-bottom: 0; }
+    code { padding: 1px 5px; background: var(--code); border-radius: 3px; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.86em; overflow-wrap: anywhere; }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .meta { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .meta th, .meta td { padding: 9px 10px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .meta th { width: 150px; color: var(--muted); font-weight: 600; }
+    .sources { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 14px; }
+    .source { display: grid; grid-template-columns: minmax(190px, 1fr) minmax(0, 2fr); gap: 12px; padding-top: 8px; border-top: 1px solid var(--line); }
+    .source code { font-size: 0.75rem; }
+    .closing { padding-top: 18px; color: var(--muted); font-size: 0.88rem; }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+    @media (max-width: 720px) {
+      main { padding: 26px 16px 44px; }
+      .roles, .timeline, .trace { grid-template-columns: 1fr; }
+      .role { padding-bottom: 8px; }
+      .trace-step, .trace-step + .trace-step { padding: 12px 0; border-left: 0; }
+      .trace-step + .trace-step { border-top: 1px solid var(--line); }
+      .reading, .source { grid-template-columns: 1fr; gap: 3px; }
+      .meta th { width: 105px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">NP0 / REM RULES / 2026-10-07</p>
+      <h1>AGENTS.md</h1>
+      <p class="subtitle">rem Repo 唯一控制性 SI 指令源</p>
+      <span class="authority-label">Narrative Page · NON-AUTHORITY · NO-WRITEBACK</span>
+      <p class="intro">本页用 NP0 区分观察事实、规则解释与运行时未知。它只叙述列出的来源，不是指令或验收凭据；遇到差异，回到 <a href="../../AGENTS.md">AGENTS.md</a> 原件。仓库规则写明谁控制执行，不证明当前 VSC / Codex 实际加载或执行了该文件。</p>
+      <div class="badges" aria-label="事实状态">
+        <span class="badge fact">REPO POLICY · AGENTS CONTROLS</span>
+        <span class="badge fact">RCI CARRIER · RETIRED HERE</span>
+        <span class="badge unknown">HOST LOADING · UNKNOWN</span>
+      </div>
+    </header>
+
+    <section aria-labelledby="answer-title">
+      <h2 id="answer-title">先看结论：语义与执行分开</h2>
+      <p class="lede">在当前 rem Repo 的书面 policy 中，AGENTS.md 控制 SI 执行与指令优先级；RAP 说明 RA 规则语义；Skills 提供各自的操作流程。三者不能互相冒名，也不因同机或文件可读自动获得权限。</p>
+      <div class="roles">
+        <article class="role">
+          <h3><a href="../../AGENTS.md">AGENTS.md</a> · 控制执行</h3>
+          <p>本仓唯一 controlling SI instruction source。硬边界、启动绑定、工作方法与检查写在这里。</p>
+        </article>
+        <article class="role">
+          <h3><a href="../../Ego/RAP.md">Ego/RAP.md</a> · 定义规则</h3>
+          <p>RA 规则语义与 Human-facing 说明。必须与 AGENTS 对齐；不覆盖其执行优先级。</p>
+        </article>
+        <article class="role">
+          <h3>Skills · 承载流程</h3>
+          <p>提供有界操作路由，不另建 authority。`REM仓规` 是 workflow trigger，不是规则源或写入授权。</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="history-title">
+      <h2 id="history-title">叙事：一项 authority 歧义如何收口</h2>
+      <div class="timeline">
+        <article>
+          <span class="time">Baseline · HEAD 6af5a9b</span>
+          <p>提交版 RAP 0.6.6 称自己是 RA 规则的唯一规则源；提交版 AGENTS 指向 RAP，但没有单独的 `Authority` 字段。两者的规则语义与 SI 执行优先级边界不够显式。</p>
+          <p class="closing">Evidence: baseline `AGENTS.md` 与 `Ego/RAP.md`。</p>
+        </article>
+        <article>
+          <span class="time">Current local source · 2026-10-07</span>
+          <p>Player 批准的本地更新把 AGENTS 定为 controlling SI instruction，把 RAP 限定为规则语义与说明，并将本仓 RCI carrier 禁止条件加入静态检查；RAP / checker 版本为 0.7.0。</p>
+          <p class="closing">Evidence: current source hashes below; `ra-check.py` and `verify.py` results below.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="facts-title">
+      <h2 id="facts-title">Observed Facts · Candidate Reading · Unknown</h2>
+      <div class="reading">
+        <strong>Fact · Repo policy</strong>
+        <p>AGENTS 当前明确其控制地位；RAP 0.7.0 对齐该边界；`ra-check.py` 拒绝 RCI 文件载体，并核对 RAP 版本。`RCI` 的历史文字保留 provenance，不代表活动规则。</p>
+      </div>
+      <div class="reading">
+        <strong>Candidate · 可执行读法</strong>
+        <p>处理本仓任务时先遵循 AGENTS；涉及 Agent 配置再读 RAP；按任务使用其指定 Skill 与 checker。Player 的 Motion / scope 才给具体写入权限。</p>
+      </div>
+      <div class="reading">
+        <strong>Unknown · Host runtime</strong>
+        <p>文件与 checker 通过不证明 VSC、Codex、Profile 或组织策略实际加载/强制执行了同一规则。当前模型/runtime identity 与实际 instruction inclusion 未独立核验。</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="routes-title">
+      <h2 id="routes-title">Actors、Decision Rights 与有界路由</h2>
+      <ul>
+        <li><strong>Player</strong> 决定目标、授权边界与 acceptance；权限不能从 skill 名、文件路径或本页推导。</li>
+        <li><strong>SI</strong> 在当前批准范围内执行并留证；Human acceptance 与产品 / consumer EVAL 不由页面或机器检查替代。</li>
+        <li><strong>REM仓规</strong> 触发规则工作流；<code>motioner</code> 绑定 Motion，<code>shaping</code> 形成 bet / revision candidate，<code>rem-make</code> 只实施已批准 diff。</li>
+        <li><strong>RCI</strong> 在此 rem Repo 已退役；`.github/copilot-instructions.md` 与 `.github/instructions/` 不得成为本仓活动规则载体。其它 Repo 的规则需按其原生 authority 判断。</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="trace-title">
+      <h2 id="trace-title">Four-Order Trace</h2>
+      <div class="trace" role="list" aria-label="NP0 four-order trace">
+        <div class="trace-step" role="listitem"><b>L0 · Narrative / Naming</b><span>AGENTS · RAP · REM仓规</span><small>稳定地区分规则定义、执行入口与 workflow trigger；RCI 只保留历史 provenance。</small></div>
+        <div class="trace-step" role="listitem"><b>L1 · Conceptual Model</b><span>一个 SI control source</span><small>AGENTS 控制执行优先级；RAP 负责 RA 规则语义。</small></div>
+        <div class="trace-step" role="listitem"><b>L2 · Engineering System</b><span>checker + owning Skills</span><small>`ra-check.py` / `verify.py` 检查本地静态契约；Skill 路由仍受 permission gate 约束。</small></div>
+        <div class="trace-step" role="listitem"><b>L3 · Runtime Instance</b><span>VSC / Codex host</span><small>VS Code CLI 1.140.0 曾在本机观察；当前文件是否被具体 host 加载仍为 unknown。</small></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="action-title">
+      <h2 id="action-title">Bounded Next Action · Verification</h2>
+      <ol>
+        <li>把 <a href="../../AGENTS.md">AGENTS.md</a> 当作本仓 SI 执行源；本页只帮助理解，不回写其内容。</li>
+        <li>修改 Agent 配置前读取 <a href="../../Ego/RAP.md">RAP</a>，完成后运行 <code>uv run python scripts/ra-check.py</code>。</li>
+        <li>路径 / source pin 改动后运行 <code>uv run python scripts/verify.py</code>。本次观测：RA checker `0.7.0: OK`；结构 `pass`、failures `[]`；Human review、runtime models、role alignment 为 `not_run`。</li>
+        <li>需要证明 host 实际加载时，在指定 VSC / harness 中做独立行为测试；不得用本页、文件存在或 checker 结果替代。</li>
+      </ol>
+      <p class="closing">若任一列出来源变化，本页即 stale；回到原件重新核验。本页不证明 Player acceptance、真实模型运行、跨仓适用或 `EGO-T189` 已迁移。</p>
+    </section>
+
+    <section aria-labelledby="provenance-title">
+      <h2 id="provenance-title">页面来源与生成记录</h2>
+      <table class="meta">
+        <tbody>
+          <tr><th>类型</th><td>NP0-informed Narrative Page；静态 HTML；non-authority / no-writeback；不是 MPS artifact。</td></tr>
+          <tr><th>NP0</th><td>Capsule 1.3.0；canonical capsule 与 target TeamSkill copy 的 SHA-256 在生成前核对一致。此方法不构成仓规 authority。</td></tr>
+          <tr><th>Baseline commit</th><td><code>6af5a9bbc5e74eba246e0af952679658867717ef</code>；页面依据其基础上未提交的当前工作树 source bytes。</td></tr>
+          <tr><th>Generator</th><td>GitHub Copilot in VS Code；本机 VS Code CLI 观察值 <code>1.140.0</code>。实际 model/runtime ID 未核验。</td></tr>
+          <tr><th>Date</th><td>2026-10-07（China Standard Time, +08:00）</td></tr>
+          <tr><th>Evidence</th><td><a href="../../Mission/evidence/tool-agents-narrative-page-20261007.json">Generation and validation record</a>；该记录不构成 Player acceptance。</td></tr>
+          <tr><th>Freshness</th><td>任一列出的 source 改变后即 stale。页面哈希不替代 Git commit，也不证明 host 已加载来源。</td></tr>
+        </tbody>
+      </table>
+      <div class="sources" aria-label="显式来源文件及工作树 SHA-256">
+        <div class="source"><a href="../../AGENTS.md">AGENTS.md</a><code>SHA-256 286d55c125397cf4202e1441f96b7877f34ef8bee2473cbb4925170e1c9e72b8</code></div>
+        <div class="source"><a href="../../Ego/RAP.md">Ego/RAP.md · 0.7.0</a><code>SHA-256 4023cbbdeaea4d28a5825734e0f9379c564c413674a6cbdd270103716d157be3</code></div>
+        <div class="source"><a href="../../Ego/Naming.md">Ego/Naming.md</a><code>SHA-256 f35b60bccb3f36c2c8fa75c34b6c5267471c22ab8ed575f20226a37f023e2af6</code></div>
+        <div class="source"><a href="../../scripts/ra-check.py">scripts/ra-check.py</a><code>SHA-256 788dbfbe4c40e45f50c7ccdb014ab7be5e3e004cefbd8bb73595d46f696942d8</code></div>
+        <div class="source"><a href="../../scripts/verify.py">scripts/verify.py</a><code>SHA-256 7c82d8ae8837db9661899807f7e710f860958bcff9332974f19c606afa654371</code></div>
+      </div>
+      <p class="closing">Narrative is an interpretation of these sources. Sources retain authority; this page only makes their boundary and uncertainty easier to inspect.</p>
+    </section>
+  </main>
+</body>
+</html>

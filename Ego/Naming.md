@@ -5,7 +5,7 @@
 > **Version**: 1.0.0
 
 | Token | 语义 | Boundary |
-|---|---|---|
+| --- | --- | --- |
 | rem | T本智能软件V1.0 产品 / repo | 不是 REM 工作法改名 |
 | REM | Repo × EGO × Mission 完整工作法 | 不依赖 CRAFTS；非 HTML 转换器 |
 | RWS | Rem Work System（rem 工作体系） | rem 内唯一 canonical Work-System source：整合工作台底座、受控 Tools 与 Working loop；不是 REM 第四组成部分、RA rules source 或 permission source |
@@ -18,5 +18,6 @@
 | Sol / Luna | Mission 场景 / rem 维护场景的模型目标 | 实际 model ID / picker 独立验证，不是两个 skills |
 | Tools | 可授权调用并验证结果的确定性能力 | 链接不证明实际执行，授权与副作用需记录 |
 | RA仓规 / RAP | RA = Rem Agent。RA仓规是 Agent 配置的规则集；RAP = Rem Agent Protocol，是规则的源头文件 `Ego/RAP.md` | 不是 REM 的第四组成部分，不赋权；SI 读 `AGENTS.md`，Player 读 RAP；不等于 RAM |
+| REM仓规 | 为一个明确绑定的 REM Repo 评估 / 更新 Agent 规则的工作流触发语 | 触发 `motioner` / `shaping` / `rem-make` 路由；不是规则源、指令文件、额外 Skill identity 或写入授权；遵循目标仓原生 authority |
 
 Mission Page 只作用途描述，HTML 为介质，不新增 HP / HTML Mirror alias。teamspage 保留内部 implementation identity，不立额外用户品牌。HRP 仅为来源历史。所有新名字或 authority 变更走 Player Motion。

@@ -1,13 +1,16 @@
 # rem Agent 规则
 
-> **Reader**: SI Agent（VS Code Copilot、Codex）。规则源头与给人看的说明见 [RAP](Ego/RAP.md)。
+> **Reader**: SI Agent（VS Code Copilot、Codex）。本文件是唯一 active、controlling SI instruction source；RA 规则定义与说明见 [RAP](Ego/RAP.md)，不得覆盖本文件的执行优先级。
+> **Authority**: Sole controlling SI instruction source; takes precedence over Skill defaults. RAP defines RA rule semantics and must remain aligned.
 > **Player**: yangjun / bitguts
-> **Freshness**: 2026-10-05
+> **Freshness**: 2026-10-07
 
 rem = T本智能软件V1.0：完整 REM（Repo × EGO × Mission）协同软件，见 [README](README.md)。
 
 ## 硬边界（Hard limits）
 
+- `AGENTS.md` 主导本仓 SI 的指令与执行优先级；`Ego/RAP.md` 保留 RA 规则语义与 Human-facing 说明，二者须保持一致。冲突时遵循本文件的安全边界并暂停受影响写入，交 Player 裁决来源修订。
+- `RCI` 在本仓已退役；禁止新增 `.github/copilot-instructions.md` 或 `.github/instructions/`。历史中的 RCI 记录只作 provenance，不作为活动规则。
 - 未经 Player 批准，不做：外部、破坏、付费、权限扩张、采购、release、authority 变更。
 - 不读 credentials 或 tenant secrets。不把 secrets 写入仓库。不部署付费资源。
 - 不覆盖未知改动。不用 stash / reset / rewrite history 自动恢复。commit / push 按 Player gate。
@@ -29,7 +32,7 @@ rem = T本智能软件V1.0：完整 REM（Repo × EGO × Mission）协同软件�
 3. 当前结果、Human approval、工具观察与 accepted outcome 分开。运行最相关检查，记录命令 / 实际结果；未跑写 not_run / unknown。先验证后声称完成；无证据不宣称完成。synthetic tests 不证明真实 Human、模型、任务或 provider 可用。
 4. 每次获授权 Tools 动作记录：任务 / 岗位、tool / action、权限 / cost、输入来源、实际结果或失败、证据位置、下一步。见 [action evidence](Mission/evidence/README.md)。
 5. 影页（Narrative Page，旧称镜页）是 SI 基于 Repo 实况叙事生成的 HTML 页：叙事不是事实，non-authority / no-writeback。页头写明来源文件与提交哈希、生成工具与版本、日期。只读显式来源，不扩读目录；审查 secrets / 输入许可后才生成。页面不授予权限，不替代原件；原件变更后旧页 stale。
-6. Skill routes：np0 处理有界叙事；rem-ready 启动 / 暂停；shaping 负责 Repo-wide maintenance/conditioning；motioner 管具体 Motion lifecycle；teamspage 生成与验证 `scripts/mirror.py` 产出的确定性 MPS artifact。skills 单一 identity，登记在 [TeamSkill](Ego/TeamSkill/TeamSkill.md)。
+6. Skill routes：`REM仓规` 是规则工作流 trigger，不授予权限；`motioner` 绑定具体 Motion 与生命周期，`shaping` 形成可证伪的 bet / revision candidate，`rem-make` 只实施已批准的规则 diff；rem-ready 启动 / 暂停；teamspage 生成与验证 `scripts/mirror.py` 产出的确定性 MPS artifact。skills 单一 identity，登记在 [TeamSkill](Ego/TeamSkill/TeamSkill.md)。
 7. practice / observation 归 `Repo/Dojo`。正式证据按 Mission custody。Decision / Audit / Ego admission 需 owning Human，不从 raw evidence 自动升格。完成的 Motion 经 canonical Audit、consumer audit、History triage 后退休到 `Repo/days/<date>/Motion/`。
 8. NP0 capsule 与 pinned NP0 / MPS 原样继承，不改写、不自动升级。
 9. 修改 Agent 配置（本文件、技能、检查、CI）前先读 [RAP](Ego/RAP.md)，改后运行 `uv run python scripts/ra-check.py`。

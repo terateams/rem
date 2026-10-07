@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "actor": "GitHub Copilot / bitguts",
+  "approval_evidence": "Current conversation: Player approved local rem Repo REM仓规 Motion execution; scope excludes EGO-T189 writes, commit, and push.",
+  "mission": "Mission/Story-rem.md",
+  "action": "python scripts/verify.py",
+  "observed_at": "2026-10-07T10:35:48.475719+08:00",
+  "source_commit": "6af5a9bbc5e74eba246e0af952679658867717ef",
+  "result": {
+    "structure": "pass",
+    "failures": [],
+    "human_review": "not_run",
+    "runtime_models": "not_run",
+    "role_alignment": "not_run"
+  },
+  "side_effect": "new local evidence only; no external tool call",
+  "human_acceptance": "not_run"
+}

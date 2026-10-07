@@ -8,7 +8,7 @@
 
 ## Narrative Page（影页）
 
-影页是 SI 基于 Repo 实况叙事生成的 HTML 页，可由 VS Code Copilot 或 Codex 生成，并与确定性 MPS artifacts 共用本目录，但不是 MPS artifact。叙事不是事实，non-authority/no-writeback。页头必须写明来源文件与提交哈希、生成工具与版本、日期；来源变更后即过期。文件名用英文，页面离线可读，不加载外部脚本或字体。影页没有 `#mp-data`，不使用 `mps.py` 验证；由 Human 回到来源核对。当前影页：[rap-teamspage.html](rap-teamspage.html)（`Ego/RAP.md`）；rem-ready：[rem-ready-teamspage.html](rem-ready-teamspage.html)（`.agents/skills/rem-ready/SKILL.md`）。
+影页是 SI 基于 Repo 实况叙事生成的 HTML 页，可由 VS Code Copilot 或 Codex 生成，并与确定性 MPS artifacts 共用本目录，但不是 MPS artifact。叙事不是事实，non-authority/no-writeback。页头必须写明来源文件与提交哈希、生成工具与版本、日期；来源变更后即过期。文件名用英文，页面离线可读，不加载外部脚本或字体。影页没有 `#mp-data`，不使用 `mps.py` 验证；由 Human 回到来源核对。当前影页：[rap-teamspage.html](rap-teamspage.html)（`Ego/RAP.md`）；[agents-teamspage.html](agents-teamspage.html)（`AGENTS.md`）；rem-ready：[rem-ready-teamspage.html](rem-ready-teamspage.html)（`.agents/skills/rem-ready/SKILL.md`）。
 
 [Runtime contract](../../.agents/skills/teamspage/references/teamspage-runtime-contract.md) · [Motion custody](../Motion/README.md)
 
@@ -16,6 +16,6 @@
 ## Generated TeamPage MPS Snapshot Index
 
 | Target | Latest | Generated At | Snapshot | Previous | Source Check | Human Review | Agent Review | Provenance |
-|---|---|---|---|---|---|---|---|---|
+| ------ | ------ | ------------ | -------- | -------- | ------------ | ------------ | ------------ | ---------- |
 
 <!-- teamspage-index:end -->

@@ -6,7 +6,7 @@ import re
 import sys
 from pathlib import Path
 
-RA_VERSION = "0.6.6"
+RA_VERSION = "0.7.0"
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -30,12 +30,18 @@ def main() -> int:
         failures.append("AGENTS.md is missing in the repository root")
     elif agents.stat().st_size > 32768:
         failures.append("AGENTS.md is larger than 32 KiB")
+    elif not re.search(
+        r"^> \*\*Authority\*\*:.*controlling SI instruction source",
+        agents.read_text(encoding="utf-8"),
+        re.IGNORECASE | re.MULTILINE,
+    ):
+        failures.append("AGENTS.md must declare the controlling SI instruction authority")
 
     github = ROOT / ".github"
     if (github / "copilot-instructions.md").exists():
-        failures.append(".github/copilot-instructions.md must not exist")
+        failures.append("RCI is retired; .github/copilot-instructions.md must not exist (AGENTS.md is the controlling SI instruction)")
     if (github / "instructions").is_dir():
-        failures.append(".github/instructions/ must not exist")
+        failures.append("RCI is retired; .github/instructions/ must not exist (AGENTS.md is the controlling SI instruction)")
 
     for relative in walk_files():
         if relative.name == "AGENTS.md" and relative != Path("AGENTS.md"):
@@ -58,8 +64,14 @@ def main() -> int:
             elif len(description.group(1)) > 1024:
                 failures.append(f"{skill_file.relative_to(ROOT).as_posix()}: description is longer than 1024 characters")
 
-    if not (ROOT / "Ego" / "RAP.md").is_file():
+    rap = ROOT / "Ego" / "RAP.md"
+    if not rap.is_file():
         failures.append("Ego/RAP.md is missing")
+    else:
+        rap_text = rap.read_text(encoding="utf-8")
+        version = re.search(r"^> \*\*Version\*\*: ([0-9]+\.[0-9]+\.[0-9]+)", rap_text, re.MULTILINE)
+        if not version or version.group(1) != RA_VERSION:
+            failures.append("RA_VERSION must match the version declared in Ego/RAP.md")
 
     for relative in walk_files(skip_team_skills=True):
         if relative.name == "SKILL.md":
