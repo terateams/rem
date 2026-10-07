@@ -23,7 +23,7 @@
 
 在本 Motion 起草时，EGO 文件分别描述工作台、可调用能力和工作闭环，尚无稳定词说明三者合在一起服务什么样的工作：
 
-- [RWB](../../../../Ego/Rwb.md) 起草时描述操作系统之上的 VS Code / CLI 工作台；其正文现已退休，职责纳入 RWS。
+- [RWB notice archive](../Ego/Rwb.md) 起草时描述操作系统之上的 VS Code / CLI 工作台；其正文现已退休，职责纳入 RWS。
 - [Tools source archive](../Ego/Tools.md) 起草时描述可授权、可验证的能力与副作用边界；其正文现已退休，职责纳入 RWS。
 - [Working source archive](../Ego/Working.md) 起草时描述从任务绑定到证据、Human 判断、EVAL、交接与沉淀的闭环；其正文现已退休，职责纳入 RWS。
 - [Naming](../../../../Ego/Naming.md) 现已登记 `RWS = rem Work System`；此记录保留起草时的命名问题与候选比较。

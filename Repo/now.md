@@ -1,26 +1,26 @@
 # now
 
-## Latest Handoff - 2026-10-07
+## Latest Handoff - 2026-10-07 08:55 +08:00
 
-Player chose a local-only rem-ready refresh. The complete pre-refresh `Repo/today.md` was preserved at [2026-10-06 snapshot](days/2026-10-06/today.md); the pre-existing 2026-10-05 snapshots remain unchanged. No fetch or pull was authorized in this refresh.
+Player explicitly directed synchronization from GitHub as the source of truth. `git fetch origin` succeeded and fetched `origin/main` at `c0c5a692f5035256432886a6eefb5c63a3761952`. The fetched history is integrated locally; the 2026-10-07 handoff refresh and dated archive are retained. No push was performed. Sync evidence: [GitHub-to-local action](../Mission/evidence/tool-github-sync-20261007.json).
 
-RWS migration is complete: Player accepted `Ego/Rws.md`; Tools/Working source bodies are archived under `Repo/days/2026-10-06/Ego/` and their former EGO paths are physically removed. The RWS Motion is `Done` in dated custody; RAP remains independent. Canonical decision and retirement trace: [RWS migration Audit](../Mission/Audit/2026-10-06-rws-work-system-migration.md).
+RWS migration and RWB notice retirement are complete; the active RWB path is retired and RAP remains independent. The shaping upgrade is accepted and `Done`; eight behavior prompts were manually self-evaluated 8/8 in-session, not independently benchmarked. See [RWS Audit](../Mission/Audit/2026-10-06-rws-work-system-migration.md), [RWB retirement Audit](../Mission/Audit/2026-10-06-rwb-notice-retirement.md), and [shaping Audit](../Mission/Audit/2026-10-06-shaping-skill-upgrade.md).
 
 ## Mission Binding
 
 - Exactly one Primary=`Story-rem`; EVAL=`eval-rem-v1`; Secondary=0; `selected_method=null`.
-- Product EVAL A1-A13 is unchanged; runtime models and role alignment remain `not_run`.
-- `uv run --offline python scripts/verify.py`: `structure=pass`, `failures=[]` after today's snapshot/handoff refresh.
+- Product EVAL A1-A13 is unchanged; Human review, runtime models, and role alignment remain `not_run`.
+- `uv run --offline python scripts/verify.py`: `structure=pass`, `failures=[]`; `human_review`, `runtime_models`, and `role_alignment` are `not_run`.
+- `uv run --offline python scripts/ra-check.py`: `RA仓规 0.6.6: OK`.
 - Last RWS closeout checks: RA 0.6.6 OK; NP0 10/10; MPS 16/16.
 
 ## Environment and Repository State
 
-- Host date/time `2026-10-07 07:27 +08:00`; Windows workspace and terminal cwd `D:\Github\rem`; VS Code CLI `1.140.0`; Python `3.14.0`; uv `0.12.20`.
-- `main` HEAD `04c09fb8149de02a483d1bdb166de532f5b45d51`; the existing local `origin/main` ref is 3 commits ahead (`0 ahead / 3 behind`). No fetch was performed, so remote freshness and those commits' contents are `unknown`.
-- Worktree was clean before refresh. This refresh adds the 2026-10-06 snapshot and updates `today.md` / `now.md`; `Repo/Dojo` exists with no path changes.
+- Host date/time observed `2026-10-07 08:55 +08:00`; Windows workspace and terminal cwd `D:\Github\rem`; VS Code CLI `1.140.0`; PowerShell `7.6.6`; Python `3.14.0`; uv `0.12.20`.
+- GitHub `origin/main` was fetched at `c0c5a692f5035256432886a6eefb5c63a3761952`. Local `main` contains that history and the preserved handoff refresh; no push was performed.
+- `Repo/Dojo` has no worktree changes. `Repo/days/2026-10-06/today.md` retains the prior local handoff narrative with an archive note and rebased relative links; the 2026-10-05 snapshots remain unchanged.
 - Active editor-buffer dirty state, VSC Profile, Settings Sync, extension profile, Copilot entitlement, picker/model/backend, and actual runtime identity are `unknown`.
-- Yesterday's authorized sync pushed migration `cdb87d8` and closeout `04c09fb`; immediate post-push status was `0/0`. Today's existing ref now reports behind 3; no inference about remote freshness without fetch.
 
 ## Next Entry
 
-Andon: pause Git synchronization. Do not fetch, pull, merge, rebase, commit, or push until Player chooses whether to inspect the three remote commits. Local handoff refresh is complete; no task workload or model runtime was started.
+GitHub history is integrated locally; no push was authorized by this request. Recheck branch and full worktree state before further Git operations. No task workload or model runtime was started; product EVAL A1-A13 and role alignment remain open.
