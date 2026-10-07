@@ -32,6 +32,10 @@ RWS migration and RWB notice retirement are complete; the active RWB path is ret
 - `Repo/Motion/` contains only its README; completed RWB and REM rules Motion sources are in dated custody.
 - VSC Profile / Settings Sync, editor-buffer dirty state, entitlement, picker/backend, actual model runtime, and today's MPS status remain `unknown` / `not_run` for this closeout.
 
+## Git Synchronization - 2026-10-07 11:46 +08:00
+
+Player separately authorized commit/push. `origin/main` was fetched at `c0c5a692f5035256432886a6eefb5c63a3761952`; primary commit `486927f2b87512516749580b06e14fbf509da527` was pushed successfully. Immediate post-push `HEAD == origin/main`, `0/0`, clean worktree. Action evidence: [tool-rem-rules-git-sync-20261007.json](../Mission/evidence/tool-rem-rules-git-sync-20261007.json). This evidence and handoff update are carried in a separate closeout commit.
+
 ## Return Entry
 
-Before any Git sync or commit, inspect and group the current local diff; do not assume the worktree is clean or push implicitly. Keep `rem-make` at `candidate` until actual VSC cross-Repo behavior is validated. EGO-T189 remains read-only; D3-D7 and product EVAL A1-A13 residuals remain as recorded in the Audits.
+The primary requested commit/push is complete. Before any further Git action, recheck branch and full worktree state. Keep `rem-make` at `candidate` until actual VSC cross-Repo behavior is validated. EGO-T189 remains read-only; D3-D7 and product EVAL A1-A13 residuals remain as recorded in the Audits.

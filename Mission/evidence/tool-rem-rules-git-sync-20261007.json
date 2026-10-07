@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "actor": "GitHub Copilot / authorized by bitguts",
+  "approval_evidence": "Current conversation: 下班前, 必须完成commit and push, 工作树无未提交改动. 执行",
+  "mission": "Mission/Story-rem.md",
+  "action": "git fetch origin; git add -A; git commit -m \"feat: complete REM rules workflow and retire Motion sources\"; git push origin main",
+  "observed_at": "2026-10-07T11:46:49+08:00",
+  "source_commit": "6af5a9bbc5e74eba246e0af952679658867717ef",
+  "inputs": {
+    "branch": "main",
+    "origin_main_before_sync": "c0c5a692f5035256432886a6eefb5c63a3761952",
+    "ahead_behind_before_commit": "3/0",
+    "scope": "All reviewed local REM rules, Agent/Skill, Narrative Page, Audit/evidence, Motion retirement, and handoff changes; 24 files in primary commit."
+  },
+  "result": {
+    "fetch": "success; origin/main was current at c0c5a692f5035256432886a6eefb5c63a3761952",
+    "commit": "486927f2b87512516749580b06e14fbf509da527 (feat: complete REM rules workflow and retire Motion sources)",
+    "push": "success; origin/main advanced c0c5a69..486927f",
+    "post_push": "HEAD == origin/main at 486927f2b87512516749580b06e14fbf509da527; ahead/behind 0/0; worktree clean"
+  },
+  "permission_cost": "Player explicitly authorized commit and push of all current uncommitted work. No paid action, deployment, installation, or external business Tool was used.",
+  "evidence_locator": "Mission/evidence/tool-rem-rules-git-sync-20261007.json",
+  "next_action": "This action evidence and final handoff are carried in a separate closeout commit/push; no other Git action is authorized by this evidence."
+}

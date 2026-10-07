@@ -79,4 +79,8 @@ Final post-edit structural verifier evidence: [tool-d1d01fd1cd9e4f95bc5399f9e32c
 
 The local current-Repo changes do not prove that a Skill hosted in one Repo is discovered while another Repo is active in VS Code. D3-D7 cross-Repo VSC behavior, target-native RCI route migration, macOS behavior, and independent Skill behavior evaluation remain partial / `not_run`. Player accepts Motion closeout with these limitations retained; this acceptance does not convert them to passes or promote `rem-make` from `candidate`.
 
-History Triage is `Audit First`; no Concept / EGO admission is requested. After Player closeout acceptance, the complete Motion source was retired to `Repo/days/2026-10-07/Motion/`. No commit, push, install, paid action, deployment, or target-repository write occurred.
+History Triage is `Audit First`; no Concept / EGO admission is requested. After Player closeout acceptance, the complete Motion source was retired to `Repo/days/2026-10-07/Motion/`. No commit, push, install, paid action, deployment, or target-repository write occurred as part of the Motion execution itself.
+
+## Subsequent Git Synchronization
+
+Player later explicitly authorized commit and push with: “下班前, 必须完成commit and push, 工作树无未提交改动. 执行”. After `git fetch origin` confirmed `origin/main` at `c0c5a692f5035256432886a6eefb5c63a3761952` with no remote advance, the reviewed 24-file local change set was committed as `486927f2b87512516749580b06e14fbf509da527` and pushed successfully (`c0c5a69..486927f`). Immediate post-push state was `HEAD == origin/main`, ahead/behind `0/0`, clean worktree. Evidence: [Git sync action](../evidence/tool-rem-rules-git-sync-20261007.json). This Audit/evidence handoff is included in a separate closeout commit.

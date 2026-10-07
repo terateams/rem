@@ -29,4 +29,4 @@ Player 已批准并接受本地 `rem` Repo 更新及 Motion closeout；status `D
 - `uv run --offline python scripts/ra-check.py`: `RA仓规 0.6.6: OK`.
 - Active VSC Profile、Settings Sync、Copilot entitlement、picker/model/backend 与本次 SI runtime identity 未独立核验；不从 CLI profile 或当前聊天推断实际模型运行。
 
-本次按 Player 指示以 GitHub 为准完成本地同步；未 push、未安装 CLI、未调用付费业务 Tool、未部署。Profile、Sync、实际 entitlement/runtime 与 editor-buffer dirty 状态仍为 `unknown`。
+初次 rem-ready refresh 后的 GitHub-to-local sync 未 push。Player 于 2026-10-07 11:46 另行授权 commit/push；commit `486927f` 已成功推送至 GitHub，完整 action evidence 见 [Git sync action](../Mission/evidence/tool-rem-rules-git-sync-20261007.json)。未安装 CLI、未调用付费业务 Tool、未部署。Profile、Sync、实际 entitlement/runtime 与 editor-buffer dirty 状态仍为 `unknown`。
