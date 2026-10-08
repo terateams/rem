@@ -10,6 +10,10 @@
 
 影页是 SI 基于 Repo 实况叙事生成的 HTML 页，可由 VS Code Copilot 或 Codex 生成，并与确定性 MPS artifacts 共用本目录，但不是 MPS artifact。叙事不是事实，non-authority/no-writeback。页头必须写明来源文件与提交哈希、生成工具与版本、日期；来源变更后即过期。文件名用英文，页面离线可读，不加载外部脚本或字体。影页没有 `#mp-data`，不使用 `mps.py` 验证；由 Human 回到来源核对。当前影页：[rap-teamspage.html](rap-teamspage.html)（`Ego/RAP.md`）；[agents-teamspage.html](agents-teamspage.html)（`AGENTS.md`）；rem-ready：[rem-ready-teamspage.html](rem-ready-teamspage.html)（`.agents/skills/rem-ready/SKILL.md`）。
 
+### rem-ready Run Receipts
+
+Each readiness assessment may create a unique `Repo/TeamsPage/rem-ready-run-<YYYYMMDDTHHMMSS>.html` paired with `Mission/evidence/rem-ready-<YYYYMMDDTHHMMSS>.json`. Create receipts for `READY`, `READY_WITH_LIMITS`, and `BLOCKED` only after any required ANDON path is resolved and local writing is permitted. Do not create either receipt during an unresolved write-prohibiting ANDON. The JSON record and its referenced observations carry the evidence; HTML is only a visual index. Do not overwrite receipts. These files are Narrative Page evidence indexes, not MPS artifacts; do not use `scripts/mirror.py`.
+
 [Runtime contract](../../.agents/skills/teamspage/references/teamspage-runtime-contract.md) · [Motion custody](../Motion/README.md)
 
 <!-- teamspage-index:start -->

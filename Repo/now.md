@@ -1,41 +1,25 @@
 # now
 
-## Latest Handoff - 2026-10-07 11:41 +08:00
+## Latest Handoff - 2026-10-08 14:10 +08:00
 
-Player explicitly directed synchronization from GitHub as the source of truth. `git fetch origin` succeeded and fetched `origin/main` at `c0c5a692f5035256432886a6eefb5c63a3761952`; the fetched history is integrated locally and no push was performed. Sync evidence: [GitHub-to-local action](../Mission/evidence/tool-github-sync-20261007.json).
+Player approved a local rem-ready handoff refresh after `ANDON`, then authorized the Readiness Criteria and Visual Evidence Motion through execution and retirement. The pre-refresh [2026-10-07/today.md](days/2026-10-07/today.md) snapshot retains the prior narrative with an archive note and rebased links. The Motion was `Draft` at approval, entered `Executing`, then closed `Done`; its source is retired at [2026-10-08/Motion](days/2026-10-08/Motion/motion-rem-ready-readiness-visual-evidence-2026-10-07.md). Canonical decision and validation record: [rem-ready Audit](../Mission/Audit/2026-10-08-rem-ready-readiness-visual-evidence.md).
 
-Player approved and confirmed execution of a local `REM仓规` update, then accepted the Motion as complete and authorized retirement. Root `AGENTS.md` controls SI execution; RAP remains the RA rule-definition source, RCI carriers are prohibited, `shaping` produces revision candidates, and local `rem-make` remains a `candidate` implementation carrier. The Motion is `Done`; its source is archived at [2026-10-07/Motion](days/2026-10-07/Motion/motion-ra-cross-repo-shaping-2026-10-07.md). See the [REM rules governance Audit](../Mission/Audit/2026-10-07-rem-rules-governance.md). Player acceptance covers closeout; D3-D7 technical residuals remain partial / `not_run`.
-
-RWS migration and RWB notice retirement are complete; the active RWB path is retired and RAP remains independent. The RWB notice-retirement Motion is `Done`; its source is archived at [2026-10-07/Motion](days/2026-10-07/Motion/motion-retire-rwb-notice-2026-10-06.md), with its closeout in the [RWB retirement Audit](../Mission/Audit/2026-10-06-rwb-notice-retirement.md). The shaping upgrade is accepted and `Done`; eight behavior prompts were manually self-evaluated 8/8 in-session, not independently benchmarked. See [RWS Audit](../Mission/Audit/2026-10-06-rws-work-system-migration.md) and [shaping Audit](../Mission/Audit/2026-10-06-shaping-skill-upgrade.md).
+A fresh `git fetch origin` during execution confirmed local `main` and `origin/main` both at `e996e6921474b305e12b217834b6f92d69250744`, ahead/behind `0/0`; no merge, commit, or push occurred. Action evidence: [Repo readiness fetch](../Mission/evidence/tool-repo-readiness-github-fetch-20261008.json). The actual readiness result was `READY_WITH_LIMITS`; provider/model ID, Copilot picker/runtime, and editor-buffer dirty state remain `unknown`. JSON evidence: [readiness record](../Mission/evidence/rem-ready-20261008T121401.json); HTML: [visual index](TeamsPage/rem-ready-run-20261008T121401.html).
 
 ## Mission Binding
 
 - Exactly one Primary=`Story-rem`; EVAL=`eval-rem-v1`; Secondary=0; `selected_method=null`.
 - Product EVAL A1-A13 is unchanged; Human review, runtime models, and role alignment remain `not_run`.
-- `uv run --offline python scripts/verify.py`: `structure=pass`, `failures=[]`; `human_review`, `runtime_models`, and `role_alignment` are `not_run`.
-- `uv run --offline python scripts/ra-check.py`: `RA仓规 0.7.0: OK` after the local rules update.
-- Last RWS closeout checks: RA 0.6.6 OK; NP0 10/10; MPS 16/16.
+- The rem-ready Readiness Criteria and Visual Evidence Motion is `Done` and retired after the Player's explicit direction. Product EVAL acceptance and model/runtime gates remain separate and unclaimed.
 
 ## Environment and Repository State
 
-- Host date/time observed `2026-10-07 11:34 +08:00`; Windows workspace and terminal cwd `D:\Github\rem`; VS Code CLI `1.140.0`; PowerShell `7.6.6`; Python `3.14.0`; uv `0.12.20`.
-- GitHub `origin/main` was fetched at `c0c5a692f5035256432886a6eefb5c63a3761952`. Local `main` contains that history and the preserved handoff refresh; no push was performed.
-- Local `main` remains `ahead 2 / behind 0` at baseline `6af5a9b`; current changes are local and uncommitted, with no unmerged paths. `Repo/Dojo` has no worktree changes. The previous-day archive remains present.
-- `D:\Github\EGO-T189` was read-only; no target writes occurred. Cross-Repo VSC Skill availability and target Git/editor state are `unknown`.
-- RAP and rem-ready Narrative Pages are stale after their source edits and were not regenerated.
-- Active editor-buffer dirty state, VSC Profile, Settings Sync, extension profile, Copilot entitlement, picker/model/backend, and actual runtime identity are `unknown`.
-
-## Closeout - 2026-10-07 11:41 +08:00
-
-- Terminal cwd matches `D:\Github\rem`; local date baseline is `2026-10-07` (+08:00).
-- `main` is `ahead 2 / behind 0` against existing local refs; the worktree contains uncommitted local changes and no unmerged paths. `Repo/Dojo` is clean and yesterday's archive exists. No fetch, commit, or push was performed.
-- `Repo/Motion/` contains only its README; completed RWB and REM rules Motion sources are in dated custody.
-- VSC Profile / Settings Sync, editor-buffer dirty state, entitlement, picker/backend, actual model runtime, and today's MPS status remain `unknown` / `not_run` for this closeout.
-
-## Git Synchronization - 2026-10-07 11:46 +08:00
-
-Player separately authorized commit/push. `origin/main` was fetched at `c0c5a692f5035256432886a6eefb5c63a3761952`; primary commit `486927f2b87512516749580b06e14fbf509da527` was pushed successfully. Immediate post-push `HEAD == origin/main`, `0/0`, clean worktree. Action evidence: [tool-rem-rules-git-sync-20261007.json](../Mission/evidence/tool-rem-rules-git-sync-20261007.json). This evidence and handoff update are carried in a separate closeout commit.
+- Host `macOS 27.0.1 arm64`; latest time observation `2026-10-08 14:10 +08:00`; terminal cwd `/Users/bitguts/Github/rem` matches the workspace.
+- VS Code CLI `1.141.0`; uv `0.12.14`; Python `3.14.4`. Active VS Code window version, profile, Settings Sync, Copilot entitlement, current picker selection, provider / model ID, and actual runtime remain `unknown`.
+- After fresh fetch, local `main` HEAD equals current `origin/main` at `e996e6921474b305e12b217834b6f92d69250744`; ahead/behind=`0/0`. Repo commit-version alignment passes. `Repo/Motion/` contains only its README; the completed source is archived at the dated path above. The worktree remains dirty-known with local handoff / evidence / Skill / consumer changes and dated records. No changes were overwritten or cleaned.
+- `Repo/Dojo` has no worktree changes; its `README.md` exists.
+- `uv run --offline python scripts/ra-check.py`: `RA仓规 0.7.0: OK`. `uv run --offline python scripts/verify.py`: `structure=pass`, `failures=[]`; Human review, runtime models, and role alignment are `not_run`.
 
 ## Return Entry
 
-The primary requested commit/push is complete. Before any further Git action, recheck branch and full worktree state. Keep `rem-make` at `candidate` until actual VSC cross-Repo behavior is validated. EGO-T189 remains read-only; D3-D7 and product EVAL A1-A13 residuals remain as recorded in the Audits.
+The rem-ready Motion is complete and retired. GitHub commit alignment passes; worktree changes remain dirty-known and were preserved. The active VS Code bundle is `1.141.0`; the current Copilot picker, entitlement, provider/model ID, runtime, and editor-buffer state remain unknown. No model was selected or invoked. Do not commit or push without separate approval; do not claim product EVAL, Human role alignment, or actual model execution from these checks.

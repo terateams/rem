@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "actor": "GitHub Copilot / Player-requested Repo readiness check",
+  "approval_evidence": "Current conversation, 2026-10-08: Player rejected treating missing fresh-fetch evidence as a permanent blocker and requested a way to make Repo ready. The action was limited to a fresh git fetch for comparison; no merge, commit, or push was authorized or performed.",
+  "mission": "Mission/Story-rem.md",
+  "action": "git fetch origin; compare main with origin/main; inspect worktree status",
+  "observed_at": "2026-10-08T09:55:27+0800",
+  "source_commit": "e996e6921474b305e12b217834b6f92d69250744",
+  "inputs": {
+    "branch": "main",
+    "local_head_before_fetch": "e996e6921474b305e12b217834b6f92d69250744",
+    "origin_main_before_fetch": "e996e6921474b305e12b217834b6f92d69250744",
+    "scope": "Freshly observe origin/main and compare commit IDs only. Preserve all local worktree changes. No merge, commit, push, or cleanup.",
+    "worktree_before_fetch": [
+      "M Repo/now.md",
+      "M Repo/today.md",
+      "?? Mission/evidence/tool-rem-ready-sync-20261007.json",
+      "?? Repo/Motion/motion-rem-ready-readiness-visual-evidence-2026-10-07.md",
+      "?? Repo/days/2026-10-07/today.md"
+    ]
+  },
+  "result": {
+    "fetch": "success; git fetch origin completed without error",
+    "local_head_after_fetch": "e996e6921474b305e12b217834b6f92d69250744",
+    "origin_main_after_fetch": "e996e6921474b305e12b217834b6f92d69250744",
+    "ahead_behind": "0/0",
+    "worktree": "All listed local changes remain present; fetch did not modify or clean the worktree.",
+    "repo_revision_alignment": "pass",
+    "worktree_cleanliness": "dirty; known paths listed above"
+  },
+  "permission_cost": "Player requested a way to establish Repo readiness. Only git fetch and local ref comparison were performed. No commit, push, merge, paid action, installation, deployment, or external business Tool call. Network usage was not measured.",
+  "evidence_locator": "Mission/evidence/tool-repo-readiness-github-fetch-20261008.json",
+  "next_action": "Local main matches freshly fetched origin/main. Preserve dirty worktree changes. Do not commit or push without separate Player approval."
+}

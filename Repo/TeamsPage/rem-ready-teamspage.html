@@ -84,7 +84,7 @@
       <h1>rem-ready</h1>
       <p class="subtitle">启动、暂停、日期与工作面核验、安全交接</p>
       <span class="authority-label">Narrative Page · NON-AUTHORITY · NO-WRITEBACK</span>
-      <p class="intro">本页只说明 rem-ready Skill 与列出的来源，不是 RA 规则源、权限授予或验收证据。RA 规则以 <code>Ego/RAP.md</code> 为唯一来源；本页或 Skill 与 RAP 不一致时，以 RAP 为准。</p>
+      <p class="intro">本页只说明 rem-ready Skill 与列出的来源，不是 RA 规则源、权限授予或验收证据。页面呈现 Repo、RA、RW 与 Mission 的就绪判据；执行 authority 以 <code>AGENTS.md</code> 为准，RA 规则定义见 <code>Ego/RAP.md</code>。</p>
     </header>
 
     <section aria-labelledby="authority-title">
@@ -115,21 +115,38 @@
       <p>当前任务绑定还必须满足 INTENT 与 Mission 的 scope、责任位、证据、EVAL、permission、cost 和 stop rule。Picker 可见或扩展已安装，不等于实际模型运行。</p>
     </section>
 
+    <section aria-labelledby="readiness-title">
+      <h2 id="readiness-title">就绪判据</h2>
+      <table class="meta">
+        <tbody>
+          <tr><th>Repo</th><td>本机 <code>HEAD</code> 与新鲜核验的所选 GitHub 分支提交一致。工作区和编辑器缓冲区另报 <code>clean</code>、<code>dirty-known</code> 或 <code>unknown</code>；已知本地改动不改变提交对齐。</td></tr>
+          <tr><th>RA</th><td><code>AGENTS.md</code> 是唯一控制性 SI 指令；RAP 与其边界一致；RCI carrier 已退役；<code>ra-check.py</code> 通过。运行时规则 / Skill 加载另行记录，未知时只阻断依赖它的任务。</td></tr>
+          <tr><th>RW</th><td>按任务核验设备、操作系统、网络、VSC、扩展、终端、环境与工具。SI 观察和 Player/Human 声明均可作证，必须标明来源；声明不冒充独立测量。</td></tr>
+          <tr><th>Mission</th><td>当前任务来源有证据表明任务可以开工，并明确责任、scope、交付、验收、证据、权限、成本与 stop rule。不要求统一状态标签；未绑定任务时只报 Repo/RA/RW，不给具体任务标 <code>READY</code>。</td></tr>
+          <tr><th>结果</th><td><code>READY</code> 表示本任务必需门槛均通过；<code>READY_WITH_LIMITS</code> 表示未知项不影响本任务；<code>ANDON</code> 表示路径选择尚未完成；<code>BLOCKED</code> 表示任务依赖的门槛失败或未知。</td></tr>
+        </tbody>
+      </table>
+      <p>解决 ANDON 后保留已知 dirty paths；不要求清理、commit 或 push。无关且不触及这些路径的任务可继续，冲突任务才阻断。</p>
+      <p>请求的 Copilot picker label 为 <code>Luna Max 872K</code>；Player 确认 <code>872K</code> 表示上下文窗口值。Provider/model ID 和运行时需在任务需要时核验。Picker 选择不证明模型实际运行。</p>
+    </section>
+
     <section aria-labelledby="andon-title">
       <h2 id="andon-title">Andon 与日期刷新</h2>
-      <div class="stop"><strong>暂停并请 Player 选路径</strong><span>日期基线 stale，且 Git / editor 状态 dirty、behind 或 unknown 时。不得 stash、reset、pull、覆盖或静默刷新。</span></div>
+      <div class="stop"><strong>暂停并请 Player 选路径</strong><span>日期基线 stale，且 Git / editor 状态 dirty、behind 或 unknown 时。暂停受影响的写入；不得 stash、reset、pull、覆盖或静默刷新。</span></div>
       <div class="stop"><strong>只在批准后刷新</strong><span>先将刷新前完整 <code>Repo/today.md</code> 归档到以前一日命名的 <code>Repo/days/YYYY-MM-DD/today.md</code>；再更新 <code>today.md</code>，随后更新 <code>now.md</code>。日常启动不改写 <code>INTENT.md</code>。</span></div>
-      <div class="stop"><strong>不推断远端同步</strong><span>默认不 fetch；只比较现有本地 refs。未 fetch 时，远端新鲜度仍为 unknown。</span></div>
+      <div class="stop"><strong>复核后关闭</strong><span>Player 选定路径并完成、复核后，关闭该 ANDON。保留已知 dirty paths；不要求清理、commit 或 push。允许不触及、不覆盖、不依赖这些路径的任务。</span></div>
+      <div class="stop"><strong>不推断远端同步</strong><span>默认不 fetch。Repo commit 对齐需在获批后 fetch 所选分支并比较 <code>HEAD</code>；不 merge、pull、commit 或 push。</span></div>
     </section>
 
     <section aria-labelledby="evidence-title">
       <h2 id="evidence-title">证据边界</h2>
       <ul>
-        <li>当前运行日期、Git 状态、分支 ahead/behind、editor dirty、Dojo 路径和归档状态要分别核验。</li>
+        <li>当前日期、Repo commit alignment、worktree/editor dirty、Dojo 路径和归档状态要分别核验；未知不推断为通过。</li>
         <li>终端 cwd 与 workspace 是两项事实；Profile、Settings Sync、插件、设备、订阅声明、picker 和真实 backend 不互相代证。</li>
-        <li>Sol 是 Mission workload，Luna 是软件维护 workload；不自动切换模型。无 task binding、permission 或 budget 时，停止相应 action。</li>
+        <li>Player/Human 声明可以支持有来源的 pass，但不标为 SI 独立测量。Sol 是 Mission workload，Luna 是软件维护 workload；不自动切换模型。未知模型 ID 只阻断依赖它的任务。</li>
         <li><code>scripts/verify.py</code> 的结构通过不等于 A1-A13 全部通过；Human review、role alignment 和真实模型运行分别留证。</li>
         <li><code>scripts/mirror.py</code> 只用于显式授权的确定性 MPS artifact。Narrative Page 不是 MPS artifact，也不自动生成或写回来源。</li>
+        <li>评估完成后写入 JSON evidence 与 HTML 回执：READY、READY_WITH_LIMITS、BLOCKED 均适用；写入被禁止的未解决 ANDON 期间不生成。JSON 和原始来源承载证据，HTML 只作可视化索引。</li>
       </ul>
     </section>
 
@@ -138,18 +155,18 @@
       <table class="meta">
         <tbody>
           <tr><th>类型</th><td>rem-ready 的 Narrative Page；离线静态 HTML；non-authority / no-writeback。</td></tr>
-          <tr><th>基线提交</th><td><code>b6b5a0bc670f7c5efc26234e9504c53a0c569c14</code>。页面按该本地 HEAD 及下列已哈希的工作区输入叙述；基线提交本身不包含未提交修改。</td></tr>
-          <tr><th>生成工具</th><td>GitHub Copilot in VS Code <code>1.140.0</code>；本次会话的模型/runtime ID 未独立核验。</td></tr>
-          <tr><th>日期</th><td>2026-10-06</td></tr>
+          <tr><th>基线提交</th><td><code>e996e6921474b305e12b217834b6f92d69250744</code>。页面按该本地 HEAD 及下列已哈希的工作区输入叙述；基线提交本身不包含未提交修改。</td></tr>
+          <tr><th>生成工具</th><td>GitHub Copilot in VS Code <code>1.141.0</code>；本次会话的模型/runtime ID 未独立核验。</td></tr>
+          <tr><th>日期</th><td>2026-10-08</td></tr>
           <tr><th>时效</th><td>任一列出的 source 改变后，本页即 stale；回到原文件核实。本页不证明 Human acceptance 或实际 runtime。</td></tr>
         </tbody>
       </table>
       <div class="sources" style="margin-top: 14px">
-        <div class="source"><a href="../../.agents/skills/rem-ready/SKILL.md">.agents/skills/rem-ready/SKILL.md</a><code>SHA-256 d08f2a3c99b7a4310d5edc2b655e47ca00a79b57ca69595cf4813f486ab4c553</code></div>
-        <div class="source"><a href="../../AGENTS.md">AGENTS.md</a><code>SHA-256 7ce6fcc98c6e3c2a7373e90c9cf2dd46b89dfb7f7e32272fab92c3d81033f70e</code></div>
-        <div class="source"><a href="../../Ego/RAP.md">Ego/RAP.md · 0.6.6</a><code>SHA-256 23d7689d05ec2b522059a24546f6b8fdad0885db5ab146f9251ccc976b9df27f</code></div>
-        <div class="source"><a href="../../Ego/Naming.md">Ego/Naming.md</a><code>SHA-256 0239f6652b4622082831420b4957cae926e82606bde8ba66ce73bbad98eadf97</code></div>
-        <div class="source"><a href="../../Ego/TeamSkill/TeamSkill.md">Ego/TeamSkill/TeamSkill.md</a><code>SHA-256 e8684641a4f4910a077605380b0fc4b504ecb7b1578cbe44b4ccae9eb984d6d6</code></div>
+        <div class="source"><a href="../../.agents/skills/rem-ready/SKILL.md">.agents/skills/rem-ready/SKILL.md</a><code>SHA-256 a32f52cdead39f557d739c5cd790a2ac32075ceed75fc69b2473094bd6913fda</code></div>
+        <div class="source"><a href="../../AGENTS.md">AGENTS.md</a><code>SHA-256 286d55c125397cf4202e1441f96b7877f34ef8bee2473cbb4925170e1c9e72b8</code></div>
+        <div class="source"><a href="../../Ego/RAP.md">Ego/RAP.md · 0.7.0</a><code>SHA-256 4023cbbdeaea4d28a5825734e0f9379c564c413674a6cbdd270103716d157be3</code></div>
+        <div class="source"><a href="../../Ego/Naming.md">Ego/Naming.md</a><code>SHA-256 f35b60bccb3f36c2c8fa75c34b6c5267471c22ab8ed575f20226a37f023e2af6</code></div>
+        <div class="source"><a href="../../Ego/TeamSkill/TeamSkill.md">Ego/TeamSkill/TeamSkill.md</a><code>SHA-256 b21d375cd91ac2eb06e09f796f56c28d30fa6cbb42adfb1b90b87c86716c860c</code></div>
       </div>
       <p class="closing">来源文件是事实，Narrative 是解释。缺少绑定、许可或证据时，回到原件并保持 blocked / unknown。</p>
     </section>

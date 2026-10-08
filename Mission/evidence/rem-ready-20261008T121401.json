@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "assessment_id": "rem-ready-20261008T121401",
+  "mission": {
+    "primary": "Mission/Story-rem.md",
+    "eval": "Mission/EVAL/eval-rem-v1.md",
+    "secondary": 0,
+    "selected_method": null,
+    "task": "Execute the Player-approved rem-ready readiness and visual-evidence Motion in the current rem Repo.",
+    "approval_evidence": "Current conversation, 2026-10-08: Player said '批准, 执行, 直到完成, 退休'. The source Motion was Draft at approval. Scope is the local Skill, direct Narrative Page/custody note, evidence, validation, Audit, and source retirement. No model invocation, commit, or push is authorized."
+  },
+  "observed_at": "2026-10-08T12:14:01+0800",
+  "source_commit": "e996e6921474b305e12b217834b6f92d69250744",
+  "source_hashes_captured_at": "readiness assessment time",
+  "source_hashes": {
+    "Repo/Motion/motion-rem-ready-readiness-visual-evidence-2026-10-07.md": "c7865f30f3e90ca5026c757de66cde368c7aa46376313d0a0109224f63a03c24",
+    ".agents/skills/rem-ready/SKILL.md": "a32f52cdead39f557d739c5cd790a2ac32075ceed75fc69b2473094bd6913fda",
+    "Repo/TeamsPage/rem-ready-teamspage.html": "ea1f831baeb0614ca1e72b956c7ef47d09ef7d2642f630452a46d25ab1ada998",
+    "Repo/TeamsPage/README.md": "ce4ec547568f8c77eb1793a5cac5262e35e03f61fd9933bfe7855a2b2cb7876a",
+    "AGENTS.md": "286d55c125397cf4202e1441f96b7877f34ef8bee2473cbb4925170e1c9e72b8",
+    "Ego/RAP.md": "4023cbbdeaea4d28a5825734e0f9379c564c413674a6cbdd270103716d157be3",
+    "Repo/today.md": "0f7b17f151cdc3cda12b063ba954475eb1771b133caacc8bbad2958844005075",
+    "Repo/now.md": "c64d829eae52d977ee7d146f9f22c8c0fee1133de4156d01c89162b1b31e9e2b",
+    "Repo/INTENT.md": "98b39781012aa31831136e98ac01f928f1fb639c5f0296639b55eb6b3362310e",
+    "Ego/Ego-rem.md": "8f389b0979f4c2e1782d31f5731b172b007a86e8058b0988c742def2990cb86d",
+    "Ego/EdgeTeam.md": "eb712dc53cc7ee7cc020e25e85cd0ac5243d04132a8cca9f2c576b9db55ded80",
+    "Ego/Naming.md": "f35b60bccb3f36c2c8fa75c34b6c5267471c22ab8ed575f20226a37f023e2af6",
+    "Ego/Rws.md": "027abe29be158f3caff57f7519aa504734f042eccb397a9f1db7a3c8a35d4025",
+    "Mission/Story-rem.md": "070f20243e5be089e51b5ebf6b5301d47b7eee4ee915a177fbda3a3fba270d63",
+    "Mission/EVAL/eval-rem-v1.md": "ecd2fd2857760bcb0092e85c72ab04caaa748781b0ad567f5a4cf2b5ea70189f"
+  },
+  "retirement": {
+    "motion_source": "Repo/days/2026-10-08/Motion/motion-rem-ready-readiness-visual-evidence-2026-10-07.md",
+    "final_archive_sha256": "cf0e2621ac0b7a95d8923d3db48e4659a02fe098beeec4ceb0b24bb988f0a6d5",
+    "history_triage": "Audit First; no Concept / EGO admission",
+    "canonical_audit": "Mission/Audit/2026-10-08-rem-ready-readiness-visual-evidence.md"
+  },
+  "overall_outcome": "READY_WITH_LIMITS",
+  "repo": {
+    "selected_branch": "main",
+    "local_head": "e996e6921474b305e12b217834b6f92d69250744",
+    "github_ref": "origin/main",
+    "github_commit": "e996e6921474b305e12b217834b6f92d69250744",
+    "fresh_observation": {
+      "command": "git fetch origin",
+      "result": "success; executed during the 2026-10-08 12:04 preflight; exact completion second not captured"
+    },
+    "ahead_behind": "0/0",
+    "commit_alignment": "pass",
+    "worktree_state": "dirty-known",
+    "editor_buffer_state": "unknown",
+    "known_paths_before_receipt": [
+      ".agents/skills/rem-ready/SKILL.md",
+      "Repo/TeamsPage/README.md",
+      "Repo/TeamsPage/rem-ready-teamspage.html",
+      "Repo/now.md",
+      "Repo/today.md",
+      "Mission/evidence/tool-rem-ready-sync-20261007.json",
+      "Mission/evidence/tool-repo-readiness-github-fetch-20261008.json",
+      "Repo/Motion/motion-rem-ready-readiness-visual-evidence-2026-10-07.md",
+      "Repo/days/2026-10-07/today.md"
+    ],
+    "andon": "The stale-date path was selected, completed, and rechecked. The date ANDON is closed. Known dirty paths were preserved; no cleanup, commit, or push was required or performed."
+  },
+  "ra": {
+    "static_integrity": "pass",
+    "checks": {
+      "command": "uv run --offline python scripts/ra-check.py",
+      "result": "RA仓规 0.7.0: OK"
+    },
+    "active_agent_skill_runtime_loading": "unknown; direct source reading and this session do not independently prove general VSC Skill discovery",
+    "task_dependency_on_unknown_loading": "no; the current task directly edits and validates the local source files"
+  },
+  "rw": {
+    "device_os": "pass; macOS 27.0.1 arm64, direct host observation",
+    "network_and_task_environment": "pass; Player-declared on 2026-10-08; exact probes and time were not supplied",
+    "terminal_cwd": "pass; /Users/bitguts/Github/rem",
+    "active_vscode": {
+      "result": "pass",
+      "process_id": 46616,
+      "executable": "/Applications/Visual Studio Code.app/Contents/MacOS/Code",
+      "bundle_version": "1.141.0",
+      "bundle_build": "1.141.0"
+    },
+    "copilot_profile_entitlement_picker": "unknown; not changed or independently observed"
+  },
+  "model_target": {
+    "requested_picker_label": "Luna Max 872K",
+    "872K_meaning": "context-window value, Player-confirmed",
+    "provider_model_id": "unknown; record from the active picker when a task requires this model",
+    "selected_or_invoked": "not_run",
+    "dependency_for_this_task": false
+  },
+  "checks": {
+    "ra_check": "uv run --offline python scripts/ra-check.py: RA仓规 0.7.0: OK",
+    "verify": {
+      "command": "uv run --offline python scripts/verify.py",
+      "structure": "pass",
+      "failures": [],
+      "human_review": "not_run",
+      "runtime_models": "not_run",
+      "role_alignment": "not_run"
+    },
+    "markdown_html_diagnostics": "no errors on the Motion, rem-ready Skill, Narrative Page, and TeamsPage README",
+    "narrative_page_provenance": "5 source hashes match; all local links resolve; no external resources or script tags"
+  },
+  "limits": [
+    "Editor-buffer dirty state is unknown; file edits used the on-disk source and preserved known worktree paths.",
+    "The current Copilot picker, entitlement, provider/model ID, and actual runtime were not checked; this task does not depend on the requested model.",
+    "Human review, runtime model execution, role alignment, and product EVAL A1-A13 remain not_run."
+  ],
+  "outputs": {
+    "skill": ".agents/skills/rem-ready/SKILL.md",
+    "narrative_page": "Repo/TeamsPage/rem-ready-teamspage.html",
+    "custody": "Repo/TeamsPage/README.md",
+    "motion_source": "Repo/days/2026-10-08/Motion/motion-rem-ready-readiness-visual-evidence-2026-10-07.md",
+    "evidence": "Mission/evidence/rem-ready-20261008T121401.json",
+    "visual_index": "Repo/TeamsPage/rem-ready-run-20261008T121401.html"
+  },
+  "permission_cost": "Player authorized this local Motion through closeout and retirement. No model call, paid action, installation, deployment, commit, or push occurred. Fetch network usage was not measured.",
+  "next_action": "Complete the bounded decision-case review, validate the visual index, record the canonical Audit and History Triage, then retire the Motion under the Player's closeout instruction."
+}

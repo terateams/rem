@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rem-ready receipt | 2026-10-08T12:14:01+0800</title>
+  <style>
+    :root { color-scheme: light; --paper: #f4f7f5; --ink: #182a24; --muted: #53665d; --line: #ccd7d1; --green: #17634a; --green-bg: #e4f1eb; --amber: #805512; --amber-bg: #fff2d7; --red: #852f27; --red-bg: #fae8e5; --blue: #245c72; --blue-bg: #e7f0f3; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    main { max-width: 940px; margin: 0 auto; padding: 28px 20px 52px; }
+    header { padding: 22px 0; border-bottom: 2px solid var(--ink); }
+    .eyebrow { margin: 0 0 8px; color: var(--blue); font-size: .8rem; font-weight: 700; }
+    h1 { margin: 0; font-size: 1.8rem; line-height: 1.2; overflow-wrap: anywhere; }
+    .summary { margin: 10px 0 0; color: var(--muted); }
+    .outcome { display: inline-block; margin-top: 14px; padding: 5px 10px; color: var(--amber); background: var(--amber-bg); border-left: 4px solid var(--amber); font-weight: 700; }
+    section { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    h2 { margin: 0 0 12px; font-size: 1.12rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 9px 10px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+    th { width: 160px; color: var(--muted); font-weight: 600; }
+    .pass { color: var(--green); font-weight: 700; }
+    .unknown { color: var(--amber); font-weight: 700; }
+    .notrun { color: var(--muted); font-weight: 700; }
+    ul { margin: 0; padding-left: 1.25rem; }
+    li { margin: 0 0 7px; }
+    li:last-child { margin-bottom: 0; }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+    code { padding: 1px 4px; background: #e8eeea; font: .88em ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+    .notice { padding: 10px 12px; background: var(--blue-bg); border-left: 3px solid var(--blue); }
+    footer { padding-top: 18px; color: var(--muted); font-size: .88rem; }
+    @media (max-width: 600px) { main { padding: 22px 14px 40px; } th { width: 115px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">REM READY / READINESS RECEIPT</p>
+      <h1>Local Motion execution</h1>
+      <p class="summary">Assessment: 2026-10-08 12:14:01 +0800 · generated: 2026-10-08 14:09:34 +0800</p>
+      <span class="outcome">READY_WITH_LIMITS</span>
+      <p class="notice">本次批准的本地文档 scope 可继续。未核验项只限制依赖它们的任务；本次未选择或调用 Copilot 模型。</p>
+    </header>
+
+    <section aria-labelledby="gates">
+      <h2 id="gates">四域状态</h2>
+      <table>
+        <tbody>
+          <tr><th>Repo</th><td><span class="pass">PASS</span> · `main` HEAD 与 fresh-fetched `origin/main` 均为 `e996e6921474b305e12b217834b6f92d69250744`；ahead/behind `0/0`。工作区 `dirty-known`，编辑器缓冲区 `unknown`，两者另行报告。</td></tr>
+          <tr><th>RA</th><td><span class="pass">PASS</span> · `ra-check.py` 为 `RA仓规 0.7.0: OK`。实际 VSC Skill discovery 未独立验证；本次直接编辑并检查源文件。</td></tr>
+          <tr><th>RW</th><td><span class="pass">PASS</span> · macOS `27.0.1 arm64`；活动 Code 进程使用 VS Code bundle `1.141.0`。设备、网络和任务环境另有 Player 声明通过；具体 probes 未提供。</td></tr>
+          <tr><th>Mission</th><td><span class="pass">PASS</span> · Primary `Story-rem` / EVAL `eval-rem-v1`；Player 已授权执行当前 Motion 的本地 scope。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="limits">
+      <h2 id="limits">限制与未运行项</h2>
+      <ul>
+        <li><span class="unknown">UNKNOWN</span> · 编辑器缓冲区 dirty state。</li>
+        <li><span class="unknown">UNKNOWN</span> · Copilot 当前 picker、entitlement、provider/model ID 与 runtime。`Luna Max 872K` 是请求标签；`872K` 的上下文窗口含义为 Player 声明。</li>
+        <li><span class="notrun">NOT_RUN</span> · 本次没有模型调用；Human review、role alignment 和产品 EVAL A1-A13 不由此回执代替。</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="checks">
+      <h2 id="checks">验证</h2>
+      <ul>
+        <li><code>uv run --offline python scripts/ra-check.py</code> · `RA仓规 0.7.0: OK`</li>
+        <li><code>uv run --offline python scripts/verify.py</code> · `structure=pass`, `failures=[]`; Human review/runtime models/role alignment `not_run`</li>
+        <li>Narrative Page source hashes match; local links resolve; no external resources or script tags.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="evidence">
+      <h2 id="evidence">证据与来源</h2>
+      <ul>
+        <li>JSON evidence：<a href="../../Mission/evidence/rem-ready-20261008T121401.json">rem-ready-20261008T121401.json</a> · SHA-256 <code>5390414a9c8dec2daa9505c239b310793a5b92476396f2339956fd74f405dfd6</code></li>
+        <li>Motion：<a href="../days/2026-10-08/Motion/motion-rem-ready-readiness-visual-evidence-2026-10-07.md">retired source</a> · SHA-256 <code>cf0e2621ac0b7a95d8923d3db48e4659a02fe098beeec4ceb0b24bb988f0a6d5</code></li>
+        <li>Skill：<a href="../../.agents/skills/rem-ready/SKILL.md">rem-ready</a> · SHA-256 <code>a32f52cdead39f557d739c5cd790a2ac32075ceed75fc69b2473094bd6913fda</code></li>
+        <li>Authority: <a href="../../AGENTS.md">AGENTS.md</a> · SHA-256 <code>286d55c125397cf4202e1441f96b7877f34ef8bee2473cbb4925170e1c9e72b8</code>; <a href="../../Ego/RAP.md">RAP.md</a> · SHA-256 <code>4023cbbdeaea4d28a5825734e0f9379c564c413674a6cbdd270103716d157be3</code></li>
+        <li>Binding: <a href="../today.md">today</a>, <a href="../now.md">now</a>, <a href="../../Mission/Story-rem.md">Story-rem</a>, <a href="../../Mission/EVAL/eval-rem-v1.md">eval-rem-v1</a>.</li>
+      </ul>
+      <p>Source commit: <code>e996e6921474b305e12b217834b6f92d69250744</code>; fresh fetch showed current `origin/main` at the same commit. JSON source hashes describe the 12:14 assessment inputs; the final retired Motion hash separately records the archive after link rebasing.</p>
+    </section>
+
+    <footer>
+      Static offline visual index only. Evidence is carried by the JSON record and its referenced observations / command outputs. Generator: GitHub Copilot in VS Code `1.141.0`; underlying model/runtime ID unknown. This page does not prove Human acceptance, model execution, or product EVAL completion.
+    </footer>
+  </main>
+</body>
+</html>
