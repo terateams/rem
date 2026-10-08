@@ -85,4 +85,12 @@ Synthetic outcomes were not written as real run receipts. Only the actual `READY
 
 The active Copilot picker, entitlement, provider/model ID, actual model runtime, editor-buffer dirty state, VSC Skill discovery, Human review, role alignment, and product EVAL A1-A13 were not independently verified. They remain `unknown` / `not_run`; the Motion does not change their status. The current local documentation task did not depend on the requested model.
 
-History Triage is `Audit First`; no Concept or EGO admission is made. After this canonical Audit and consumer validation, the complete Motion source is retired to `Repo/days/2026-10-08/Motion/`. No commit or push is authorized by this closeout.
+History Triage is `Audit First`; no Concept or EGO admission is made. After this canonical Audit and consumer validation, the complete Motion source is retired to `Repo/days/2026-10-08/Motion/`. The Motion closeout itself authorized no commit or push.
+
+## Subsequent Git Synchronization
+
+The Player later requested `同步推送`. A fresh `git fetch origin` confirmed `main` and `origin/main` at `e996e6921474b305e12b217834b6f92d69250744`, ahead/behind `0/0`. The reviewed 13-path set was committed as `e600ebc8cb33825b1731173d003b2d2cb8eb057b` (`feat: implement rem-ready readiness receipts`) and pushed successfully: `e996e69..e600ebc main -> main`.
+
+Git auto-configured the commit identity as `yangjun <bitguts@M5Air.local>`. This differs from the parent commit identity `David Yang <69417159+bitguts@users.noreply.github.com>`. The new commit was not amended or rewritten. The primary push left `HEAD == origin/main == e600ebc8cb33825b1731173d003b2d2cb8eb057b`, ahead/behind `0/0`, and a clean worktree.
+
+Action evidence: [Git sync evidence](../evidence/tool-rem-ready-git-sync-20261008.json). This evidence, the Audit update, and the refreshed handoff are delivered by a separate closeout commit/push; no force push or history rewrite was used.
